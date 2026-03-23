@@ -21,5 +21,3 @@ embeddings.json
 
 # macOS
 .DS_Store
-
-archive/*
