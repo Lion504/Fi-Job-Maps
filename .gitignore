@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets
+.env
+
+# Parsed markdown (reproducible via process.py)
+pages/
+
+# Embeddings (unused in final visualization)
+embed.py
+embeddings.json
+
+# macOS
+.DS_Store

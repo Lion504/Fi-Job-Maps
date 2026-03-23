@@ -1,0 +1,31 @@
+{
+  "extras_csv": "extras.csv",
+  "min_outlook_coverage": 0.95,
+  "strict_outlook_coverage": false,
+  "employment": {
+    "table": "StatFin/tyokay/statfin_tyokay_pxt_13u3.px",
+    "occupation_var": "Ammatti",
+    "year_var": "Vuosi",
+    "year": "latest",
+    "sex_var": "Sukupuoli",
+    "sex_value": "SSS",
+    "age_var": "Ika",
+    "age_value": "SSS"
+  },
+  "wages": {
+    "table": "StatFin/palk/statfin_palk_pxt_XXXX.px",
+    "occupation_var": "Ammatti",
+    "year_var": "Vuosi",
+    "year": "latest",
+    "measure_var": "Tiedot",
+    "measure_value": "keskipalkka"
+  },
+  "outlook": {
+    "table": "",
+    "occupation_var": "",
+    "year_var": "",
+    "year": "latest",
+    "category_var": "",
+    "category_value": ""
+  }
+}
