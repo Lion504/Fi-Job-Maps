@@ -1324,8 +1324,11 @@
         for (const d of dataset) {
           if (d.pay != null && d.jobs) totalWages += d.pay * d.jobs;
         }
+        const totalUnit = totalWages >= 1e12 ? "T" : totalWages >= 1e9 ? "B" : totalWages >= 1e6 ? "M" : "";
+        const totalDivisor = totalWages >= 1e12 ? 1e12 : totalWages >= 1e9 ? 1e9 : totalWages >= 1e6 ? 1e6 : 1;
+        const totalStr = totalDivisor === 1 ? totalWages.toFixed(0) : (totalWages / totalDivisor).toFixed(1);
         document.getElementById("block7").innerHTML = `<h3>Total wages</h3>
-    <div class="stat-big">${(totalWages / 1e12).toFixed(1)}T \u20ac</div>
+    <div class="stat-big">${totalStr}${totalUnit} \u20ac</div>
     <div class="stat-label">annual</div>`;
         document.getElementById("block8").innerHTML = "";
       }
@@ -1514,8 +1517,11 @@
           if (d.exposure != null && d.exposure >= 7 && d.jobs && d.pay)
             wagesExposed += d.jobs * d.pay;
         }
+        const wageUnit = wagesExposed >= 1e12 ? "T" : wagesExposed >= 1e9 ? "B" : wagesExposed >= 1e6 ? "M" : "";
+        const wageDivisor = wagesExposed >= 1e12 ? 1e12 : wagesExposed >= 1e9 ? 1e9 : wagesExposed >= 1e6 ? 1e6 : 1;
+        const wageStr = wageDivisor === 1 ? wagesExposed.toFixed(0) : (wagesExposed / wageDivisor).toFixed(1);
         document.getElementById("block7").innerHTML = `<h3>Wages exposed</h3>
-    <div class="stat-big" style="color:${exposureColor(8, 1)}">${(wagesExposed / 1e12).toFixed(1)}T \u20ac</div>
+    <div class="stat-big" style="color:${exposureColor(8, 1)}">${wageStr}${wageUnit} \u20ac</div>
     <div class="stat-label">annual, in jobs scoring 7+</div>`;
         document.getElementById("block8").innerHTML = "";
       }
