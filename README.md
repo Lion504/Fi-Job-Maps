@@ -1,6 +1,6 @@
 # Finland Job Market Visualizer
 
-Explore Finnish occupation data (StatFin PxWeb + Occupational Barometer) and color it by AI exposure. The original US/BLS scrapers remain, but the default pipeline now targets Finland.
+Explore Finnish occupation data (StatFin PxWeb + Occupational Barometer) and color it by AI exposure. The original US/BLS scrapers are archived in `archive/html/`; the default pipeline now targets Finland.
 
 ## LLM-powered coloring
 
@@ -107,7 +107,7 @@ TREE_LEVEL=4 uv run python src/build_site_data.py
 
 ## Notes
 
-- The original US/BLS scraping scripts remain in the repo but are no longer the default path.
+- The original US/BLS scraping scripts are archived in `archive/html/` and are no longer used.
 - `score.py` will use Markdown pages if present, otherwise it constructs a prompt from `occupations.csv` (Finnish stats).
 - Outlook: if you use the Occupational Barometer, map its demand labels into the CSV `outlook_desc` field in `fetch_statfin.py`.
 - `fetch_statfin.py` now writes `median_pay_source` and `outlook_source` fields for auditability (`wages_statfin`, `outlook_statfin`, `extras_csv`).

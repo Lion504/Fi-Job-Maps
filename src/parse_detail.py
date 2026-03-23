@@ -1,13 +1,15 @@
-"""Parse a BLS OOH detail page into a clean Markdown document."""
+"""Parse a US BLS OOH detail page into a clean Markdown document. (Deprecated, used only for archived US data)."""
 
 import sys
 import re
 from bs4 import BeautifulSoup
 
+
 def clean(text):
     """Clean up whitespace from extracted text."""
-    text = re.sub(r'\s+', ' ', text).strip()
+    text = re.sub(r"\s+", " ", text).strip()
     return text
+
 
 def parse_ooh_page(html_path):
     with open(html_path, "r") as f:
@@ -48,7 +50,17 @@ def parse_ooh_page(html_path):
     if not panes:
         return "\n".join(md)
 
-    tab_ids = ["tab-1", "tab-2", "tab-3", "tab-4", "tab-5", "tab-6", "tab-7", "tab-8", "tab-9"]
+    tab_ids = [
+        "tab-1",
+        "tab-2",
+        "tab-3",
+        "tab-4",
+        "tab-5",
+        "tab-6",
+        "tab-7",
+        "tab-8",
+        "tab-9",
+    ]
     # Skip tab-1 (Summary, already covered by quick facts) and tab-7 (State & Area Data, just links)
 
     for tab_id in tab_ids:
@@ -64,13 +76,19 @@ def parse_ooh_page(html_path):
         h2 = article.find("h2")
         if not h2:
             continue
-        section_title = clean(h2.find("span").get_text()) if h2.find("span") else clean(h2.get_text())
+        section_title = (
+            clean(h2.find("span").get_text())
+            if h2.find("span")
+            else clean(h2.get_text())
+        )
 
         # Skip tabs we don't need
-        if tab_id in ("tab-1",   # Summary (redundant with Quick Facts)
-                       "tab-7",   # State & Area Data (just links)
-                       "tab-8",   # Similar Occupations
-                       "tab-9"):  # Contacts for More Information
+        if tab_id in (
+            "tab-1",  # Summary (redundant with Quick Facts)
+            "tab-7",  # State & Area Data (just links)
+            "tab-8",  # Similar Occupations
+            "tab-9",
+        ):  # Contacts for More Information
             continue
 
         md.append(f"## {section_title}")
@@ -94,11 +112,15 @@ def parse_ooh_page(html_path):
                     val_spans = dd.find_all("span")
                     for s in val_spans:
                         val_text = clean(s.get_text())
-                        if val_text and (val_text.startswith("$") or val_text.endswith("%")):
+                        if val_text and (
+                            val_text.startswith("$") or val_text.endswith("%")
+                        ):
                             items.append((label, val_text))
                             break
                 if items:
-                    subtitle = clean(chart_subtitle.get_text()) if chart_subtitle else ""
+                    subtitle = (
+                        clean(chart_subtitle.get_text()) if chart_subtitle else ""
+                    )
                     if subtitle:
                         md.append(f"*{subtitle}*")
                         md.append("")
@@ -108,26 +130,34 @@ def parse_ooh_page(html_path):
 
         # Now process remaining content (skip chart divs)
         for elem in article.children:
-            if hasattr(elem, 'name'):
-                if elem.name == 'h2':
+            if hasattr(elem, "name"):
+                if elem.name == "h2":
                     continue  # already printed
-                if elem.name == 'div' and elem.get('class') and 'ooh-chart' in elem.get('class', []):
+                if (
+                    elem.name == "div"
+                    and elem.get("class")
+                    and "ooh-chart" in elem.get("class", [])
+                ):
                     continue  # already handled
-                if elem.name == 'div' and elem.get('class') and 'ooh_right_img' in elem.get('class', []):
+                if (
+                    elem.name == "div"
+                    and elem.get("class")
+                    and "ooh_right_img" in elem.get("class", [])
+                ):
                     continue  # skip images
-                if elem.name == 'h3':
+                if elem.name == "h3":
                     md.append(f"### {clean(elem.get_text())}")
                     md.append("")
-                elif elem.name == 'p':
+                elif elem.name == "p":
                     text = clean(elem.get_text())
                     if text:
                         md.append(text)
                         md.append("")
-                elif elem.name == 'ul':
+                elif elem.name == "ul":
                     for li in elem.find_all("li"):
                         md.append(f"- {clean(li.get_text())}")
                     md.append("")
-                elif elem.name == 'table':
+                elif elem.name == "table":
                     # Skip the outlook-table (handled separately below)
                     if elem.get("id") == "outlook-table":
                         continue
@@ -164,9 +194,14 @@ def parse_ooh_page(html_path):
                         values = [clean(c.get_text()) for c in cells]
                         if values:
                             # Format: Title, SOC, Employment 2024, Projected 2034, % change, numeric change
-                            labels = ["Occupational Title", "SOC Code", "Employment 2024",
-                                      "Projected Employment 2034", "Change % 2024-34",
-                                      "Change Numeric 2024-34"]
+                            labels = [
+                                "Occupational Title",
+                                "SOC Code",
+                                "Employment 2024",
+                                "Projected Employment 2034",
+                                "Change % 2024-34",
+                                "Change Numeric 2024-34",
+                            ]
                             for label, val in zip(labels, values):
                                 if val and val != "Get data":
                                     md.append(f"- **{label}:** {val}")
