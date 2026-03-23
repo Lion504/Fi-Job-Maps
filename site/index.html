@@ -579,14 +579,13 @@
       }
 
       const EDU_LEVELS = [
-        "No formal educational credential",
-        "High school diploma or equivalent",
-        "Postsecondary nondegree award",
-        "Some college, no degree",
-        "Associate's degree",
+        "Basic education",
+        "Upper secondary",
+        "Vocational qualification",
         "Bachelor's degree",
+        "Bachelor's degree + military training",
         "Master's degree",
-        "Doctoral or professional degree",
+        "Doctoral degree",
       ];
 
       // Color for a normalized value (0=green, 1=red). Flip for "good=green" metrics.
@@ -646,15 +645,14 @@
         if (colorMode === "education") {
           const short =
             {
-              "No formal educational credential": "No formal",
-              "High school diploma or equivalent": "HS diploma",
-              "Postsecondary nondegree award": "Postsecondary",
-              "Some college, no degree": "Some college",
-              "Associate's degree": "Associate's",
+              "Basic education": "Basic",
+              "Upper secondary": "Upper sec.",
+              "Vocational qualification": "Vocational",
               "Bachelor's degree": "Bachelor's",
+              "Bachelor's degree + military training": "Bachelor's+Mil",
               "Master's degree": "Master's",
-              "Doctoral or professional degree": "Doctoral/Prof",
-            }[r.education] || "";
+              "Doctoral degree": "Doctoral",
+            }[r.education] || r.education || "";
           return (
             short + (r.jobs ? " \u00b7 " + formatNumber(r.jobs) + " jobs" : "")
           );

@@ -536,105 +536,105 @@ code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outl
 4416.,,Upper secondary,None,None,1,Declining
 4419,,Upper secondary,None,None,2,Stable
 4419.,,Upper secondary,None,None,2,Stable
-5111,,Upper secondary,None,None,3,Stable
-5111.,,Upper secondary,None,None,3,Stable
-5112,,Upper secondary,None,None,2,Stable
-5112.,,Upper secondary,None,None,2,Stable
-5113,,Upper secondary,None,None,3,Stable
-5113.,,Upper secondary,None,None,3,Stable
-5120,,Upper secondary,None,None,2,Stable
-5120.,,Upper secondary,None,None,2,Stable
-51201,,Upper secondary,None,None,2,Below average
-51202,,Upper secondary,None,None,2,Below average
-513.,,Upper secondary,None,None,2,Below average
-513..,,Upper secondary,None,None,2,Below average
-5131,,Upper secondary,None,None,2,Stable
-5131.,,Upper secondary,None,None,2,Stable
-5132,,Upper secondary,None,None,3,Stable
-5132.,,Upper secondary,None,None,3,Stable
-514.,,Upper secondary,None,None,2,Below average
-514..,,Upper secondary,None,None,2,Below average
-5141,,Upper secondary,None,None,3,Stable
-5141.,,Upper secondary,None,None,3,Stable
-5142,,Upper secondary,None,None,2,Stable
-5142.,,Upper secondary,None,None,2,Stable
-5151,,Upper secondary,None,None,3,Stable
-5151.,,Upper secondary,None,None,3,Stable
-5152,,Upper secondary,None,None,2,Stable
-5152.,,Upper secondary,None,None,2,Stable
-5153,,Upper secondary,None,None,3,Stable
-5153.,,Upper secondary,None,None,3,Stable
-5161,,Upper secondary,None,None,2,Stable
-5161.,,Upper secondary,None,None,2,Stable
-5163,,Upper secondary,None,None,2,Stable
-51631,,Upper secondary,None,None,2,Below average
-51632,,Upper secondary,None,None,2,Below average
-5164,,Upper secondary,None,None,3,Stable
-5164.,,Upper secondary,None,None,3,Stable
-5165,,Upper secondary,None,None,2,Below average
-5165.,,Upper secondary,None,None,2,Below average
-5169,,Upper secondary,None,None,2,Stable
-5169.,,Upper secondary,None,None,2,Stable
-521.,,Upper secondary,None,None,2,Below average
-521..,,Upper secondary,None,None,2,Below average
-5211,,Upper secondary,None,None,2,Stable
-5211.,,Upper secondary,None,None,2,Stable
-5212,,Upper secondary,None,None,3,Stable
-5212.,,Upper secondary,None,None,3,Stable
-5221,,Upper secondary,None,None,2,Below average
-5221.,,Upper secondary,None,None,2,Below average
-5222,,Upper secondary,None,None,2,Below average
-5222.,,Upper secondary,None,None,2,Below average
-5223,,Upper secondary,None,None,2,Below average
-5223.,,Upper secondary,None,None,2,Below average
-5230,,Upper secondary,None,None,3,Stable
-5230.,,Upper secondary,None,None,3,Stable
-5241,,Upper secondary,None,None,2,Stable
-5241.,,Upper secondary,None,None,2,Stable
-5242,,Upper secondary,None,None,3,Stable
-5242.,,Upper secondary,None,None,3,Stable
-5243,,Upper secondary,None,None,2,Stable
-5243.,,Upper secondary,None,None,2,Stable
-5244,,Upper secondary,None,None,3,Stable
-5244.,,Upper secondary,None,None,3,Stable
-5245,,Upper secondary,None,None,2,Stable
-5245.,,Upper secondary,None,None,2,Stable
-5246,,Upper secondary,None,None,3,Stable
-5246.,,Upper secondary,None,None,3,Stable
-5249,,Upper secondary,None,None,2,Below average
-5249.,,Upper secondary,None,None,2,Below average
-5311,,Upper secondary,None,None,2,Stable
-5311.,,Upper secondary,None,None,2,Stable
-53111,,Upper secondary,None,None,2,Below average
-53112,,Upper secondary,None,None,2,Below average
-53113,,Upper secondary,None,None,2,Below average
-5312,,Upper secondary,None,None,3,Stable
-5312.,,Upper secondary,None,None,3,Stable
-5321,,Upper secondary,None,None,2,Below average
-5321.,,Upper secondary,None,None,2,Below average
-53211,,Upper secondary,None,None,2,Below average
-53212,,Upper secondary,None,None,2,Below average
-53213,,Upper secondary,None,None,2,Below average
-53219,,Upper secondary,None,None,2,Below average
-5322,,Upper secondary,None,None,2,Below average
-5322.,,Upper secondary,None,None,2,Below average
-53221,,Upper secondary,None,None,2,Below average
-53222,,Upper secondary,None,None,2,Below average
-5329,,Upper secondary,None,None,2,Below average
-53291,,Upper secondary,None,None,2,Below average
-53292,,Upper secondary,None,None,2,Below average
-53293,,Upper secondary,None,None,2,Below average
-53294,,Upper secondary,None,None,2,Below average
-5411,,Upper secondary,None,None,3,Stable
-5411.,,Upper secondary,None,None,3,Stable
-5412,,Upper secondary,None,None,2,Stable
-5412.,,Upper secondary,None,None,2,Stable
-5413,,Upper secondary,None,None,3,Stable
-5413.,,Upper secondary,None,None,3,Stable
-5414,,Upper secondary,None,None,2,Stable
-5414.,,Upper secondary,None,None,2,Stable
-5419,,Upper secondary,None,None,3,Stable
-5419.,,Upper secondary,None,None,3,Stable
+5111,,Upper secondary,None,On-the-job training,3,Stable
+5111.,,Upper secondary,None,On-the-job training,3,Stable
+5112,,Upper secondary,None,On-the-job training,2,Stable
+5112.,,Upper secondary,None,On-the-job training,2,Stable
+5113,,Upper secondary,None,On-the-job training,3,Stable
+5113.,,Upper secondary,None,On-the-job training,3,Stable
+5120,,Upper secondary,None,On-the-job training,2,Stable
+5120.,,Upper secondary,None,On-the-job training,2,Stable
+51201,,Upper secondary,None,On-the-job training,2,Below average
+51202,,Upper secondary,None,On-the-job training,2,Below average
+513.,,Upper secondary,None,On-the-job training,2,Below average
+513..,,Upper secondary,None,On-the-job training,2,Below average
+5131,,Upper secondary,None,On-the-job training,2,Stable
+5131.,,Upper secondary,None,On-the-job training,2,Stable
+5132,,Upper secondary,None,On-the-job training,3,Stable
+5132.,,Upper secondary,None,On-the-job training,3,Stable
+514.,,Upper secondary,None,On-the-job training,2,Below average
+514..,,Upper secondary,None,On-the-job training,2,Below average
+5141,,Upper secondary,None,On-the-job training,3,Stable
+5141.,,Upper secondary,None,On-the-job training,3,Stable
+5142,,Upper secondary,None,On-the-job training,2,Stable
+5142.,,Upper secondary,None,On-the-job training,2,Stable
+5151,,Upper secondary,None,On-the-job training,3,Stable
+5151.,,Upper secondary,None,On-the-job training,3,Stable
+5152,,Upper secondary,None,On-the-job training,2,Stable
+5152.,,Upper secondary,None,On-the-job training,2,Stable
+5153,,Upper secondary,None,On-the-job training,3,Stable
+5153.,,Upper secondary,None,On-the-job training,3,Stable
+5161,,Upper secondary,None,On-the-job training,2,Stable
+5161.,,Upper secondary,None,On-the-job training,2,Stable
+5163,,Upper secondary,None,On-the-job training,2,Stable
+51631,,Upper secondary,None,On-the-job training,2,Below average
+51632,,Upper secondary,None,On-the-job training,2,Below average
+5164,,Upper secondary,None,On-the-job training,3,Stable
+5164.,,Upper secondary,None,On-the-job training,3,Stable
+5165,,Upper secondary,None,On-the-job training,2,Below average
+5165.,,Upper secondary,None,On-the-job training,2,Below average
+5169,,Upper secondary,None,On-the-job training,2,Stable
+5169.,,Upper secondary,None,On-the-job training,2,Stable
+521.,,Upper secondary,None,On-the-job training,2,Below average
+521..,,Upper secondary,None,On-the-job training,2,Below average
+5211,,Upper secondary,None,On-the-job training,2,Stable
+5211.,,Upper secondary,None,On-the-job training,2,Stable
+5212,,Upper secondary,None,On-the-job training,3,Stable
+5212.,,Upper secondary,None,On-the-job training,3,Stable
+5221,,Upper secondary,None,On-the-job training,2,Below average
+5221.,,Upper secondary,None,On-the-job training,2,Below average
+5222,,Upper secondary,None,On-the-job training,2,Below average
+5222.,,Upper secondary,None,On-the-job training,2,Below average
+5223,,Upper secondary,None,On-the-job training,2,Below average
+5223.,,Upper secondary,None,On-the-job training,2,Below average
+5230,,Upper secondary,None,On-the-job training,3,Stable
+5230.,,Upper secondary,None,On-the-job training,3,Stable
+5241,,Upper secondary,None,On-the-job training,2,Stable
+5241.,,Upper secondary,None,On-the-job training,2,Stable
+5242,,Upper secondary,None,On-the-job training,3,Stable
+5242.,,Upper secondary,None,On-the-job training,3,Stable
+5243,,Upper secondary,None,On-the-job training,2,Stable
+5243.,,Upper secondary,None,On-the-job training,2,Stable
+5244,,Upper secondary,None,On-the-job training,3,Stable
+5244.,,Upper secondary,None,On-the-job training,3,Stable
+5245,,Upper secondary,None,On-the-job training,2,Stable
+5245.,,Upper secondary,None,On-the-job training,2,Stable
+5246,,Upper secondary,None,On-the-job training,3,Stable
+5246.,,Upper secondary,None,On-the-job training,3,Stable
+5249,,Upper secondary,None,On-the-job training,2,Below average
+5249.,,Upper secondary,None,On-the-job training,2,Below average
+5311,,Upper secondary,None,On-the-job training,2,Stable
+5311.,,Upper secondary,None,On-the-job training,2,Stable
+53111,,Upper secondary,None,On-the-job training,2,Below average
+53112,,Upper secondary,None,On-the-job training,2,Below average
+53113,,Upper secondary,None,On-the-job training,2,Below average
+5312,,Upper secondary,None,On-the-job training,3,Stable
+5312.,,Upper secondary,None,On-the-job training,3,Stable
+5321,,Upper secondary,None,On-the-job training,2,Below average
+5321.,,Upper secondary,None,On-the-job training,2,Below average
+53211,,Upper secondary,None,On-the-job training,2,Below average
+53212,,Upper secondary,None,On-the-job training,2,Below average
+53213,,Upper secondary,None,On-the-job training,2,Below average
+53219,,Upper secondary,None,On-the-job training,2,Below average
+5322,,Upper secondary,None,On-the-job training,2,Below average
+5322.,,Upper secondary,None,On-the-job training,2,Below average
+53221,,Upper secondary,None,On-the-job training,2,Below average
+53222,,Upper secondary,None,On-the-job training,2,Below average
+5329,,Upper secondary,None,On-the-job training,2,Below average
+53291,,Upper secondary,None,On-the-job training,2,Below average
+53292,,Upper secondary,None,On-the-job training,2,Below average
+53293,,Upper secondary,None,On-the-job training,2,Below average
+53294,,Upper secondary,None,On-the-job training,2,Below average
+5411,,Upper secondary,None,On-the-job training,3,Stable
+5411.,,Upper secondary,None,On-the-job training,3,Stable
+5412,,Upper secondary,None,On-the-job training,2,Stable
+5412.,,Upper secondary,None,On-the-job training,2,Stable
+5413,,Upper secondary,None,On-the-job training,3,Stable
+5413.,,Upper secondary,None,On-the-job training,3,Stable
+5414,,Upper secondary,None,On-the-job training,2,Stable
+5414.,,Upper secondary,None,On-the-job training,2,Stable
+5419,,Upper secondary,None,On-the-job training,3,Stable
+5419.,,Upper secondary,None,On-the-job training,3,Stable
 6111,,Upper secondary,None,Vocational training,3,Stable
 6111.,,Upper secondary,None,Vocational training,3,Stable
 61111,,Upper secondary,None,Vocational training,2,Below average
@@ -922,83 +922,83 @@ code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outl
 83442,,Upper secondary,None,Vocational training,3,Below average
 8350,,Upper secondary,None,Vocational training,3,Stable
 8350.,,Upper secondary,None,Vocational training,3,Stable
-9111,,None,None,None,-5,Labor surplus
-9111.,,None,None,None,-5,Labor surplus
-9112,,None,None,None,-5,Labor surplus
-91121,,None,None,None,-5,Labor surplus
-91122,,None,None,None,-5,Labor surplus
-91123,,None,None,None,-5,Labor surplus
-91124,,None,None,None,-5,Labor surplus
-91129,,None,None,None,-5,Labor surplus
-912.,,None,None,None,-5,Labor surplus
-912..,,None,None,None,-5,Labor surplus
-9122,,None,None,None,-5,Labor surplus
-9122.,,None,None,None,-5,Labor surplus
-9123,,None,None,None,-5,Labor surplus
-9123.,,None,None,None,-5,Labor surplus
-9129,,None,None,None,-5,Labor surplus
-9129.,,None,None,None,-5,Labor surplus
-921.,,None,None,None,-5,Labor surplus
-921..,,None,None,None,-5,Labor surplus
-9211,,None,None,None,-6,Declining significantly
-9211.,,None,None,None,-6,Declining significantly
-9212,,None,None,None,-5,Labor surplus
-9212.,,None,None,None,-5,Labor surplus
-9213,,None,None,None,-5,Labor surplus
-9213.,,None,None,None,-5,Labor surplus
-9214,,None,None,None,-5,Labor surplus
-9214.,,None,None,None,-5,Labor surplus
-9215,,None,None,None,-5,Labor surplus
-9215.,,None,None,None,-5,Labor surplus
-9216,,None,None,None,-5,Labor surplus
-9216.,,None,None,None,-5,Labor surplus
-931.,,None,None,None,-5,Labor surplus
-931..,,None,None,None,-5,Labor surplus
-9311,,None,None,None,-6,Declining significantly
-9311.,,None,None,None,-6,Declining significantly
-9312,,None,None,None,-5,Labor surplus
-9312.,,None,None,None,-5,Labor surplus
-9313,,None,None,None,-6,Declining significantly
-9313.,,None,None,None,-6,Declining significantly
-932.,,None,None,None,-5,Labor surplus
-932..,,None,None,None,-5,Labor surplus
-9321,,None,None,None,-5,Labor surplus
-9321.,,None,None,None,-5,Labor surplus
-9329,,None,None,None,-5,Labor surplus
-9329.,,None,None,None,-5,Labor surplus
-9331,,None,None,None,-5,Labor surplus
-9331.,,None,None,None,-5,Labor surplus
-9332,,None,None,None,-5,Labor surplus
-9332.,,None,None,None,-5,Labor surplus
-9333,,None,None,None,-6,Declining significantly
-9333.,,None,None,None,-6,Declining significantly
-9334,,None,None,None,-5,Labor surplus
-9334.,,None,None,None,-5,Labor surplus
-9411,,None,None,None,-6,Declining significantly
-9411.,,None,None,None,-6,Declining significantly
-9412,,None,None,None,-5,Labor surplus
-9412.,,None,None,None,-5,Labor surplus
-95..,,None,None,None,-5,Labor surplus
-95...,,None,None,None,-5,Labor surplus
-9510,,None,None,None,-5,Labor surplus
-9510.,,None,None,None,-5,Labor surplus
-9520,,None,None,None,-6,Declining significantly
-9520.,,None,None,None,-6,Declining significantly
-961.,,None,None,None,-5,Labor surplus
-961..,,None,None,None,-5,Labor surplus
-9611,,None,None,None,-5,Labor surplus
-9611.,,None,None,None,-5,Labor surplus
-9612,,None,None,None,-6,Declining significantly
-9612.,,None,None,None,-6,Declining significantly
-9613,,None,None,None,-5,Labor surplus
-9613.,,None,None,None,-5,Labor surplus
-9621,,None,None,None,-5,Labor surplus
-9621.,,None,None,None,-5,Labor surplus
-9622,,None,None,None,-6,Declining significantly
-9622.,,None,None,None,-6,Declining significantly
-9623,,None,None,None,-5,Labor surplus
-9623.,,None,None,None,-5,Labor surplus
-9624,,None,None,None,-5,Labor surplus
-9624.,,None,None,None,-5,Labor surplus
-9629,,None,None,None,-6,Declining significantly
-9629.,,None,None,None,-6,Declining significantly
+9111,,Basic education,None,On-the-job training,-5,Labor surplus
+9111.,,Basic education,None,On-the-job training,-5,Labor surplus
+9112,,Basic education,None,On-the-job training,-5,Labor surplus
+91121,,Basic education,None,On-the-job training,-5,Labor surplus
+91122,,Basic education,None,On-the-job training,-5,Labor surplus
+91123,,Basic education,None,On-the-job training,-5,Labor surplus
+91124,,Basic education,None,On-the-job training,-5,Labor surplus
+91129,,Basic education,None,On-the-job training,-5,Labor surplus
+912.,,Basic education,None,On-the-job training,-5,Labor surplus
+912..,,Basic education,None,On-the-job training,-5,Labor surplus
+9122,,Basic education,None,On-the-job training,-5,Labor surplus
+9122.,,Basic education,None,On-the-job training,-5,Labor surplus
+9123,,Basic education,None,On-the-job training,-5,Labor surplus
+9123.,,Basic education,None,On-the-job training,-5,Labor surplus
+9129,,Basic education,None,On-the-job training,-5,Labor surplus
+9129.,,Basic education,None,On-the-job training,-5,Labor surplus
+921.,,Basic education,None,On-the-job training,-5,Labor surplus
+921..,,Basic education,None,On-the-job training,-5,Labor surplus
+9211,,Basic education,None,On-the-job training,-6,Declining significantly
+9211.,,Basic education,None,On-the-job training,-6,Declining significantly
+9212,,Basic education,None,On-the-job training,-5,Labor surplus
+9212.,,Basic education,None,On-the-job training,-5,Labor surplus
+9213,,Basic education,None,On-the-job training,-5,Labor surplus
+9213.,,Basic education,None,On-the-job training,-5,Labor surplus
+9214,,Basic education,None,On-the-job training,-5,Labor surplus
+9214.,,Basic education,None,On-the-job training,-5,Labor surplus
+9215,,Basic education,None,On-the-job training,-5,Labor surplus
+9215.,,Basic education,None,On-the-job training,-5,Labor surplus
+9216,,Basic education,None,On-the-job training,-5,Labor surplus
+9216.,,Basic education,None,On-the-job training,-5,Labor surplus
+931.,,Basic education,None,On-the-job training,-5,Labor surplus
+931..,,Basic education,None,On-the-job training,-5,Labor surplus
+9311,,Basic education,None,On-the-job training,-6,Declining significantly
+9311.,,Basic education,None,On-the-job training,-6,Declining significantly
+9312,,Basic education,None,On-the-job training,-5,Labor surplus
+9312.,,Basic education,None,On-the-job training,-5,Labor surplus
+9313,,Basic education,None,On-the-job training,-6,Declining significantly
+9313.,,Basic education,None,On-the-job training,-6,Declining significantly
+932.,,Basic education,None,On-the-job training,-5,Labor surplus
+932..,,Basic education,None,On-the-job training,-5,Labor surplus
+9321,,Basic education,None,On-the-job training,-5,Labor surplus
+9321.,,Basic education,None,On-the-job training,-5,Labor surplus
+9329,,Basic education,None,On-the-job training,-5,Labor surplus
+9329.,,Basic education,None,On-the-job training,-5,Labor surplus
+9331,,Basic education,None,On-the-job training,-5,Labor surplus
+9331.,,Basic education,None,On-the-job training,-5,Labor surplus
+9332,,Basic education,None,On-the-job training,-5,Labor surplus
+9332.,,Basic education,None,On-the-job training,-5,Labor surplus
+9333,,Basic education,None,On-the-job training,-6,Declining significantly
+9333.,,Basic education,None,On-the-job training,-6,Declining significantly
+9334,,Basic education,None,On-the-job training,-5,Labor surplus
+9334.,,Basic education,None,On-the-job training,-5,Labor surplus
+9411,,Basic education,None,On-the-job training,-6,Declining significantly
+9411.,,Basic education,None,On-the-job training,-6,Declining significantly
+9412,,Basic education,None,On-the-job training,-5,Labor surplus
+9412.,,Basic education,None,On-the-job training,-5,Labor surplus
+95..,,Basic education,None,On-the-job training,-5,Labor surplus
+95...,,Basic education,None,On-the-job training,-5,Labor surplus
+9510,,Basic education,None,On-the-job training,-5,Labor surplus
+9510.,,Basic education,None,On-the-job training,-5,Labor surplus
+9520,,Basic education,None,On-the-job training,-6,Declining significantly
+9520.,,Basic education,None,On-the-job training,-6,Declining significantly
+961.,,Basic education,None,On-the-job training,-5,Labor surplus
+961..,,Basic education,None,On-the-job training,-5,Labor surplus
+9611,,Basic education,None,On-the-job training,-5,Labor surplus
+9611.,,Basic education,None,On-the-job training,-5,Labor surplus
+9612,,Basic education,None,On-the-job training,-6,Declining significantly
+9612.,,Basic education,None,On-the-job training,-6,Declining significantly
+9613,,Basic education,None,On-the-job training,-5,Labor surplus
+9613.,,Basic education,None,On-the-job training,-5,Labor surplus
+9621,,Basic education,None,On-the-job training,-5,Labor surplus
+9621.,,Basic education,None,On-the-job training,-5,Labor surplus
+9622,,Basic education,None,On-the-job training,-6,Declining significantly
+9622.,,Basic education,None,On-the-job training,-6,Declining significantly
+9623,,Basic education,None,On-the-job training,-5,Labor surplus
+9623.,,Basic education,None,On-the-job training,-5,Labor surplus
+9624,,Basic education,None,On-the-job training,-5,Labor surplus
+9624.,,Basic education,None,On-the-job training,-5,Labor surplus
+9629,,Basic education,None,On-the-job training,-6,Declining significantly
+9629.,,Basic education,None,On-the-job training,-6,Declining significantly
