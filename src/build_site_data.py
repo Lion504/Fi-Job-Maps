@@ -20,13 +20,13 @@ def main():
 
     # Load AI exposure scores (optional)
     scores = {}
-    if os.path.exists("scores.json"):
-        with open("scores.json") as f:
+    if os.path.exists("data/scores.json"):
+        with open("data/scores.json") as f:
             scores_list = json.load(f)
         scores = {s["slug"]: s for s in scores_list}
 
     # Load CSV stats
-    with open("occupations.csv") as f:
+    with open("data/occupations.csv") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
 

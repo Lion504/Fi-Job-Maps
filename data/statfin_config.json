@@ -26,5 +26,5 @@
     "measure_value": "koko_psaaja_kans_med"
   },
   "outlook": null,
-  "extras_csv": "extras.csv"
+  "extras_csv": "data/extras.csv"
 }

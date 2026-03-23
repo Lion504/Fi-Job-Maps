@@ -21,7 +21,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DEFAULT_MODEL = "google/gemini-3-flash-preview"
-OUTPUT_FILE = "scores.json"
+OUTPUT_FILE = "data/scores.json"
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 SYSTEM_PROMPT = """\
@@ -123,22 +123,24 @@ def main():
     parser.add_argument("--start", type=int, default=0)
     parser.add_argument("--end", type=int, default=None)
     parser.add_argument("--delay", type=float, default=0.5)
-    parser.add_argument("--force", action="store_true",
-                        help="Re-score even if already cached")
+    parser.add_argument(
+        "--force", action="store_true", help="Re-score even if already cached"
+    )
     args = parser.parse_args()
 
-    with open("occupations.json") as f:
+    with open("data/occupations.json") as f:
         occupations = json.load(f)
 
     csv_rows = {}
-    if os.path.exists("occupations.csv"):
+    if os.path.exists("data/occupations.csv"):
         import csv
-        with open("occupations.csv") as f:
+
+        with open("data/occupations.csv") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 csv_rows[row["slug"]] = row
 
-    subset = occupations[args.start:args.end]
+    subset = occupations[args.start : args.end]
 
     # Load existing scores
     scores = {}
@@ -168,18 +170,18 @@ def main():
             row = csv_rows[slug]
             parts = [
                 f"Occupation: {occ['title']}",
-                f"Code: {row.get('soc_code','')}",
-                f"Category: {row.get('category','')}",
-                f"Pay (annual EUR): {row.get('median_pay_annual','')}",
-                f"Employment (latest): {row.get('num_jobs_2024','')}",
-                f"Outlook: {row.get('outlook_desc','') or row.get('outlook_pct','')}",
+                f"Code: {row.get('soc_code', '')}",
+                f"Category: {row.get('category', '')}",
+                f"Pay (annual EUR): {row.get('median_pay_annual', '')}",
+                f"Employment (latest): {row.get('num_jobs_2024', '')}",
+                f"Outlook: {row.get('outlook_desc', '') or row.get('outlook_pct', '')}",
             ]
             text = "\n".join(parts)
         if not text:
-            print(f"  [{i+1}] SKIP {slug} (no markdown or CSV row)")
+            print(f"  [{i + 1}] SKIP {slug} (no markdown or CSV row)")
             continue
 
-        print(f"  [{i+1}/{len(subset)}] {occ['title']}...", end=" ", flush=True)
+        print(f"  [{i + 1}/{len(subset)}] {occ['title']}...", end=" ", flush=True)
 
         try:
             result = score_occupation(client, text, args.model)

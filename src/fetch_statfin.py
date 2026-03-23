@@ -379,10 +379,12 @@ def match_ai_exposure(
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--config", default="statfin_config.json", help="Path to StatFin config JSON"
+        "--config",
+        default="data/statfin_config.json",
+        help="Path to StatFin config JSON",
     )
     parser.add_argument(
-        "--scores", default="scores.json", help="Path to AI exposure scores JSON"
+        "--scores", default="data/scores.json", help="Path to AI exposure scores JSON"
     )
     args = parser.parse_args()
 
@@ -408,19 +410,19 @@ def main() -> None:
     # Build normalized rows
     rows = []
     occ_entries = []
-    
+
     # Build a fallback map for Level 4 codes to inherit from Level 5 (dotted) codes
     fallback_map = {}
     for code, title in occupations:
         if code.endswith("."):
             base_code = code.rstrip(".")
             fallback_map[base_code] = code
-    
+
     for code, title in occupations:
         # Skip Unknown occupations (codes starting with X)
         if code.startswith("X"):
             continue
-            
+
         slug = slugify(title)
         category = derive_category(code, title)
         pay_monthly = wage_values.get(code)
@@ -450,24 +452,34 @@ def main() -> None:
                     pay_source = "extras_csv"
             except ValueError:
                 pay_annual = None
-        
+
         education_val = extra.get("entry_education") or ""
         work_experience_val = extra.get("work_experience") or ""
         training_val = extra.get("training") or ""
-        outlook_pct_val = outlook_entry.get("value", "") or extra.get("outlook_pct") or ""
-        outlook_desc_val = outlook_entry.get("label", "") or extra.get("outlook_desc", "")
-        
+        outlook_pct_val = (
+            outlook_entry.get("value", "") or extra.get("outlook_pct") or ""
+        )
+        outlook_desc_val = outlook_entry.get("label", "") or extra.get(
+            "outlook_desc", ""
+        )
+
         # If still no data (education/outlook/etc), try to inherit from Level 5 variant
         if code in fallback_map:
             fallback_code = fallback_map[code]
             fallback_outlook = outlook_values.get(fallback_code, {})
             fallback_extra = extra_attrs.get(fallback_code, {})
-            
+
             # Inherit outlook if missing
             if not outlook_desc_val and not outlook_pct_val:
-                outlook_pct_val = fallback_outlook.get("value", "") or fallback_extra.get("outlook_pct") or ""
-                outlook_desc_val = fallback_outlook.get("label", "") or fallback_extra.get("outlook_desc", "")
-            
+                outlook_pct_val = (
+                    fallback_outlook.get("value", "")
+                    or fallback_extra.get("outlook_pct")
+                    or ""
+                )
+                outlook_desc_val = fallback_outlook.get(
+                    "label", ""
+                ) or fallback_extra.get("outlook_desc", "")
+
             # Inherit education fields if missing
             if not education_val:
                 education_val = fallback_extra.get("entry_education") or ""
@@ -475,7 +487,7 @@ def main() -> None:
                 work_experience_val = fallback_extra.get("work_experience") or ""
             if not training_val:
                 training_val = fallback_extra.get("training") or ""
-        
+
         if outlook_entry.get("label"):
             outlook_source = "outlook_statfin"
         elif extra.get("outlook_desc") or extra.get("outlook_pct"):
@@ -541,12 +553,12 @@ def main() -> None:
         "url",
     ]
 
-    with open("occupations.csv", "w", newline="") as f:
+    with open("data/occupations.csv", "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
 
-    with open("occupations.json", "w") as f:
+    with open("data/occupations.json", "w") as f:
         json.dump(occ_entries, f, indent=2)
 
     with_outlook = sum(1 for r in rows if r.get("outlook_desc") or r.get("outlook_pct"))
