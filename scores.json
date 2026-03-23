@@ -2050,5 +2050,887 @@
     "title": "Zoologists and wildlife biologists",
     "exposure": 5,
     "rationale": "This occupation is a hybrid of physical fieldwork and digital knowledge work. AI significantly impacts the data-heavy aspects of the job, such as analyzing GIS data, processing camera trap imagery, and modeling population dynamics, but it cannot replace the physical requirements of collecting biological specimens, handling wild animals, or navigating remote outdoor environments."
+  },
+  {
+    "title": "0110 Commissioned armed forces officers (Level 4)",
+    "slug": "0110-commissioned-armed-forces-officers-level-4",
+    "exposure": 4,
+    "rationale": "This armed forces occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "0210 Non-commissioned armed forces officers (Level 4)",
+    "slug": "0210-non-commissioned-armed-forces-officers-level-4",
+    "exposure": 4,
+    "rationale": "This armed forces occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "0310 Armed forces occupations, other ranks (Level 4)",
+    "slug": "0310-armed-forces-occupations-other-ranks-level-4",
+    "exposure": 3,
+    "rationale": "This armed forces occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "1111 Legislators (Level 4)",
+    "slug": "1111-legislators-level-4",
+    "exposure": 8,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1112 Senior government officials (Level 4)",
+    "slug": "1112-senior-government-officials-level-4",
+    "exposure": 8,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1114 Senior officials of special-interest organizations (Level 4)",
+    "slug": "1114-senior-officials-of-special-interest-organizations-level-4",
+    "exposure": 8,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1211 Finance managers (Level 4)",
+    "slug": "1211-finance-managers-level-4",
+    "exposure": 9,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1321 Manufacturing managers (Level 4)",
+    "slug": "1321-manufacturing-managers-level-4",
+    "exposure": 9,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1322 Mining managers (Level 4)",
+    "slug": "1322-mining-managers-level-4",
+    "exposure": 9,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1345 Education managers (Level 4)",
+    "slug": "1345-education-managers-level-4",
+    "exposure": 9,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1411 Hotel managers (Level 4)",
+    "slug": "1411-hotel-managers-level-4",
+    "exposure": 8,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "1412 Restaurant managers (Level 4)",
+    "slug": "1412-restaurant-managers-level-4",
+    "exposure": 8,
+    "rationale": "This managerial occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2114 Geologists and geophysicists (Level 4)",
+    "slug": "2114-geologists-and-geophysicists-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2132 Farming, forestry and fisheries advisers (Level 4)",
+    "slug": "2132-farming-forestry-and-fisheries-advisers-level-4",
+    "exposure": 8,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2149 Engineering professionals not elsewhere classified (Level 4)",
+    "slug": "2149-engineering-professionals-not-elsewhere-classified-level-4",
+    "exposure": 10,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2153 Telecommunications engineers (Level 4)",
+    "slug": "2153-telecommunications-engineers-level-4",
+    "exposure": 10,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2211 Generalist medical practitioners (Level 4)",
+    "slug": "2211-generalist-medical-practitioners-level-4",
+    "exposure": 10,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2212 Specialist medical practitioners (Level 4)",
+    "slug": "2212-specialist-medical-practitioners-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2221 Nursing professionals (Level 4)",
+    "slug": "2221-nursing-professionals-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "226.  (Not more specifically classified) Other health professionals (Level 4)",
+    "slug": "226-not-more-specifically-classified-other-health-professionals-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2269 Health professionals not elsewhere classified (Level 4)",
+    "slug": "2269-health-professionals-not-elsewhere-classified-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2342 Early childhood educators (Level 4)",
+    "slug": "2342-early-childhood-educators-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "235.  (Not more specifically classified) Other teaching professionals (Level 4)",
+    "slug": "235-not-more-specifically-classified-other-teaching-professionals-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2353 Other language teachers (Level 4)",
+    "slug": "2353-other-language-teachers-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2354 Other music teachers (Level 4)",
+    "slug": "2354-other-music-teachers-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2355 Other arts teachers (Level 4)",
+    "slug": "2355-other-arts-teachers-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2356 Information technology trainers (Level 4)",
+    "slug": "2356-information-technology-trainers-level-4",
+    "exposure": 10,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2359 Teaching professionals not elsewhere classified (Level 4)",
+    "slug": "2359-teaching-professionals-not-elsewhere-classified-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2422 Policy administration professionals (Level 4)",
+    "slug": "2422-policy-administration-professionals-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2423 Personnel and careers professionals (Level 4)",
+    "slug": "2423-personnel-and-careers-professionals-level-4",
+    "exposure": 8,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2514 Applications programmers (Level 4)",
+    "slug": "2514-applications-programmers-level-4",
+    "exposure": 10,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2619 Legal professionals not elsewhere classified (Level 4)",
+    "slug": "2619-legal-professionals-not-elsewhere-classified-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2636 Religious professionals (Level 4)",
+    "slug": "2636-religious-professionals-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "2651 Visual artists (Level 4)",
+    "slug": "2651-visual-artists-level-4",
+    "exposure": 9,
+    "rationale": "This professional occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "3118 Draughtspersons (Level 4)",
+    "slug": "3118-draughtspersons-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3121 Mining supervisors (Level 4)",
+    "slug": "3121-mining-supervisors-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3122 Manufacturing supervisors (Level 4)",
+    "slug": "3122-manufacturing-supervisors-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3123 Construction supervisors (Level 4)",
+    "slug": "3123-construction-supervisors-level-4",
+    "exposure": 5,
+    "rationale": "This technical occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "3133 Chemical processing plant controllers (Level 4)",
+    "slug": "3133-chemical-processing-plant-controllers-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3135 Metal production process controllers (Level 4)",
+    "slug": "3135-metal-production-process-controllers-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3139 Process control technicians not elsewhere classified (Level 4)",
+    "slug": "3139-process-control-technicians-not-elsewhere-classified-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3143 Forestry technicians (Level 4)",
+    "slug": "3143-forestry-technicians-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3151 Ships' engineers (Level 4)",
+    "slug": "3151-ships-engineers-level-4",
+    "exposure": 7,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3221 Nursing associate professionals (Level 4)",
+    "slug": "3221-nursing-associate-professionals-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3222 Midwifery associate professionals (Level 4)",
+    "slug": "3222-midwifery-associate-professionals-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3230 Traditional and complementary medicine associate professionals (Level 4)",
+    "slug": "3230-traditional-and-complementary-medicine-associate-professionals-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3258 Ambulance workers (Level 4)",
+    "slug": "3258-ambulance-workers-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3259 Health associate professionals not elsewhere classified (Level 4)",
+    "slug": "3259-health-associate-professionals-not-elsewhere-classified-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3313 Accounting associate professionals (Level 4)",
+    "slug": "3313-accounting-associate-professionals-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3321 Insurance representatives (Level 4)",
+    "slug": "3321-insurance-representatives-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3324 Trade brokers (Level 4)",
+    "slug": "3324-trade-brokers-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3341 Office supervisors (Level 4)",
+    "slug": "3341-office-supervisors-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3342 Legal secretaries (Level 4)",
+    "slug": "3342-legal-secretaries-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3344 Medical secretaries (Level 4)",
+    "slug": "3344-medical-secretaries-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3353 Government social benefits officials (Level 4)",
+    "slug": "3353-government-social-benefits-officials-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3354 Government licensing officials (Level 4)",
+    "slug": "3354-government-licensing-officials-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3359 Regulatory government associate professionals not elsewhere classified (Level 4)",
+    "slug": "3359-regulatory-government-associate-professionals-not-elsewhere-classified-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3412 Social work associate professionals (Level 4)",
+    "slug": "3412-social-work-associate-professionals-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3413 Religious associate professionals (Level 4)",
+    "slug": "3413-religious-associate-professionals-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "3514 Web technicians (Level 4)",
+    "slug": "3514-web-technicians-level-4",
+    "exposure": 6,
+    "rationale": "This technical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "4120 Secretaries (general) (Level 4)",
+    "slug": "4120-secretaries-general-level-4",
+    "exposure": 7,
+    "rationale": "This clerical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "4132 Data entry clerks (Level 4)",
+    "slug": "4132-data-entry-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4213 Pawnbrokers and money-lenders (Level 4)",
+    "slug": "4213-pawnbrokers-and-money-lenders-level-4",
+    "exposure": 7,
+    "rationale": "This clerical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "4223 Telephone switchboard operators (Level 4)",
+    "slug": "4223-telephone-switchboard-operators-level-4",
+    "exposure": 7,
+    "rationale": "This clerical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "4225 Enquiry clerks (Level 4)",
+    "slug": "4225-enquiry-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4229 Client information workers not elsewhere classified (Level 4)",
+    "slug": "4229-client-information-workers-not-elsewhere-classified-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4313 Payroll clerks (Level 4)",
+    "slug": "4313-payroll-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4321 Stock clerks (Level 4)",
+    "slug": "4321-stock-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4322 Production clerks (Level 4)",
+    "slug": "4322-production-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4323 Transport clerks (Level 4)",
+    "slug": "4323-transport-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4411 Library clerks (Level 4)",
+    "slug": "4411-library-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4416 Personnel clerks (Level 4)",
+    "slug": "4416-personnel-clerks-level-4",
+    "exposure": 9,
+    "rationale": "This clerical occupation involves extensive digital knowledge work and analytical tasks that are highly susceptible to AI automation and augmentation. The work is primarily computer-based with limited physical requirements, making it highly exposed to AI capabilities."
+  },
+  {
+    "title": "4419 Clerical support workers not elsewhere classified (Level 4)",
+    "slug": "4419-clerical-support-workers-not-elsewhere-classified-level-4",
+    "exposure": 7,
+    "rationale": "This clerical occupation has significant AI exposure due to substantial digital and analytical components. While some aspects involve human judgment or physical presence, many core tasks can be automated or augmented by AI systems, particularly administrative and routine decision-making functions."
+  },
+  {
+    "title": "5112 Transport conductors (Level 4)",
+    "slug": "5112-transport-conductors-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5141 Hairdressers (Level 4)",
+    "slug": "5141-hairdressers-level-4",
+    "exposure": 2,
+    "rationale": "This service occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "5152 Domestic housekeepers (Level 4)",
+    "slug": "5152-domestic-housekeepers-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5153 Building caretakers (Level 4)",
+    "slug": "5153-building-caretakers-level-4",
+    "exposure": 3,
+    "rationale": "This service occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "5163 Undertakers and embalmers (Level 4)",
+    "slug": "5163-undertakers-and-embalmers-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5165 Driving instructors (Level 4)",
+    "slug": "5165-driving-instructors-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "521.  (Not more specifically classified) Street and market salespersons (Level 4)",
+    "slug": "521-not-more-specifically-classified-street-and-market-salespersons-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5211 Stall and market salespersons (Level 4)",
+    "slug": "5211-stall-and-market-salespersons-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5212 Street food salespersons (Level 4)",
+    "slug": "5212-street-food-salespersons-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5221 Shop keepers (Level 4)",
+    "slug": "5221-shop-keepers-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5222 Shop supervisors (Level 4)",
+    "slug": "5222-shop-supervisors-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5223 Shop sales assistants (Level 4)",
+    "slug": "5223-shop-sales-assistants-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5242 Sales demonstrators (Level 4)",
+    "slug": "5242-sales-demonstrators-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5243 Door to door salespersons (Level 4)",
+    "slug": "5243-door-to-door-salespersons-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5244 Contact centre salespersons (Level 4)",
+    "slug": "5244-contact-centre-salespersons-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5245 Service station attendants (Level 4)",
+    "slug": "5245-service-station-attendants-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5312 Teachers' aides (Level 4)",
+    "slug": "5312-teachers-aides-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5411 Fire-fighters (Level 4)",
+    "slug": "5411-fire-fighters-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5412 Police officers (Level 4)",
+    "slug": "5412-police-officers-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "5413 Prison guards (Level 4)",
+    "slug": "5413-prison-guards-level-4",
+    "exposure": 4,
+    "rationale": "This service occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "6111 Field crop and vegetable growers (Level 4)",
+    "slug": "6111-field-crop-and-vegetable-growers-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "6112 Tree and shrub crop growers (Level 4)",
+    "slug": "6112-tree-and-shrub-crop-growers-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "6113 Gardeners, horticultural and nursery growers (Level 4)",
+    "slug": "6113-gardeners-horticultural-and-nursery-growers-level-4",
+    "exposure": 1,
+    "rationale": "This agricultural occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "6114 Mixed crop growers (Level 4)",
+    "slug": "6114-mixed-crop-growers-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "6122 Poultry producers (Level 4)",
+    "slug": "6122-poultry-producers-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "6123 Apiarists and sericulturists (Level 4)",
+    "slug": "6123-apiarists-and-sericulturists-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "6129 Animal producers not elsewhere classified (Level 4)",
+    "slug": "6129-animal-producers-not-elsewhere-classified-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "6221 Aquaculture workers (Level 4)",
+    "slug": "6221-aquaculture-workers-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "6224 Hunters and trappers (Level 4)",
+    "slug": "6224-hunters-and-trappers-level-4",
+    "exposure": 2,
+    "rationale": "This agricultural occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7111 House builders (Level 4)",
+    "slug": "7111-house-builders-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7123 Plasterers (Level 4)",
+    "slug": "7123-plasterers-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7215 Riggers and cable splicers (Level 4)",
+    "slug": "7215-riggers-and-cable-splicers-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "731.  (Not more specifically classified) Handicraft workers (Level 4)",
+    "slug": "731-not-more-specifically-classified-handicraft-workers-level-4",
+    "exposure": 1,
+    "rationale": "This craft occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "7316 Sign writers, decorative painters, engravers and etchers (Level 4)",
+    "slug": "7316-sign-writers-decorative-painters-engravers-and-etchers-level-4",
+    "exposure": 2,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7319 Handicraft workers not elsewhere classified (Level 4)",
+    "slug": "7319-handicraft-workers-not-elsewhere-classified-level-4",
+    "exposure": 1,
+    "rationale": "This craft occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "732.  (Not more specifically classified) Printing trades workers (Level 4)",
+    "slug": "732-not-more-specifically-classified-printing-trades-workers-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7321 Pre-press technicians (Level 4)",
+    "slug": "7321-pre-press-technicians-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7322 Printers (Level 4)",
+    "slug": "7322-printers-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7513 Dairy-products makers (Level 4)",
+    "slug": "7513-dairy-products-makers-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7521 Wood treaters (Level 4)",
+    "slug": "7521-wood-treaters-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7531 Tailors, dressmakers, furriers and hatters (Level 4)",
+    "slug": "7531-tailors-dressmakers-furriers-and-hatters-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7535 Pelt dressers, tanners and fellmongers (Level 4)",
+    "slug": "7535-pelt-dressers-tanners-and-fellmongers-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7541 Underwater divers (Level 4)",
+    "slug": "7541-underwater-divers-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7542 Shotfirers and blasters (Level 4)",
+    "slug": "7542-shotfirers-and-blasters-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "7543 Product graders and testers (excluding foods and beverages) (Level 4)",
+    "slug": "7543-product-graders-and-testers-excluding-foods-and-beverages-level-4",
+    "exposure": 3,
+    "rationale": "This craft occupation has low AI exposure. The work is primarily physical and hands-on, requiring manual dexterity, real-time physical coordination, or outdoor work in unpredictable environments. AI's impact is limited to peripheral support functions."
+  },
+  {
+    "title": "8111 Miners and quarriers (Level 4)",
+    "slug": "8111-miners-and-quarriers-level-4",
+    "exposure": 5,
+    "rationale": "This machine operation occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "8211 Mechanical machinery assemblers (Level 4)",
+    "slug": "8211-mechanical-machinery-assemblers-level-4",
+    "exposure": 4,
+    "rationale": "This machine operation occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "8219 Assemblers not elsewhere classified (Level 4)",
+    "slug": "8219-assemblers-not-elsewhere-classified-level-4",
+    "exposure": 5,
+    "rationale": "This machine operation occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "8311 Locomotive engine drivers (Level 4)",
+    "slug": "8311-locomotive-engine-drivers-level-4",
+    "exposure": 4,
+    "rationale": "This machine operation occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "8321 Motorcycle drivers (Level 4)",
+    "slug": "8321-motorcycle-drivers-level-4",
+    "exposure": 4,
+    "rationale": "This machine operation occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "8344 Lifting truck operators (Level 4)",
+    "slug": "8344-lifting-truck-operators-level-4",
+    "exposure": 5,
+    "rationale": "This machine operation occupation has moderate AI exposure. While some tasks (particularly administrative and routine aspects) are susceptible to automation, the role requires physical presence, manual skills, or interpersonal interaction that provides a buffer against full automation."
+  },
+  {
+    "title": "9122 Vehicle cleaners (Level 4)",
+    "slug": "9122-vehicle-cleaners-level-4",
+    "exposure": 0,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9123 Window cleaners (Level 4)",
+    "slug": "9123-window-cleaners-level-4",
+    "exposure": 0,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9129 Other cleaning workers (Level 4)",
+    "slug": "9129-other-cleaning-workers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "921.  (Not more specifically classified) Agricultural, forestry and fishery labourers (Level 4)",
+    "slug": "921-not-more-specifically-classified-agricultural-forestry-and-fishery-labourers-level-4",
+    "exposure": 0,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9211 Crop farm labourers (Level 4)",
+    "slug": "9211-crop-farm-labourers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9212 Livestock farm labourers (Level 4)",
+    "slug": "9212-livestock-farm-labourers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9213 Mixed crop and livestock farm labourers (Level 4)",
+    "slug": "9213-mixed-crop-and-livestock-farm-labourers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9214 Garden and horticultural labourers (Level 4)",
+    "slug": "9214-garden-and-horticultural-labourers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9215 Forestry labourers (Level 4)",
+    "slug": "9215-forestry-labourers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9216 Fishery and aquaculture labourers (Level 4)",
+    "slug": "9216-fishery-and-aquaculture-labourers-level-4",
+    "exposure": 0,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "932.  (Not more specifically classified) Manufacturing labourers (Level 4)",
+    "slug": "932-not-more-specifically-classified-manufacturing-labourers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9321 Hand packers (Level 4)",
+    "slug": "9321-hand-packers-level-4",
+    "exposure": 0,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9329 Manufacturing labourers not elsewhere classified (Level 4)",
+    "slug": "9329-manufacturing-labourers-not-elsewhere-classified-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9333 Freight handlers (Level 4)",
+    "slug": "9333-freight-handlers-level-4",
+    "exposure": 0,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9334 Shelf fillers (Level 4)",
+    "slug": "9334-shelf-fillers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9411 Fast food preparers (Level 4)",
+    "slug": "9411-fast-food-preparers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9412 Kitchen helpers (Level 4)",
+    "slug": "9412-kitchen-helpers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9520 Street vendors (excluding food) (Level 4)",
+    "slug": "9520-street-vendors-excluding-food-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "961.  (Not more specifically classified) Refuse workers (Level 4)",
+    "slug": "961-not-more-specifically-classified-refuse-workers-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9612 Refuse sorters (Level 4)",
+    "slug": "9612-refuse-sorters-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9621 Messengers, package deliverers and luggage porters (Level 4)",
+    "slug": "9621-messengers-package-deliverers-and-luggage-porters-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9622 Odd job persons (Level 4)",
+    "slug": "9622-odd-job-persons-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
+  },
+  {
+    "title": "9629 Elementary workers not elsewhere classified (Level 4)",
+    "slug": "9629-elementary-workers-not-elsewhere-classified-level-4",
+    "exposure": 1,
+    "rationale": "This elementary occupation has minimal AI exposure. The work is almost entirely physical, requiring hands-on skills, manual labor, or real-time physical interaction with the environment. These tasks cannot be meaningfully automated by current or near-term AI technologies."
   }
 ]
