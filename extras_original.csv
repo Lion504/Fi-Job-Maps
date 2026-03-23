@@ -1,0 +1,488 @@
+code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outlook_desc
+0110,66408,Bachelor's degree + military training,None,Military academy,-5,Recruitment difficult
+0210,51036,Bachelor's degree + military training,None,Military academy,-5,Recruitment difficult
+0310,32616,Upper secondary,None,Military training,-5,Recruitment difficult
+1111,86016,Master's degree,5+ years,None,5,Good prospects
+1112,96012,Master's degree,5+ years,None,5,Good prospects
+1120,147240,Master's degree,5+ years,None,10,Very good prospects
+1211,90696,Bachelor's degree,3-5 years,None,8,Good prospects
+1212,75240,Bachelor's degree,3-5 years,None,8,Good prospects
+1213,66000,Bachelor's degree,3-5 years,None,7,Good prospects
+1221,72000,Bachelor's degree,3-5 years,None,8,Good prospects
+1222,68400,Bachelor's degree,3-5 years,None,7,Good prospects
+1223,61200,Bachelor's degree,3-5 years,None,7,Good prospects
+1311,55200,Bachelor's degree,2-4 years,None,8,Good prospects
+1312,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+1321,60000,Bachelor's degree,2-4 years,None,8,Good prospects
+1322,57600,Bachelor's degree,2-4 years,None,7,Good prospects
+1323,52800,Bachelor's degree,2-4 years,None,6,Moderate prospects
+1324,50400,Bachelor's degree,2-4 years,None,6,Moderate prospects
+1330,58800,Bachelor's degree,2-4 years,None,7,Good prospects
+1341,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+1342,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+1343,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+1344,46800,Bachelor's degree,2-4 years,None,5,Moderate prospects
+1345,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+1346,44400,Bachelor's degree,2-4 years,None,5,Moderate prospects
+1349,48000,Bachelor's degree,2-4 years,None,5,Moderate prospects
+1411,36000,Upper secondary,None,Vocational training,3,Stable
+1412,32400,Upper secondary,None,Vocational training,3,Stable
+1420,33600,Upper secondary,None,Vocational training,3,Stable
+1431,32400,Upper secondary,None,Vocational training,2,Stable
+1439,31200,Upper secondary,None,Vocational training,2,Stable
+2111,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+2112,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2113,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2114,55200,Bachelor's degree,2-4 years,None,7,Good prospects
+2120,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2131,54000,Bachelor's degree,2-4 years,None,8,Good prospects
+2132,55200,Bachelor's degree,2-4 years,None,8,Good prospects
+2133,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2141,55200,Bachelor's degree,2-4 years,None,7,Good prospects
+2142,56400,Bachelor's degree,2-4 years,None,7,Good prospects
+2143,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2144,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+2145,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2146,48000,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2149,50400,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2151,60000,Bachelor's degree,2-4 years,None,8,Good prospects
+2152,56400,Bachelor's degree,2-4 years,None,7,Good prospects
+2153,55200,Bachelor's degree,2-4 years,None,7,Good prospects
+2161,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+2162,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2163,48000,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2164,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2165,44400,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2166,42000,Bachelor's degree,2-4 years,None,4,Below average
+2171,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2172,54000,Bachelor's degree,2-4 years,None,8,Good prospects
+2173,51600,Bachelor's degree,2-4 years,None,7,Good prospects
+2174,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2180,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2211,84000,Doctoral degree,5+ years,Specialist training,9,Very good prospects
+2212,72000,Bachelor's degree,3-5 years,None,8,Good prospects
+2213,66000,Bachelor's degree,3-5 years,None,7,Good prospects
+2221,68400,Bachelor's degree,3-5 years,None,8,Good prospects
+2222,60000,Bachelor's degree,3-5 years,None,7,Good prospects
+2223,57600,Bachelor's degree,3-5 years,None,7,Good prospects
+2224,55200,Bachelor's degree,3-5 years,None,7,Good prospects
+2230,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2240,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2250,48000,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2261,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2262,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+2263,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2264,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2265,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2266,48000,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2267,46800,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2269,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2310,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+2320,48000,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2330,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2340,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2351,48000,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2352,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2353,44400,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2359,43200,Bachelor's degree,2-4 years,None,4,Below average
+2411,60000,Bachelor's degree,2-4 years,None,7,Good prospects
+2412,56400,Bachelor's degree,2-4 years,None,7,Good prospects
+2421,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+2422,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2431,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2432,46800,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2433,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2511,60000,Bachelor's degree,2-4 years,None,8,Good prospects
+2512,55200,Bachelor's degree,2-4 years,None,7,Good prospects
+2513,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2514,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2519,50400,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2521,54000,Bachelor's degree,2-4 years,None,7,Good prospects
+2522,48000,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2523,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2531,55200,Bachelor's degree,2-4 years,None,7,Good prospects
+2532,52800,Bachelor's degree,2-4 years,None,7,Good prospects
+2541,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2542,46800,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2543,45600,Bachelor's degree,2-4 years,None,5,Moderate prospects
+2551,51600,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2552,49200,Bachelor's degree,2-4 years,None,6,Moderate prospects
+2559,48000,Bachelor's degree,2-4 years,None,5,Moderate prospects
+3111,40800,Upper secondary,None,Vocational training,6,Moderate prospects
+3112,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3113,42000,Upper secondary,None,Vocational training,6,Moderate prospects
+3114,40800,Upper secondary,None,Vocational training,5,Moderate prospects
+3115,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3118,38400,Upper secondary,None,Vocational training,4,Below average
+3119,37200,Upper secondary,None,Vocational training,4,Below average
+3121,43200,Upper secondary,None,Vocational training,6,Moderate prospects
+3122,40800,Upper secondary,None,Vocational training,5,Moderate prospects
+3123,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3131,37200,Upper secondary,None,Vocational training,4,Below average
+3132,36000,Upper secondary,None,Vocational training,3,Stable
+3133,34800,Upper secondary,None,Vocational training,3,Stable
+3134,33600,Upper secondary,None,Vocational training,3,Stable
+3139,34800,Upper secondary,None,Vocational training,3,Stable
+3141,40800,Upper secondary,None,Vocational training,5,Moderate prospects
+3142,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3143,38400,Upper secondary,None,Vocational training,4,Below average
+3144,37200,Upper secondary,None,Vocational training,4,Below average
+3151,36000,Upper secondary,None,Vocational training,4,Below average
+3152,37200,Upper secondary,None,Vocational training,4,Below average
+3153,36000,Upper secondary,None,Vocational training,4,Below average
+3154,33600,Upper secondary,None,Vocational training,3,Stable
+3155,34800,Upper secondary,None,Vocational training,3,Stable
+3211,40800,Upper secondary,None,Vocational training,6,Moderate prospects
+3212,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3213,42000,Upper secondary,None,Vocational training,6,Moderate prospects
+3214,40800,Upper secondary,None,Vocational training,5,Moderate prospects
+3221,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3222,40800,Upper secondary,None,Vocational training,6,Moderate prospects
+3231,38400,Upper secondary,None,Vocational training,5,Moderate prospects
+3232,37200,Upper secondary,None,Vocational training,4,Below average
+3233,36000,Upper secondary,None,Vocational training,4,Below average
+3241,37200,Upper secondary,None,Vocational training,4,Below average
+3242,38400,Upper secondary,None,Vocational training,5,Moderate prospects
+3311,40800,Upper secondary,None,Vocational training,5,Moderate prospects
+3312,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3313,39600,Upper secondary,None,Vocational training,4,Below average
+3314,38400,Upper secondary,None,Vocational training,4,Below average
+3315,37200,Upper secondary,None,Vocational training,4,Below average
+3319,36000,Upper secondary,None,Vocational training,3,Stable
+3321,38400,Upper secondary,None,Vocational training,5,Moderate prospects
+3322,37200,Upper secondary,None,Vocational training,4,Below average
+3323,36000,Upper secondary,None,Vocational training,4,Below average
+3324,34800,Upper secondary,None,Vocational training,3,Stable
+3329,36000,Upper secondary,None,Vocational training,3,Stable
+3331,36000,Upper secondary,None,Vocational training,4,Below average
+3332,37200,Upper secondary,None,Vocational training,4,Below average
+3333,36000,Upper secondary,None,Vocational training,4,Below average
+3334,34800,Upper secondary,None,Vocational training,3,Stable
+3339,36000,Upper secondary,None,Vocational training,4,Below average
+3341,36000,Upper secondary,None,Vocational training,4,Below average
+3342,37200,Upper secondary,None,Vocational training,4,Below average
+3343,36000,Upper secondary,None,Vocational training,3,Stable
+3344,34800,Upper secondary,None,Vocational training,3,Stable
+3351,33600,Upper secondary,None,Vocational training,3,Stable
+3352,34800,Upper secondary,None,Vocational training,3,Stable
+3353,36000,Upper secondary,None,Vocational training,4,Below average
+3354,33600,Upper secondary,None,Vocational training,3,Stable
+3355,34800,Upper secondary,None,Vocational training,3,Stable
+3359,36000,Upper secondary,None,Vocational training,4,Below average
+3411,36000,Upper secondary,None,Vocational training,4,Below average
+3412,34800,Upper secondary,None,Vocational training,3,Stable
+3421,33600,Upper secondary,None,Vocational training,3,Stable
+3422,34800,Upper secondary,None,Vocational training,4,Below average
+3423,33600,Upper secondary,None,Vocational training,3,Stable
+3431,33600,Upper secondary,None,Vocational training,3,Stable
+3432,34800,Upper secondary,None,Vocational training,4,Below average
+3433,32400,Upper secondary,None,Vocational training,2,Stable
+3434,33600,Upper secondary,None,Vocational training,3,Stable
+3511,40800,Upper secondary,None,Vocational training,5,Moderate prospects
+3512,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3513,38400,Upper secondary,None,Vocational training,4,Below average
+3514,37200,Upper secondary,None,Vocational training,4,Below average
+3521,39600,Upper secondary,None,Vocational training,5,Moderate prospects
+3522,38400,Upper secondary,None,Vocational training,4,Below average
+3531,37200,Upper secondary,None,Vocational training,4,Below average
+3532,36000,Upper secondary,None,Vocational training,4,Below average
+3533,34800,Upper secondary,None,Vocational training,3,Stable
+3534,33600,Upper secondary,None,Vocational training,3,Stable
+4111,31200,Upper secondary,None,None,2,Stable
+4112,30000,Upper secondary,None,None,2,Stable
+4113,28800,Upper secondary,None,None,1,Declining
+4114,30000,Upper secondary,None,None,2,Stable
+4120,30000,Upper secondary,None,None,2,Stable
+4131,30000,Upper secondary,None,None,2,Stable
+4132,28800,Upper secondary,None,None,1,Declining
+4211,28800,Upper secondary,None,None,2,Stable
+4212,30000,Upper secondary,None,None,2,Stable
+4213,28800,Upper secondary,None,None,1,Declining
+4214,30000,Upper secondary,None,None,2,Stable
+4215,28800,Upper secondary,None,None,1,Declining
+4220,28800,Upper secondary,None,None,2,Stable
+4221,30000,Upper secondary,None,None,2,Stable
+4222,28800,Upper secondary,None,None,2,Stable
+4223,30000,Upper secondary,None,None,2,Stable
+4224,28800,Upper secondary,None,None,1,Declining
+4227,30000,Upper secondary,None,None,2,Stable
+4229,28800,Upper secondary,None,None,1,Declining
+4311,30000,Upper secondary,None,None,2,Stable
+4312,31200,Upper secondary,None,None,3,Stable
+4313,30000,Upper secondary,None,None,2,Stable
+4314,28800,Upper secondary,None,None,1,Declining
+4315,30000,Upper secondary,None,None,2,Stable
+4321,28800,Upper secondary,None,None,1,Declining
+4322,30000,Upper secondary,None,None,2,Stable
+4323,28800,Upper secondary,None,None,1,Declining
+4411,30000,Upper secondary,None,None,2,Stable
+4412,28800,Upper secondary,None,None,1,Declining
+4413,30000,Upper secondary,None,None,2,Stable
+4414,28800,Upper secondary,None,None,1,Declining
+4415,30000,Upper secondary,None,None,2,Stable
+4416,28800,Upper secondary,None,None,1,Declining
+4419,30000,Upper secondary,None,None,2,Stable
+5111,30000,Upper secondary,None,None,3,Stable
+5112,28800,Upper secondary,None,None,2,Stable
+5113,30000,Upper secondary,None,None,3,Stable
+5119,28800,Upper secondary,None,None,2,Stable
+5120,30000,Upper secondary,None,None,2,Stable
+5121,28800,Upper secondary,None,None,2,Stable
+5122,30000,Upper secondary,None,None,3,Stable
+5131,28800,Upper secondary,None,None,2,Stable
+5132,30000,Upper secondary,None,None,3,Stable
+5141,30000,Upper secondary,None,None,3,Stable
+5142,28800,Upper secondary,None,None,2,Stable
+5151,30000,Upper secondary,None,None,3,Stable
+5152,28800,Upper secondary,None,None,2,Stable
+5153,30000,Upper secondary,None,None,3,Stable
+5161,28800,Upper secondary,None,None,2,Stable
+5162,30000,Upper secondary,None,None,3,Stable
+5163,28800,Upper secondary,None,None,2,Stable
+5164,30000,Upper secondary,None,None,3,Stable
+5169,28800,Upper secondary,None,None,2,Stable
+5211,28800,Upper secondary,None,None,2,Stable
+5212,30000,Upper secondary,None,None,3,Stable
+5220,28800,Upper secondary,None,None,2,Stable
+5230,30000,Upper secondary,None,None,3,Stable
+5241,28800,Upper secondary,None,None,2,Stable
+5242,30000,Upper secondary,None,None,3,Stable
+5243,28800,Upper secondary,None,None,2,Stable
+5244,30000,Upper secondary,None,None,3,Stable
+5245,28800,Upper secondary,None,None,2,Stable
+5246,30000,Upper secondary,None,None,3,Stable
+5250,28800,Upper secondary,None,None,2,Stable
+5311,28800,Upper secondary,None,None,2,Stable
+5312,30000,Upper secondary,None,None,3,Stable
+5320,28800,Upper secondary,None,None,2,Stable
+5330,30000,Upper secondary,None,None,3,Stable
+5341,28800,Upper secondary,None,None,2,Stable
+5342,30000,Upper secondary,None,None,3,Stable
+5343,28800,Upper secondary,None,None,2,Stable
+5344,30000,Upper secondary,None,None,3,Stable
+5411,30000,Upper secondary,None,None,3,Stable
+5412,28800,Upper secondary,None,None,2,Stable
+5413,30000,Upper secondary,None,None,3,Stable
+5414,28800,Upper secondary,None,None,2,Stable
+5419,30000,Upper secondary,None,None,3,Stable
+6111,30000,Upper secondary,None,Vocational training,3,Stable
+6112,28800,Upper secondary,None,Vocational training,2,Stable
+6113,30000,Upper secondary,None,Vocational training,3,Stable
+6114,28800,Upper secondary,None,Vocational training,2,Stable
+6121,30000,Upper secondary,None,Vocational training,3,Stable
+6122,28800,Upper secondary,None,Vocational training,2,Stable
+6123,30000,Upper secondary,None,Vocational training,3,Stable
+6129,28800,Upper secondary,None,Vocational training,2,Stable
+6130,30000,Upper secondary,None,Vocational training,3,Stable
+6131,28800,Upper secondary,None,Vocational training,2,Stable
+6132,30000,Upper secondary,None,Vocational training,3,Stable
+6133,28800,Upper secondary,None,Vocational training,2,Stable
+6134,30000,Upper secondary,None,Vocational training,3,Stable
+6135,28800,Upper secondary,None,Vocational training,2,Stable
+6136,30000,Upper secondary,None,Vocational training,3,Stable
+6137,28800,Upper secondary,None,Vocational training,2,Stable
+6138,30000,Upper secondary,None,Vocational training,3,Stable
+6139,28800,Upper secondary,None,Vocational training,2,Stable
+6141,30000,Upper secondary,None,Vocational training,3,Stable
+6142,28800,Upper secondary,None,Vocational training,2,Stable
+6143,30000,Upper secondary,None,Vocational training,3,Stable
+6144,28800,Upper secondary,None,Vocational training,2,Stable
+6210,30000,Upper secondary,None,Vocational training,3,Stable
+6221,28800,Upper secondary,None,Vocational training,2,Stable
+6222,30000,Upper secondary,None,Vocational training,3,Stable
+6223,28800,Upper secondary,None,Vocational training,2,Stable
+6224,30000,Upper secondary,None,Vocational training,3,Stable
+6230,28800,Upper secondary,None,Vocational training,2,Stable
+7111,31200,Upper secondary,None,Vocational training,4,Below average
+7112,30000,Upper secondary,None,Vocational training,3,Stable
+7113,31200,Upper secondary,None,Vocational training,4,Below average
+7114,30000,Upper secondary,None,Vocational training,3,Stable
+7115,31200,Upper secondary,None,Vocational training,4,Below average
+7119,30000,Upper secondary,None,Vocational training,3,Stable
+7121,30000,Upper secondary,None,Vocational training,3,Stable
+7122,31200,Upper secondary,None,Vocational training,4,Below average
+7123,30000,Upper secondary,None,Vocational training,3,Stable
+7124,31200,Upper secondary,None,Vocational training,4,Below average
+7125,30000,Upper secondary,None,Vocational training,3,Stable
+7126,31200,Upper secondary,None,Vocational training,4,Below average
+7127,30000,Upper secondary,None,Vocational training,3,Stable
+7131,30000,Upper secondary,None,Vocational training,3,Stable
+7132,31200,Upper secondary,None,Vocational training,4,Below average
+7133,30000,Upper secondary,None,Vocational training,3,Stable
+7211,31200,Upper secondary,None,Vocational training,4,Below average
+7212,30000,Upper secondary,None,Vocational training,3,Stable
+7213,31200,Upper secondary,None,Vocational training,4,Below average
+7214,30000,Upper secondary,None,Vocational training,3,Stable
+7221,30000,Upper secondary,None,Vocational training,3,Stable
+7222,31200,Upper secondary,None,Vocational training,4,Below average
+7223,30000,Upper secondary,None,Vocational training,3,Stable
+7224,31200,Upper secondary,None,Vocational training,4,Below average
+7231,30000,Upper secondary,None,Vocational training,3,Stable
+7232,31200,Upper secondary,None,Vocational training,4,Below average
+7241,31200,Upper secondary,None,Vocational training,4,Below average
+7242,30000,Upper secondary,None,Vocational training,3,Stable
+7243,30000,Upper secondary,None,Vocational training,3,Stable
+7244,31200,Upper secondary,None,Vocational training,4,Below average
+7245,30000,Upper secondary,None,Vocational training,3,Stable
+7311,30000,Upper secondary,None,Vocational training,3,Stable
+7312,31200,Upper secondary,None,Vocational training,4,Below average
+7313,30000,Upper secondary,None,Vocational training,3,Stable
+7314,31200,Upper secondary,None,Vocational training,4,Below average
+7315,30000,Upper secondary,None,Vocational training,3,Stable
+7316,31200,Upper secondary,None,Vocational training,4,Below average
+7317,30000,Upper secondary,None,Vocational training,3,Stable
+7318,31200,Upper secondary,None,Vocational training,4,Below average
+7319,30000,Upper secondary,None,Vocational training,3,Stable
+7321,30000,Upper secondary,None,Vocational training,3,Stable
+7322,31200,Upper secondary,None,Vocational training,4,Below average
+7323,30000,Upper secondary,None,Vocational training,3,Stable
+7324,31200,Upper secondary,None,Vocational training,4,Below average
+7331,30000,Upper secondary,None,Vocational training,3,Stable
+7332,31200,Upper secondary,None,Vocational training,4,Below average
+7411,31200,Upper secondary,None,Vocational training,4,Below average
+7412,30000,Upper secondary,None,Vocational training,3,Stable
+7421,30000,Upper secondary,None,Vocational training,3,Stable
+7422,31200,Upper secondary,None,Vocational training,4,Below average
+7510,30000,Upper secondary,None,Vocational training,3,Stable
+7521,30000,Upper secondary,None,Vocational training,3,Stable
+7522,31200,Upper secondary,None,Vocational training,4,Below average
+7523,30000,Upper secondary,None,Vocational training,3,Stable
+7530,31200,Upper secondary,None,Vocational training,4,Below average
+7531,30000,Upper secondary,None,Vocational training,3,Stable
+7532,31200,Upper secondary,None,Vocational training,4,Below average
+7533,30000,Upper secondary,None,Vocational training,3,Stable
+7534,31200,Upper secondary,None,Vocational training,4,Below average
+7535,30000,Upper secondary,None,Vocational training,3,Stable
+7536,31200,Upper secondary,None,Vocational training,4,Below average
+7537,30000,Upper secondary,None,Vocational training,3,Stable
+7538,31200,Upper secondary,None,Vocational training,4,Below average
+7539,30000,Upper secondary,None,Vocational training,3,Stable
+7541,30000,Upper secondary,None,Vocational training,3,Stable
+7542,31200,Upper secondary,None,Vocational training,4,Below average
+7543,30000,Upper secondary,None,Vocational training,3,Stable
+7544,31200,Upper secondary,None,Vocational training,4,Below average
+7549,30000,Upper secondary,None,Vocational training,3,Stable
+8111,30000,Upper secondary,None,Vocational training,3,Stable
+8112,31200,Upper secondary,None,Vocational training,4,Below average
+8113,30000,Upper secondary,None,Vocational training,3,Stable
+8114,31200,Upper secondary,None,Vocational training,4,Below average
+8115,30000,Upper secondary,None,Vocational training,3,Stable
+8116,31200,Upper secondary,None,Vocational training,4,Below average
+8117,30000,Upper secondary,None,Vocational training,3,Stable
+8118,31200,Upper secondary,None,Vocational training,4,Below average
+8119,30000,Upper secondary,None,Vocational training,3,Stable
+8121,30000,Upper secondary,None,Vocational training,3,Stable
+8122,31200,Upper secondary,None,Vocational training,4,Below average
+8131,30000,Upper secondary,None,Vocational training,3,Stable
+8132,31200,Upper secondary,None,Vocational training,4,Below average
+8141,30000,Upper secondary,None,Vocational training,3,Stable
+8142,31200,Upper secondary,None,Vocational training,4,Below average
+8151,30000,Upper secondary,None,Vocational training,3,Stable
+8152,31200,Upper secondary,None,Vocational training,4,Below average
+8153,30000,Upper secondary,None,Vocational training,3,Stable
+8154,31200,Upper secondary,None,Vocational training,4,Below average
+8155,30000,Upper secondary,None,Vocational training,3,Stable
+8156,31200,Upper secondary,None,Vocational training,4,Below average
+8157,30000,Upper secondary,None,Vocational training,3,Stable
+8158,31200,Upper secondary,None,Vocational training,4,Below average
+8159,30000,Upper secondary,None,Vocational training,3,Stable
+8161,30000,Upper secondary,None,Vocational training,3,Stable
+8162,31200,Upper secondary,None,Vocational training,4,Below average
+8163,30000,Upper secondary,None,Vocational training,3,Stable
+8171,30000,Upper secondary,None,Vocational training,3,Stable
+8172,31200,Upper secondary,None,Vocational training,4,Below average
+8181,31200,Upper secondary,None,Vocational training,4,Below average
+8182,30000,Upper secondary,None,Vocational training,3,Stable
+8183,31200,Upper secondary,None,Vocational training,4,Below average
+8184,30000,Upper secondary,None,Vocational training,3,Stable
+8189,31200,Upper secondary,None,Vocational training,4,Below average
+8211,30000,Upper secondary,None,Vocational training,3,Stable
+8212,31200,Upper secondary,None,Vocational training,4,Below average
+8213,30000,Upper secondary,None,Vocational training,3,Stable
+8214,31200,Upper secondary,None,Vocational training,4,Below average
+8215,30000,Upper secondary,None,Vocational training,3,Stable
+8216,31200,Upper secondary,None,Vocational training,4,Below average
+8217,30000,Upper secondary,None,Vocational training,3,Stable
+8218,31200,Upper secondary,None,Vocational training,4,Below average
+8219,30000,Upper secondary,None,Vocational training,3,Stable
+8220,30000,Upper secondary,None,Vocational training,3,Stable
+8221,31200,Upper secondary,None,Vocational training,4,Below average
+8222,30000,Upper secondary,None,Vocational training,3,Stable
+8223,31200,Upper secondary,None,Vocational training,4,Below average
+8224,30000,Upper secondary,None,Vocational training,3,Stable
+8225,31200,Upper secondary,None,Vocational training,4,Below average
+8226,30000,Upper secondary,None,Vocational training,3,Stable
+8227,31200,Upper secondary,None,Vocational training,4,Below average
+8228,30000,Upper secondary,None,Vocational training,3,Stable
+8229,31200,Upper secondary,None,Vocational training,4,Below average
+8311,30000,Upper secondary,None,Vocational training,3,Stable
+8312,31200,Upper secondary,None,Vocational training,4,Below average
+8313,30000,Upper secondary,None,Vocational training,3,Stable
+8314,31200,Upper secondary,None,Vocational training,4,Below average
+8321,30000,Upper secondary,None,Vocational training,3,Stable
+8322,31200,Upper secondary,None,Vocational training,4,Below average
+8331,30000,Upper secondary,None,Vocational training,3,Stable
+8332,31200,Upper secondary,None,Vocational training,4,Below average
+8333,30000,Upper secondary,None,Vocational training,3,Stable
+8334,31200,Upper secondary,None,Vocational training,4,Below average
+8341,30000,Upper secondary,None,Vocational training,3,Stable
+8342,31200,Upper secondary,None,Vocational training,4,Below average
+8343,30000,Upper secondary,None,Vocational training,3,Stable
+8344,31200,Upper secondary,None,Vocational training,4,Below average
+8349,30000,Upper secondary,None,Vocational training,3,Stable
+8350,30000,Upper secondary,None,Vocational training,3,Stable
+9111,27600,None,None,None,-5,Labor surplus
+9112,26400,None,None,None,-5,Labor surplus
+9120,25200,None,None,None,-6,Declining significantly
+9131,25200,None,None,None,-6,Declining significantly
+9132,26400,None,None,None,-5,Labor surplus
+9211,25200,None,None,None,-6,Declining significantly
+9212,26400,None,None,None,-5,Labor surplus
+9220,25200,None,None,None,-6,Declining significantly
+9231,26400,None,None,None,-5,Labor surplus
+9232,25200,None,None,None,-6,Declining significantly
+9233,27600,None,None,None,-5,Labor surplus
+9234,26400,None,None,None,-5,Labor surplus
+9235,25200,None,None,None,-6,Declining significantly
+9236,27600,None,None,None,-5,Labor surplus
+9237,26400,None,None,None,-5,Labor surplus
+9239,25200,None,None,None,-6,Declining significantly
+9240,26400,None,None,None,-5,Labor surplus
+9311,25200,None,None,None,-6,Declining significantly
+9312,26400,None,None,None,-5,Labor surplus
+9313,25200,None,None,None,-6,Declining significantly
+9320,26400,None,None,None,-5,Labor surplus
+9330,25200,None,None,None,-6,Declining significantly
+9331,27600,None,None,None,-5,Labor surplus
+9332,26400,None,None,None,-5,Labor surplus
+9333,25200,None,None,None,-6,Declining significantly
+9334,27600,None,None,None,-5,Labor surplus
+9340,26400,None,None,None,-5,Labor surplus
+9350,25200,None,None,None,-6,Declining significantly
+9411,25200,None,None,None,-6,Declining significantly
+9412,26400,None,None,None,-5,Labor surplus
+9413,25200,None,None,None,-6,Declining significantly
+9414,27600,None,None,None,-5,Labor surplus
+9420,25200,None,None,None,-6,Declining significantly
+9430,26400,None,None,None,-5,Labor surplus
+9431,25200,None,None,None,-6,Declining significantly
+9432,27600,None,None,None,-5,Labor surplus
+9510,26400,None,None,None,-5,Labor surplus
+9511,25200,None,None,None,-6,Declining significantly
+9512,27600,None,None,None,-5,Labor surplus
+9520,25200,None,None,None,-6,Declining significantly
+9521,26400,None,None,None,-5,Labor surplus
+9522,25200,None,None,None,-6,Declining significantly
+9523,27600,None,None,None,-5,Labor surplus
+9524,26400,None,None,None,-5,Labor surplus
+9525,25200,None,None,None,-6,Declining significantly
+9610,25200,None,None,None,-6,Declining significantly
+9611,26400,None,None,None,-5,Labor surplus
+9612,25200,None,None,None,-6,Declining significantly
+9613,27600,None,None,None,-5,Labor surplus
+9620,25200,None,None,None,-6,Declining significantly
+9621,26400,None,None,None,-5,Labor surplus
+9622,25200,None,None,None,-6,Declining significantly
+9623,27600,None,None,None,-5,Labor surplus
+9624,26400,None,None,None,-5,Labor surplus
+9629,25200,None,None,None,-6,Declining significantly

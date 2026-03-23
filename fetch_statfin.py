@@ -457,13 +457,24 @@ def main() -> None:
         outlook_pct_val = outlook_entry.get("value", "") or extra.get("outlook_pct") or ""
         outlook_desc_val = outlook_entry.get("label", "") or extra.get("outlook_desc", "")
         
-        # If still no outlook data, try to inherit from Level 5 variant
-        if not outlook_desc_val and not outlook_pct_val and code in fallback_map:
+        # If still no data (education/outlook/etc), try to inherit from Level 5 variant
+        if code in fallback_map:
             fallback_code = fallback_map[code]
             fallback_outlook = outlook_values.get(fallback_code, {})
             fallback_extra = extra_attrs.get(fallback_code, {})
-            outlook_pct_val = fallback_outlook.get("value", "") or fallback_extra.get("outlook_pct") or ""
-            outlook_desc_val = fallback_outlook.get("label", "") or fallback_extra.get("outlook_desc", "")
+            
+            # Inherit outlook if missing
+            if not outlook_desc_val and not outlook_pct_val:
+                outlook_pct_val = fallback_outlook.get("value", "") or fallback_extra.get("outlook_pct") or ""
+                outlook_desc_val = fallback_outlook.get("label", "") or fallback_extra.get("outlook_desc", "")
+            
+            # Inherit education fields if missing
+            if not education_val:
+                education_val = fallback_extra.get("entry_education") or ""
+            if not work_experience_val:
+                work_experience_val = fallback_extra.get("work_experience") or ""
+            if not training_val:
+                training_val = fallback_extra.get("training") or ""
         
         if outlook_entry.get("label"):
             outlook_source = "outlook_statfin"
