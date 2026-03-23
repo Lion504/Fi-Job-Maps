@@ -652,7 +652,9 @@
               "Bachelor's degree + military training": "Bachelor's+Mil",
               "Master's degree": "Master's",
               "Doctoral degree": "Doctoral",
-            }[r.education] || r.education || "";
+            }[r.education] ||
+            r.education ||
+            "";
           return (
             short + (r.jobs ? " \u00b7 " + formatNumber(r.jobs) + " jobs" : "")
           );
@@ -1011,23 +1013,23 @@
 
       const EDU_GROUPS = [
         {
-          label: "No degree/HS",
-          match: [
-            "No formal educational credential",
-            "High school diploma or equivalent",
-          ],
+          label: "Basic/Primary",
+          match: ["Basic education"],
         },
         {
-          label: "Postsec/Assoc",
-          match: [
-            "Postsecondary nondegree award",
-            "Some college, no degree",
-            "Associate's degree",
-          ],
+          label: "No degree/HS",
+          match: ["Upper secondary"],
         },
-        { label: "Bachelor's", match: ["Bachelor's degree"] },
+
+        {
+          label: "Bachelor's",
+          match: ["Bachelor's degree", "Bachelor's degree + military training"],
+        },
         { label: "Master's", match: ["Master's degree"] },
-        { label: "Doctoral/Prof", match: ["Doctoral or professional degree"] },
+        {
+          label: "Doctoral/Prof",
+          match: ["Doctoral degree", "Doctoral or professional degree"],
+        },
       ];
 
       const OUTLOOK_TIERS = [
@@ -1336,7 +1338,9 @@
             d.jobs &&
             [
               "Bachelor's degree",
+              "Bachelor's degree + military training",
               "Master's degree",
+              "Doctoral degree",
               "Doctoral or professional degree",
             ].includes(d.education)
           )
@@ -1358,7 +1362,7 @@
         document.getElementById("block3").innerHTML =
           `<h3>Jobs by education</h3>
     <div class="histogram">${groups.map((g) => `<div class="bar" style="height:${Math.max(2, maxH > 0 ? (g.jobs / maxH) * 100 : 0)}%;background:${eduColor(g.idx * 2, 0.7)}"></div>`).join("")}</div>
-    <div class="hist-labels"><span>HS</span><span>BS</span><span>PhD</span></div>`;
+    <div class="hist-labels"><span>HS</span><span>Primary</span><span>BS</span><span>MS</span><span>PhD</span></div>`;
 
         // Tier breakdown (same groups with counts)
         const tiers = groups.map((g, i) => ({
@@ -1414,10 +1418,7 @@
         for (const d of dataset) {
           if (
             d.jobs &&
-            [
-              "No formal educational credential",
-              "High school diploma or equivalent",
-            ].includes(d.education)
+            ["Basic education", "Upper secondary"].includes(d.education)
           )
             noDeg += d.jobs;
         }
