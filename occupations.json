@@ -8286,40 +8286,5 @@
     "slug": "9629-elementary-workers-not-elsewhere-classified-level-5",
     "category": "9",
     "code": "9629."
-  },
-  {
-    "title": "X Unknown (Level 1)",
-    "url": "",
-    "slug": "x-unknown-level-1",
-    "category": "X",
-    "code": "X"
-  },
-  {
-    "title": "XX Unknown (Level 2)",
-    "url": "",
-    "slug": "xx-unknown-level-2",
-    "category": "X",
-    "code": "XX"
-  },
-  {
-    "title": "XXX Unknown (Level 3)",
-    "url": "",
-    "slug": "xxx-unknown-level-3",
-    "category": "X",
-    "code": "XXX"
-  },
-  {
-    "title": "XXXX Unknown (Level 4)",
-    "url": "",
-    "slug": "xxxx-unknown-level-4",
-    "category": "X",
-    "code": "XXXX"
-  },
-  {
-    "title": "XXXXX Unknown (Level 5)",
-    "url": "",
-    "slug": "xxxxx-unknown-level-5",
-    "category": "X",
-    "code": "XXXXX"
   }
 ]
