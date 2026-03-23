@@ -1324,9 +1324,26 @@
         for (const d of dataset) {
           if (d.pay != null && d.jobs) totalWages += d.pay * d.jobs;
         }
-        const totalUnit = totalWages >= 1e12 ? "T" : totalWages >= 1e9 ? "B" : totalWages >= 1e6 ? "M" : "";
-        const totalDivisor = totalWages >= 1e12 ? 1e12 : totalWages >= 1e9 ? 1e9 : totalWages >= 1e6 ? 1e6 : 1;
-        const totalStr = totalDivisor === 1 ? totalWages.toFixed(0) : (totalWages / totalDivisor).toFixed(1);
+        const totalUnit =
+          totalWages >= 1e12
+            ? "T"
+            : totalWages >= 1e9
+              ? "B"
+              : totalWages >= 1e6
+                ? "M"
+                : "";
+        const totalDivisor =
+          totalWages >= 1e12
+            ? 1e12
+            : totalWages >= 1e9
+              ? 1e9
+              : totalWages >= 1e6
+                ? 1e6
+                : 1;
+        const totalStr =
+          totalDivisor === 1
+            ? totalWages.toFixed(0)
+            : (totalWages / totalDivisor).toFixed(1);
         document.getElementById("block7").innerHTML = `<h3>Total wages</h3>
     <div class="stat-big">${totalStr}${totalUnit} \u20ac</div>
     <div class="stat-label">annual</div>`;
@@ -1365,7 +1382,7 @@
         document.getElementById("block3").innerHTML =
           `<h3>Jobs by education</h3>
     <div class="histogram">${groups.map((g) => `<div class="bar" style="height:${Math.max(2, maxH > 0 ? (g.jobs / maxH) * 100 : 0)}%;background:${eduColor(g.idx * 2, 0.7)}"></div>`).join("")}</div>
-    <div class="hist-labels"><span>HS</span><span>Primary</span><span>BS</span><span>MS</span><span>PhD</span></div>`;
+    <div class="hist-labels"><span>PR</span><span>HS</span><span>BS</span><span>MS</span><span>PhD</span></div>`;
 
         // Tier breakdown (same groups with counts)
         const tiers = groups.map((g, i) => ({
@@ -1517,9 +1534,26 @@
           if (d.exposure != null && d.exposure >= 7 && d.jobs && d.pay)
             wagesExposed += d.jobs * d.pay;
         }
-        const wageUnit = wagesExposed >= 1e12 ? "T" : wagesExposed >= 1e9 ? "B" : wagesExposed >= 1e6 ? "M" : "";
-        const wageDivisor = wagesExposed >= 1e12 ? 1e12 : wagesExposed >= 1e9 ? 1e9 : wagesExposed >= 1e6 ? 1e6 : 1;
-        const wageStr = wageDivisor === 1 ? wagesExposed.toFixed(0) : (wagesExposed / wageDivisor).toFixed(1);
+        const wageUnit =
+          wagesExposed >= 1e12
+            ? "T"
+            : wagesExposed >= 1e9
+              ? "B"
+              : wagesExposed >= 1e6
+                ? "M"
+                : "";
+        const wageDivisor =
+          wagesExposed >= 1e12
+            ? 1e12
+            : wagesExposed >= 1e9
+              ? 1e9
+              : wagesExposed >= 1e6
+                ? 1e6
+                : 1;
+        const wageStr =
+          wageDivisor === 1
+            ? wagesExposed.toFixed(0)
+            : (wagesExposed / wageDivisor).toFixed(1);
         document.getElementById("block7").innerHTML = `<h3>Wages exposed</h3>
     <div class="stat-big" style="color:${exposureColor(8, 1)}">${wageStr}${wageUnit} \u20ac</div>
     <div class="stat-label">annual, in jobs scoring 7+</div>`;
