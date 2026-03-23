@@ -142,18 +142,18 @@ def infer_education(code: str, title: str, extras: Dict[str, dict]) -> Dict[str,
                 "training": extras[base_code].get("training", ""),
             }
     
-    # Category-based inference
+    # Category-based inference with proper Finnish education levels
     education_map = {
         "0": ("Upper secondary", "None", "Military training"),  # Armed forces
         "1": ("Bachelor's degree", "3-5 years", "None"),  # Managers
         "2": ("Bachelor's degree", "2-4 years", "None"),  # Professionals
         "3": ("Upper secondary", "None", "Vocational training"),  # Technicians
         "4": ("Upper secondary", "None", "None"),  # Clerical support
-        "5": ("Upper secondary", "None", "None"),  # Service workers
+        "5": ("Upper secondary", "None", "On-the-job training"),  # Service workers
         "6": ("Upper secondary", "None", "Vocational training"),  # Skilled agricultural
         "7": ("Upper secondary", "None", "Vocational training"),  # Craft workers
         "8": ("Upper secondary", "None", "Vocational training"),  # Machine operators
-        "9": ("None", "None", "None"),  # Elementary occupations
+        "9": ("Basic education", "None", "On-the-job training"),  # Elementary occupations
     }
     
     edu_data = education_map.get(category, ("Upper secondary", "None", "None"))
