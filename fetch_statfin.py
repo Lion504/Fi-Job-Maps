@@ -408,7 +408,19 @@ def main() -> None:
     # Build normalized rows
     rows = []
     occ_entries = []
+    
+    # Build a fallback map for Level 4 codes to inherit from Level 5 (dotted) codes
+    fallback_map = {}
     for code, title in occupations:
+        if code.endswith("."):
+            base_code = code.rstrip(".")
+            fallback_map[base_code] = code
+    
+    for code, title in occupations:
+        # Skip Unknown occupations (codes starting with X)
+        if code.startswith("X"):
+            continue
+            
         slug = slugify(title)
         category = derive_category(code, title)
         pay_monthly = wage_values.get(code)
@@ -423,6 +435,14 @@ def main() -> None:
             normalized_code = code.rstrip(".")
             extra = extra_attrs.get(normalized_code, {})
 
+        # If still no pay data, try to inherit from Level 5 (dotted) variant
+        if not pay_annual and code in fallback_map:
+            fallback_code = fallback_map[code]
+            fallback_pay_monthly = wage_values.get(fallback_code)
+            if fallback_pay_monthly:
+                pay_annual = round(fallback_pay_monthly * 12)
+                pay_source = "wages_statfin"
+
         if not pay_annual:
             try:
                 pay_annual = int(float(extra.get("median_pay_annual", "") or 0)) or None
@@ -430,11 +450,21 @@ def main() -> None:
                     pay_source = "extras_csv"
             except ValueError:
                 pay_annual = None
+        
         education_val = extra.get("entry_education") or ""
         work_experience_val = extra.get("work_experience") or ""
         training_val = extra.get("training") or ""
         outlook_pct_val = outlook_entry.get("value", "") or extra.get("outlook_pct") or ""
         outlook_desc_val = outlook_entry.get("label", "") or extra.get("outlook_desc", "")
+        
+        # If still no outlook data, try to inherit from Level 5 variant
+        if not outlook_desc_val and not outlook_pct_val and code in fallback_map:
+            fallback_code = fallback_map[code]
+            fallback_outlook = outlook_values.get(fallback_code, {})
+            fallback_extra = extra_attrs.get(fallback_code, {})
+            outlook_pct_val = fallback_outlook.get("value", "") or fallback_extra.get("outlook_pct") or ""
+            outlook_desc_val = fallback_outlook.get("label", "") or fallback_extra.get("outlook_desc", "")
+        
         if outlook_entry.get("label"):
             outlook_source = "outlook_statfin"
         elif extra.get("outlook_desc") or extra.get("outlook_pct"):
