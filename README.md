@@ -18,21 +18,21 @@ The repo still lets you score occupations with an LLM (OpenRouter). You can chan
 2. **Import Barometer outlook (optional)** (`fetch_barometer.py`) — Normalizes Labour Force Barometer CSV into extras-compatible outlook columns (`code`, `outlook_pct`, `outlook_desc`).
 3. **Score (optional)** (`score.py`) — Sends each occupation (from CSV or Markdown if present) to an LLM to produce an AI exposure score (0–10) with rationale. Results are cached in `scores.json`.
 4. **Build site data** (`build_site_data.py`) — Merges `occupations.csv` and `scores.json` into `site/data.json` for the treemap.
-5. **Frontend** (`site/index.html`) — Treemap where area = employment and color = chosen metric (outlook/pay/education/exposure). Copy tweaks may be needed for Finnish labels.
+5. **Frontend** (`site/index.html`) — Treemap where area = employment and color = chosen metric (outlook/pay/education/exposure). Updated with correct Finnish education mapping and proper number formatting.
 
 ## Key files
 
-| File                          | Description                                                        |
-| ----------------------------- | ------------------------------------------------------------------ |
-| `data/statfin_config.example.json` | Template for PxWeb tables/variables (employment, wages, outlook)   |
-| `src/fetch_statfin.py`        | PxWeb fetcher that writes `data/occupations.json` and `data/occupations.csv` |
-| `src/fetch_barometer.py`      | Converts Barometer CSV to extras-compatible outlook CSV            |
-| `data/occupations.csv`        | Summary stats: pay (EUR/year), employment count, outlook label     |
-| `data/scores.json`            | AI exposure scores (0–10) with rationales                          |
-| `site/data.json`              | Frontend-ready merged data                                         |
-| `site/`                       | Static website (treemap visualization)                             |
-| `.env.example`                | Example environment variables (OpenRouter API key)                  |
-| `pyproject.toml`              | Python project configuration and dependencies                       |
+| File                               | Description                                                                  |
+| ---------------------------------- | ---------------------------------------------------------------------------- |
+| `data/statfin_config.example.json` | Template for PxWeb tables/variables (employment, wages, outlook)             |
+| `src/fetch_statfin.py`             | PxWeb fetcher that writes `data/occupations.json` and `data/occupations.csv` |
+| `src/fetch_barometer.py`           | Converts Barometer CSV to extras-compatible outlook CSV                      |
+| `data/occupations.csv`             | Summary stats: pay (EUR/year), employment count, outlook label               |
+| `data/scores.json`                 | AI exposure scores (0–10) with rationales                                    |
+| `site/data.json`                   | Frontend-ready merged data                                                   |
+| `site/`                            | Static website (treemap visualization)                                       |
+| `.env.example`                     | Example environment variables (OpenRouter API key)                           |
+| `pyproject.toml`                   | Python project configuration and dependencies                                |
 
 ## Project structure
 
@@ -67,11 +67,13 @@ jobs/
 ## Setup
 
 1. Install dependencies:
+
 ```
 uv sync
 ```
 
 2. Set up environment variables:
+
 ```
 cp .env.example .env
 # edit .env with your OpenRouter API key
@@ -104,6 +106,14 @@ cd site && python -m http.server 8000
 # Optional: choose hierarchy level for treemap (default: Level 4)
 TREE_LEVEL=4 uv run python src/build_site_data.py
 ```
+
+## Recent updates (March 2026)
+
+- **Education mapping fixed**: Updated `EDU_GROUPS` to match Finnish education values ("Basic education", "Upper secondary", "Bachelor's degree", etc.)
+- **Wage formatting fixed**: Corrected trillion calculation to show billions/millions appropriately
+- **UI improvements**: Fixed horizontal bar chart wrapping issues, updated button labels
+- **Project reorganization**: Structured codebase into `src/`, `data/`, `site/`, `archive/`, `docs/`
+- **Environment setup**: Added `.env.example` for OpenRouter API key configuration
 
 ## Notes
 
