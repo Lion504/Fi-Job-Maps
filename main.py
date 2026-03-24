@@ -9,6 +9,10 @@ import subprocess
 import sys
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env file before checking environment variables
+load_dotenv()
 
 # Get the root directory (where this script is located)
 ROOT_DIR = Path(__file__).parent.resolve()
@@ -74,11 +78,23 @@ def cmd_infer(args):
         print(f"Error: infer_missing_pay.py failed with code {returncode}")
         return returncode
 
-    print("\n=== Inferring AI exposure ===")
-    returncode = run_script(ROOT_DIR / "infer_ai_exposure.py")
-    if returncode != 0:
-        print(f"Error: infer_ai_exposure.py failed with code {returncode}")
-        return returncode
+    # Check if Google API key is set for LLM scoring
+    if os.environ.get("GOOGLE_API_KEY"):
+        print("\n=== Scoring AI exposure with LLM (Gemini) ===")
+        score_args = []
+        if hasattr(args, "model") and args.model:
+            score_args = ["--model", args.model]
+        returncode = run_script(SRC_DIR / "score.py", score_args)
+        if returncode != 0:
+            print(f"Error: score.py failed with code {returncode}")
+            return returncode
+    else:
+        print("\n=== Scoring AI exposure (rule-based fallback) ===")
+        print("Note: Set GOOGLE_API_KEY in .env for LLM-based scoring")
+        returncode = run_script(ROOT_DIR / "infer_ai_exposure.py")
+        if returncode != 0:
+            print(f"Error: infer_ai_exposure.py failed with code {returncode}")
+            return returncode
 
     return 0
 
@@ -138,9 +154,12 @@ def cmd_all(args):
     if returncode != 0:
         return returncode
 
-    # Step 3: Infer
+    # Step 3: Infer (pay + AI exposure)
     infer_parser = argparse.ArgumentParser()
     infer_args = infer_parser.parse_args([])
+    infer_args.model = (
+        args.model if hasattr(args, "model") else "google/gemini-3-flash-preview"
+    )
     returncode = cmd_infer(infer_args)
     if returncode != 0:
         return returncode
@@ -167,16 +186,17 @@ Examples:
   # Fetch with Barometer outlook
   finlandjobs fetch --barometer-input barometer.csv
   
-  # Infer missing data
+  # Infer missing data and score AI exposure with LLM
   finlandjobs infer
+  finlandjobs infer --model gemini-2.0-flash
   
   # Build site data
   finlandjobs build
   
-  # Run complete pipeline
+  # Run complete pipeline (requires GOOGLE_API_KEY in .env for LLM scoring)
   finlandjobs all --barometer-input barometer.csv
   
-  (Note: The finlandjobs script automatically detects and uses the project's virtual environment. Run from the project directory. To use 'jobs' as a command, create an alias: alias jobs=finlandjobs. Note that the shell builtin 'jobs' may interfere; use 'command jobs' to bypass.)
+  (Note: The finlandjobs script automatically detects and uses the project's virtual environment. Run from the project directory.)
         """,
     )
 
@@ -208,6 +228,10 @@ Examples:
     # Infer command
     infer_parser = subparsers.add_parser(
         "infer", help="Infer missing pay and AI exposure"
+    )
+    infer_parser.add_argument(
+        "--model",
+        help="LLM model for AI exposure scoring (default: from .env or gemini-2.0-flash)",
     )
     infer_parser.set_defaults(func=cmd_infer)
 
@@ -249,6 +273,10 @@ Examples:
     )
     all_parser.add_argument(
         "--tree-level", type=int, default=4, help="Hierarchy level for treemap"
+    )
+    all_parser.add_argument(
+        "--model",
+        help="LLM model for AI exposure scoring (default: from .env or gemini-2.0-flash)",
     )
     all_parser.set_defaults(func=cmd_all)
 
