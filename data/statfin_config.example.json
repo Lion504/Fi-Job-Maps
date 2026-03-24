@@ -1,30 +1,31 @@
 {
+  "_note": "Copy this file to statfin_config.json and adjust if needed. Year is pinned to a specific year (2024 in the real config) — do not use 'latest' so field names remain accurate. outlook can be set to null to use extras_csv instead.",
   "extras_csv": "data/extras.csv",
   "min_outlook_coverage": 0.95,
   "strict_outlook_coverage": false,
   "employment": {
-    "table": "StatFin/tyokay/statfin_tyokay_pxt_13u3.px",
-    "occupation_var": "Ammatti",
+    "table": "StatFin/tyokay/statfin_tyokay_pxt_115r.px",
+    "occupation_var": "Ammattiryhmä",
     "year_var": "Vuosi",
-    "year": "latest",
+    "year": "2024",
     "sex_var": "Sukupuoli",
     "sex_value": "SSS",
-    "age_var": "Ika",
+    "age_var": "Ikä",
     "age_value": "SSS"
   },
   "wages": {
-    "table": "StatFin/palk/statfin_palk_pxt_XXXX.px",
-    "occupation_var": "Ammatti",
+    "table": "StatFin/pra/statfin_pra_pxt_15au.px",
+    "occupation_var": "Ammattiluokitus 2010",
     "year_var": "Vuosi",
-    "year": "latest",
+    "year": "2024",
     "measure_var": "Tiedot",
-    "measure_value": "keskipalkka"
+    "measure_value": "koko_psaaja_kans_med"
   },
   "outlook": {
     "table": "",
     "occupation_var": "",
     "year_var": "",
-    "year": "latest",
+    "year": "2024",
     "category_var": "",
     "category_value": ""
   }
