@@ -19,5 +19,8 @@ pages/
 embed.py
 embeddings.json
 
+# Local archive (keep locally, don't track in git)
+archive/
+
 # macOS
 .DS_Store
