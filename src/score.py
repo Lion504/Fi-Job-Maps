@@ -5,10 +5,14 @@ Reads occupation data from data/occupations.csv, sends each to an LLM with a sco
 rubric, and collects structured scores. Results are cached incrementally to
 data/scores.json so the script can be resumed if interrupted.
 
+NOTE: If data/scores.json contains old US-sourced scores (English slugs like
+'accountants-and-auditors'), re-run this script to replace them with Finnish
+occupation data scored from data/occupations.csv.
+
 Usage:
-    uv run python score.py
-    uv run python score.py --model gemini-2.0-flash
-    uv run python score.py --start 0 --end 10   # test on first 10
+    uv run python src/score.py
+    uv run python src/score.py --model gemini-2.5-flash
+    uv run python src/score.py --start 0 --end 10   # test on first 10
 """
 
 import argparse

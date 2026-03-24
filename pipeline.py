@@ -59,11 +59,11 @@ def main():
             "Fetch Barometer outlook (optional)",
             "uv run python src/fetch_barometer.py --input barometer.csv --output data/barometer_outlook.csv --code-column isco_code --outlook-desc-column balance_label",
         ),
-        (3, "Infer missing pay data", "uv run python infer_missing_pay.py"),
+        (3, "Infer missing pay data", "uv run python infer_missing_pay.py"),  # reads/writes data/occupations.csv
         (
             4,
-            "Score AI exposure with LLM (Gemini Flash) - requires OPENROUTER_API_KEY",
-            "uv run python src/score.py --model google/gemini-3-flash-preview",
+            "Score AI exposure with LLM (Gemini Flash) - requires GOOGLE_API_KEY",
+            "uv run python src/score.py --model gemini-2.5-flash",
         ),
         (5, "Build site data", "uv run python src/build_site_data.py"),
         (6, "Generate LLM prompt (optional)", "uv run python make_prompt.py"),

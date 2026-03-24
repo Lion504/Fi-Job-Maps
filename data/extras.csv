@@ -1,12 +1,8 @@
 code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outlook_desc
 0110,,Bachelor's degree + military training,None,Military academy,-5,Recruitment difficult
-0110.,,Bachelor's degree + military training,None,Military academy,-5,Recruitment difficult
 0210,,Bachelor's degree + military training,None,Military academy,-5,Recruitment difficult
-0210.,,Bachelor's degree + military training,None,Military academy,-5,Recruitment difficult
 0310,,Upper secondary,None,Military training,-5,Recruitment difficult
-0310.,,Upper secondary,None,Military training,-5,Recruitment difficult
 1111,,Master's degree,5+ years,None,5,Good prospects
-1111.,,Master's degree,5+ years,None,5,Good prospects
 1112,,Master's degree,5+ years,None,5,Good prospects
 11121,,Bachelor's degree,3-5 years,None,6,Moderate prospects
 11122,,Bachelor's degree,3-5 years,None,6,Moderate prospects
@@ -14,115 +10,62 @@ code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outl
 11141,,Bachelor's degree,3-5 years,None,6,Moderate prospects
 11142,,Bachelor's degree,3-5 years,None,6,Moderate prospects
 1120,,Master's degree,5+ years,None,10,Very good prospects
-1120.,,Master's degree,5+ years,None,10,Very good prospects
 1211,,Bachelor's degree,3-5 years,None,8,Good prospects
-1211.,,Bachelor's degree,3-5 years,None,8,Good prospects
 1212,,Bachelor's degree,3-5 years,None,8,Good prospects
-1212.,,Bachelor's degree,3-5 years,None,8,Good prospects
 1213,,Bachelor's degree,3-5 years,None,7,Good prospects
-1213.,,Bachelor's degree,3-5 years,None,7,Good prospects
 1219,,Bachelor's degree,3-5 years,None,6,Moderate prospects
-1219.,,Bachelor's degree,3-5 years,None,6,Moderate prospects
 1221,,Bachelor's degree,3-5 years,None,8,Good prospects
-1221.,,Bachelor's degree,3-5 years,None,8,Good prospects
 1222,,Bachelor's degree,3-5 years,None,7,Good prospects
-1222.,,Bachelor's degree,3-5 years,None,7,Good prospects
 1223,,Bachelor's degree,3-5 years,None,7,Good prospects
-1223.,,Bachelor's degree,3-5 years,None,7,Good prospects
 1311,,Bachelor's degree,2-4 years,None,8,Good prospects
-1311.,,Bachelor's degree,2-4 years,None,8,Good prospects
 1312,,Bachelor's degree,2-4 years,None,7,Good prospects
-1312.,,Bachelor's degree,2-4 years,None,7,Good prospects
 1321,,Bachelor's degree,2-4 years,None,8,Good prospects
-1321.,,Bachelor's degree,2-4 years,None,8,Good prospects
 1322,,Bachelor's degree,2-4 years,None,7,Good prospects
-1322.,,Bachelor's degree,2-4 years,None,7,Good prospects
 1323,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-1323.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 1324,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-1324.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 1330,,Bachelor's degree,2-4 years,None,7,Good prospects
-1330.,,Bachelor's degree,2-4 years,None,7,Good prospects
 1341,,Bachelor's degree,2-4 years,None,7,Good prospects
-1341.,,Bachelor's degree,2-4 years,None,7,Good prospects
 1342,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-1342.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 1343,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-1343.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 1344,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-1344.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 1345,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-1345.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 1346,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-1346.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 1349,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-1349.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 1411,,Upper secondary,None,Vocational training,3,Stable
-1411.,,Upper secondary,None,Vocational training,3,Stable
 1412,,Upper secondary,None,Vocational training,3,Stable
-1412.,,Upper secondary,None,Vocational training,3,Stable
 1420,,Upper secondary,None,Vocational training,3,Stable
-1420.,,Upper secondary,None,Vocational training,3,Stable
 1431,,Upper secondary,None,Vocational training,2,Stable
-1431.,,Upper secondary,None,Vocational training,2,Stable
 1439,,Upper secondary,None,Vocational training,2,Stable
-1439.,,Upper secondary,None,Vocational training,2,Stable
 2111,,Bachelor's degree,2-4 years,None,7,Good prospects
-2111.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2112,,Bachelor's degree,2-4 years,None,7,Good prospects
-2112.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2113,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2113.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2114,,Bachelor's degree,2-4 years,None,7,Good prospects
-2114.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2120,,Bachelor's degree,2-4 years,None,7,Good prospects
-2120.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2131,,Bachelor's degree,2-4 years,None,8,Good prospects
-2131.,,Bachelor's degree,2-4 years,None,8,Good prospects
 2132,,Bachelor's degree,2-4 years,None,8,Good prospects
-2132.,,Bachelor's degree,2-4 years,None,8,Good prospects
 21321,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 21322,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2133,,Bachelor's degree,2-4 years,None,7,Good prospects
-2133.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2141,,Bachelor's degree,2-4 years,None,7,Good prospects
-2141.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2142,,Bachelor's degree,2-4 years,None,7,Good prospects
-2142.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2143,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2143.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2144,,Bachelor's degree,2-4 years,None,7,Good prospects
-2144.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2145,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2145.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2146,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2146.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2149,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2149.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2151,,Bachelor's degree,2-4 years,None,8,Good prospects
-2151.,,Bachelor's degree,2-4 years,None,8,Good prospects
 2152,,Bachelor's degree,2-4 years,None,7,Good prospects
-2152.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2153,,Bachelor's degree,2-4 years,None,7,Good prospects
-2153.,,Bachelor's degree,2-4 years,None,7,Good prospects
 21531,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 21532,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-216.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-216..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+216,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2161,,Bachelor's degree,2-4 years,None,7,Good prospects
-2161.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2162,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2162.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2163,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2163.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2164,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2164.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2165,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2165.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2166,,Bachelor's degree,2-4 years,None,4,Below average
-2166.,,Bachelor's degree,2-4 years,None,4,Below average
 2211,,Doctoral degree,5+ years,Specialist training,9,Very good prospects
-2211.,,Doctoral degree,5+ years,Specialist training,9,Very good prospects
 2212,,Bachelor's degree,3-5 years,None,8,Good prospects
 22121,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 22122,,Bachelor's degree,2-4 years,None,6,Moderate prospects
@@ -130,21 +73,13 @@ code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outl
 22211,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 22212,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2250,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2250.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-226.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-226..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+226,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2261,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2261.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2262,,Bachelor's degree,2-4 years,None,7,Good prospects
-2262.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2263,,Bachelor's degree,2-4 years,None,7,Good prospects
-2263.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2265,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2265.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2266,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2266.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2269,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2269.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2310,,Bachelor's degree,2-4 years,None,7,Good prospects
 23101,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 23102,,Bachelor's degree,2-4 years,None,6,Moderate prospects
@@ -153,31 +88,20 @@ code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outl
 23105,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 23106,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2320,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2320.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-233.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-233..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+233,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2330,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-234.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-234..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+234,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2341,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 23411,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 23412,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2342,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2342.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-235.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-235..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+235,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2351,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2351.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2352,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2352.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2353,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2353.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2354,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2354.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2355,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2355.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2356,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2356.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2359,,Bachelor's degree,2-4 years,None,4,Below average
 23591,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 23592,,Bachelor's degree,2-4 years,None,6,Moderate prospects
@@ -186,438 +110,248 @@ code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outl
 23303,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 23304,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2411,,Bachelor's degree,2-4 years,None,7,Good prospects
-2411.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2412,,Bachelor's degree,2-4 years,None,7,Good prospects
-2412.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2413,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2413.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2421,,Bachelor's degree,2-4 years,None,7,Good prospects
-2421.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2422,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2422.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2423,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2423.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2424,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2424.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-243.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-243..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+243,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2431,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2431.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2432,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2432.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2433,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2433.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2434,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2434.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-25..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-25...,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-251.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-251..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-252.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-252..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+25,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+251,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+252,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2511,,Bachelor's degree,2-4 years,None,8,Good prospects
-2511.,,Bachelor's degree,2-4 years,None,8,Good prospects
 2512,,Bachelor's degree,2-4 years,None,7,Good prospects
-2512.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2513,,Bachelor's degree,2-4 years,None,7,Good prospects
-2513.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2514,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2514.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2519,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2519.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2521,,Bachelor's degree,2-4 years,None,7,Good prospects
-2521.,,Bachelor's degree,2-4 years,None,7,Good prospects
 2522,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2522.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2523,,Bachelor's degree,2-4 years,None,5,Moderate prospects
-2523.,,Bachelor's degree,2-4 years,None,5,Moderate prospects
 2529,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2529.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2611,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2611.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2612,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2612.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2619,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2619.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2621,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 26211,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 26212,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2622,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2622.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2631,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2631.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2632,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2632.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2633,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2633.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2634,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2634.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2635,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2635.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 26351,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 26352,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2636,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2636.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2641,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2641.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2642,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2642.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 26421,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 26422,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 26423,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2643,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2643.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-265.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-265..,,Bachelor's degree,2-4 years,None,6,Moderate prospects
+265,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2651,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2651.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2652,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2652.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2653,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2653.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2654,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2654.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2655,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2655.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2656,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2656.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 2659,,Bachelor's degree,2-4 years,None,6,Moderate prospects
-2659.,,Bachelor's degree,2-4 years,None,6,Moderate prospects
 3111,,Upper secondary,None,Vocational training,6,Moderate prospects
-3111.,,Upper secondary,None,Vocational training,6,Moderate prospects
 3112,,Upper secondary,None,Vocational training,5,Moderate prospects
-3112.,,Upper secondary,None,Vocational training,5,Moderate prospects
 31122,,Upper secondary,None,Vocational training,4,Moderate prospects
 31123,,Upper secondary,None,Vocational training,4,Moderate prospects
 3113,,Upper secondary,None,Vocational training,6,Moderate prospects
-3113.,,Upper secondary,None,Vocational training,6,Moderate prospects
 3114,,Upper secondary,None,Vocational training,5,Moderate prospects
-3114.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3115,,Upper secondary,None,Vocational training,5,Moderate prospects
-3115.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3116,,Upper secondary,None,Vocational training,4,Moderate prospects
-3116.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3117,,Upper secondary,None,Vocational training,4,Moderate prospects
-3117.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3118,,Upper secondary,None,Vocational training,4,Below average
-3118.,,Upper secondary,None,Vocational training,4,Below average
 3119,,Upper secondary,None,Vocational training,4,Below average
-3119.,,Upper secondary,None,Vocational training,4,Below average
 3121,,Upper secondary,None,Vocational training,6,Moderate prospects
-3121.,,Upper secondary,None,Vocational training,6,Moderate prospects
 31121,,Upper secondary,None,Vocational training,4,Moderate prospects
 3122,,Upper secondary,None,Vocational training,5,Moderate prospects
-3122.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3123,,Upper secondary,None,Vocational training,5,Moderate prospects
-3123.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3131,,Upper secondary,None,Vocational training,4,Below average
-3131.,,Upper secondary,None,Vocational training,4,Below average
 3132,,Upper secondary,None,Vocational training,3,Stable
-3132.,,Upper secondary,None,Vocational training,3,Stable
 3133,,Upper secondary,None,Vocational training,3,Stable
-3133.,,Upper secondary,None,Vocational training,3,Stable
 3134,,Upper secondary,None,Vocational training,3,Stable
-3134.,,Upper secondary,None,Vocational training,3,Stable
 3135,,Upper secondary,None,Vocational training,4,Moderate prospects
-3135.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3139,,Upper secondary,None,Vocational training,3,Stable
-3139.,,Upper secondary,None,Vocational training,3,Stable
 3141,,Upper secondary,None,Vocational training,5,Moderate prospects
-3141.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3142,,Upper secondary,None,Vocational training,5,Moderate prospects
-3142.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3143,,Upper secondary,None,Vocational training,4,Below average
-3143.,,Upper secondary,None,Vocational training,4,Below average
 3151,,Upper secondary,None,Vocational training,4,Below average
-3151.,,Upper secondary,None,Vocational training,4,Below average
 3152,,Upper secondary,None,Vocational training,4,Below average
-3152.,,Upper secondary,None,Vocational training,4,Below average
 31521,,Upper secondary,None,Vocational training,4,Moderate prospects
 31522,,Upper secondary,None,Vocational training,4,Moderate prospects
 31523,,Upper secondary,None,Vocational training,4,Moderate prospects
 3153,,Upper secondary,None,Vocational training,4,Below average
-3153.,,Upper secondary,None,Vocational training,4,Below average
 3154,,Upper secondary,None,Vocational training,3,Stable
-3154.,,Upper secondary,None,Vocational training,3,Stable
 3155,,Upper secondary,None,Vocational training,3,Stable
-3155.,,Upper secondary,None,Vocational training,3,Stable
 3211,,Upper secondary,None,Vocational training,6,Moderate prospects
-3211.,,Upper secondary,None,Vocational training,6,Moderate prospects
 3212,,Upper secondary,None,Vocational training,5,Moderate prospects
-3212.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3213,,Upper secondary,None,Vocational training,6,Moderate prospects
-3213.,,Upper secondary,None,Vocational training,6,Moderate prospects
 3214,,Upper secondary,None,Vocational training,5,Moderate prospects
 32141,,Upper secondary,None,Vocational training,4,Moderate prospects
 32142,,Upper secondary,None,Vocational training,4,Moderate prospects
 3221,,Upper secondary,None,Vocational training,5,Moderate prospects
-3221.,,Upper secondary,None,Vocational training,5,Moderate prospects
 32211,,Upper secondary,None,Vocational training,4,Moderate prospects
 32212,,Upper secondary,None,Vocational training,4,Moderate prospects
 3222,,Upper secondary,None,Vocational training,6,Moderate prospects
-3222.,,Upper secondary,None,Vocational training,6,Moderate prospects
 3230,,Upper secondary,None,Vocational training,4,Moderate prospects
-3230.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3240,,Upper secondary,None,Vocational training,4,Moderate prospects
-3240.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3251,,Upper secondary,None,Vocational training,4,Moderate prospects
-3251.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3254,,Upper secondary,None,Vocational training,4,Moderate prospects
-3254.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3255,,Upper secondary,None,Vocational training,4,Moderate prospects
-3255.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3257,,Upper secondary,None,Vocational training,4,Moderate prospects
-3257.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3258,,Upper secondary,None,Vocational training,4,Moderate prospects
-3258.,,Upper secondary,None,Vocational training,4,Moderate prospects
 3259,,Upper secondary,None,Vocational training,4,Moderate prospects
-3259.,,Upper secondary,None,Vocational training,4,Moderate prospects
 32591,,Upper secondary,None,Vocational training,4,Moderate prospects
 32592,,Upper secondary,None,Vocational training,4,Moderate prospects
 3311,,Upper secondary,None,Vocational training,5,Moderate prospects
-3311.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3312,,Upper secondary,None,Vocational training,5,Moderate prospects
-3312.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3313,,Upper secondary,None,Vocational training,4,Below average
-3313.,,Upper secondary,None,Vocational training,4,Below average
 3314,,Upper secondary,None,Vocational training,4,Below average
-3314.,,Upper secondary,None,Vocational training,4,Below average
 3315,,Upper secondary,None,Vocational training,4,Below average
-3315.,,Upper secondary,None,Vocational training,4,Below average
 3321,,Upper secondary,None,Vocational training,5,Moderate prospects
-3321.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3322,,Upper secondary,None,Vocational training,4,Below average
-3322.,,Upper secondary,None,Vocational training,4,Below average
 3323,,Upper secondary,None,Vocational training,4,Below average
-3323.,,Upper secondary,None,Vocational training,4,Below average
 3324,,Upper secondary,None,Vocational training,3,Stable
-3324.,,Upper secondary,None,Vocational training,3,Stable
 3331,,Upper secondary,None,Vocational training,4,Below average
-3331.,,Upper secondary,None,Vocational training,4,Below average
 3332,,Upper secondary,None,Vocational training,4,Below average
-3332.,,Upper secondary,None,Vocational training,4,Below average
 3333,,Upper secondary,None,Vocational training,4,Below average
-3333.,,Upper secondary,None,Vocational training,4,Below average
 3334,,Upper secondary,None,Vocational training,3,Stable
-3334.,,Upper secondary,None,Vocational training,3,Stable
 33341,,Upper secondary,None,Vocational training,4,Moderate prospects
 33342,,Upper secondary,None,Vocational training,4,Moderate prospects
 3339,,Upper secondary,None,Vocational training,4,Below average
-3339.,,Upper secondary,None,Vocational training,4,Below average
 3341,,Upper secondary,None,Vocational training,4,Below average
-3341.,,Upper secondary,None,Vocational training,4,Below average
 3342,,Upper secondary,None,Vocational training,4,Below average
-3342.,,Upper secondary,None,Vocational training,4,Below average
 3343,,Upper secondary,None,Vocational training,3,Stable
-3343.,,Upper secondary,None,Vocational training,3,Stable
 3344,,Upper secondary,None,Vocational training,3,Stable
-3344.,,Upper secondary,None,Vocational training,3,Stable
 3351,,Upper secondary,None,Vocational training,3,Stable
-3351.,,Upper secondary,None,Vocational training,3,Stable
 3352,,Upper secondary,None,Vocational training,3,Stable
-3352.,,Upper secondary,None,Vocational training,3,Stable
 3353,,Upper secondary,None,Vocational training,4,Below average
-3353.,,Upper secondary,None,Vocational training,4,Below average
 3354,,Upper secondary,None,Vocational training,3,Stable
-3354.,,Upper secondary,None,Vocational training,3,Stable
 3355,,Upper secondary,None,Vocational training,3,Stable
-3355.,,Upper secondary,None,Vocational training,3,Stable
 3359,,Upper secondary,None,Vocational training,4,Below average
-3359.,,Upper secondary,None,Vocational training,4,Below average
 3411,,Upper secondary,None,Vocational training,4,Below average
 34111,,Upper secondary,None,Vocational training,4,Moderate prospects
 34112,,Upper secondary,None,Vocational training,4,Moderate prospects
 34113,,Upper secondary,None,Vocational training,4,Moderate prospects
 3412,,Upper secondary,None,Vocational training,3,Stable
-3412.,,Upper secondary,None,Vocational training,3,Stable
 34121,,Upper secondary,None,Vocational training,4,Moderate prospects
 34122,,Upper secondary,None,Vocational training,4,Moderate prospects
 34123,,Upper secondary,None,Vocational training,4,Moderate prospects
 3413,,Upper secondary,None,Vocational training,4,Moderate prospects
-3413.,,Upper secondary,None,Vocational training,4,Moderate prospects
 34131,,Upper secondary,None,Vocational training,4,Moderate prospects
 34139,,Upper secondary,None,Vocational training,4,Moderate prospects
-342.,,Upper secondary,None,Vocational training,4,Moderate prospects
-342..,,Upper secondary,None,Vocational training,4,Moderate prospects
+342,,Upper secondary,None,Vocational training,4,Moderate prospects
 3421,,Upper secondary,None,Vocational training,3,Stable
-3421.,,Upper secondary,None,Vocational training,3,Stable
 3422,,Upper secondary,None,Vocational training,4,Below average
-3422.,,Upper secondary,None,Vocational training,4,Below average
 3423,,Upper secondary,None,Vocational training,3,Stable
-3423.,,Upper secondary,None,Vocational training,3,Stable
 3431,,Upper secondary,None,Vocational training,3,Stable
-3431.,,Upper secondary,None,Vocational training,3,Stable
 3432,,Upper secondary,None,Vocational training,4,Below average
-3432.,,Upper secondary,None,Vocational training,4,Below average
 3433,,Upper secondary,None,Vocational training,2,Stable
-3433.,,Upper secondary,None,Vocational training,2,Stable
 3434,,Upper secondary,None,Vocational training,3,Stable
-3434.,,Upper secondary,None,Vocational training,3,Stable
 3435,,Upper secondary,None,Vocational training,4,Moderate prospects
-3435.,,Upper secondary,None,Vocational training,4,Moderate prospects
 34351,,Upper secondary,None,Vocational training,4,Moderate prospects
 34359,,Upper secondary,None,Vocational training,4,Moderate prospects
-351.,,Upper secondary,None,Vocational training,4,Moderate prospects
-351..,,Upper secondary,None,Vocational training,4,Moderate prospects
+351,,Upper secondary,None,Vocational training,4,Moderate prospects
 3511,,Upper secondary,None,Vocational training,5,Moderate prospects
-3511.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3512,,Upper secondary,None,Vocational training,5,Moderate prospects
-3512.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3513,,Upper secondary,None,Vocational training,4,Below average
-3513.,,Upper secondary,None,Vocational training,4,Below average
 3514,,Upper secondary,None,Vocational training,4,Below average
-3514.,,Upper secondary,None,Vocational training,4,Below average
-352.,,Upper secondary,None,Vocational training,4,Moderate prospects
-352..,,Upper secondary,None,Vocational training,4,Moderate prospects
+352,,Upper secondary,None,Vocational training,4,Moderate prospects
 3521,,Upper secondary,None,Vocational training,5,Moderate prospects
-3521.,,Upper secondary,None,Vocational training,5,Moderate prospects
 3522,,Upper secondary,None,Vocational training,4,Below average
-3522.,,Upper secondary,None,Vocational training,4,Below average
-41..,,Upper secondary,None,None,2,Below average
-41...,,Upper secondary,None,None,2,Below average
+41,,Upper secondary,None,None,2,Below average
 4110,,Upper secondary,None,None,2,Below average
-4110.,,Upper secondary,None,None,2,Below average
 4120,,Upper secondary,None,None,2,Stable
-4120.,,Upper secondary,None,None,2,Stable
 4131,,Upper secondary,None,None,2,Stable
-4131.,,Upper secondary,None,None,2,Stable
 4132,,Upper secondary,None,None,1,Declining
-4132.,,Upper secondary,None,None,1,Declining
 4211,,Upper secondary,None,None,2,Stable
-4211.,,Upper secondary,None,None,2,Stable
 4212,,Upper secondary,None,None,2,Stable
-4212.,,Upper secondary,None,None,2,Stable
 4213,,Upper secondary,None,None,1,Declining
-4213.,,Upper secondary,None,None,1,Declining
 4214,,Upper secondary,None,None,2,Stable
-4214.,,Upper secondary,None,None,2,Stable
 4221,,Upper secondary,None,None,2,Stable
-4221.,,Upper secondary,None,None,2,Stable
 4222,,Upper secondary,None,None,2,Stable
-4222.,,Upper secondary,None,None,2,Stable
 4223,,Upper secondary,None,None,2,Stable
-4223.,,Upper secondary,None,None,2,Stable
 4224,,Upper secondary,None,None,1,Declining
-4224.,,Upper secondary,None,None,1,Declining
 4225,,Upper secondary,None,None,2,Below average
-4225.,,Upper secondary,None,None,2,Below average
 4226,,Upper secondary,None,None,2,Below average
-4226.,,Upper secondary,None,None,2,Below average
 4227,,Upper secondary,None,None,2,Stable
-4227.,,Upper secondary,None,None,2,Stable
 4229,,Upper secondary,None,None,1,Declining
-4229.,,Upper secondary,None,None,1,Declining
 42291,,Upper secondary,None,None,2,Below average
 42299,,Upper secondary,None,None,2,Below average
 4311,,Upper secondary,None,None,2,Stable
-4311.,,Upper secondary,None,None,2,Stable
 4312,,Upper secondary,None,None,3,Stable
-4312.,,Upper secondary,None,None,3,Stable
 4313,,Upper secondary,None,None,2,Stable
-4313.,,Upper secondary,None,None,2,Stable
 4321,,Upper secondary,None,None,1,Declining
-4321.,,Upper secondary,None,None,1,Declining
 4322,,Upper secondary,None,None,2,Stable
-4322.,,Upper secondary,None,None,2,Stable
 4323,,Upper secondary,None,None,1,Declining
-4323.,,Upper secondary,None,None,1,Declining
 43231,,Upper secondary,None,None,2,Below average
 43239,,Upper secondary,None,None,2,Below average
 4411,,Upper secondary,None,None,2,Stable
-4411.,,Upper secondary,None,None,2,Stable
 4412,,Upper secondary,None,None,1,Declining
 44121,,Upper secondary,None,None,2,Below average
 44122,,Upper secondary,None,None,2,Below average
 4413,,Upper secondary,None,None,2,Stable
-4413.,,Upper secondary,None,None,2,Stable
 4415,,Upper secondary,None,None,2,Stable
-4415.,,Upper secondary,None,None,2,Stable
 4416,,Upper secondary,None,None,1,Declining
-4416.,,Upper secondary,None,None,1,Declining
 4419,,Upper secondary,None,None,2,Stable
-4419.,,Upper secondary,None,None,2,Stable
 5111,,Upper secondary,None,On-the-job training,3,Stable
-5111.,,Upper secondary,None,On-the-job training,3,Stable
 5112,,Upper secondary,None,On-the-job training,2,Stable
-5112.,,Upper secondary,None,On-the-job training,2,Stable
 5113,,Upper secondary,None,On-the-job training,3,Stable
-5113.,,Upper secondary,None,On-the-job training,3,Stable
 5120,,Upper secondary,None,On-the-job training,2,Stable
-5120.,,Upper secondary,None,On-the-job training,2,Stable
 51201,,Upper secondary,None,On-the-job training,2,Below average
 51202,,Upper secondary,None,On-the-job training,2,Below average
-513.,,Upper secondary,None,On-the-job training,2,Below average
-513..,,Upper secondary,None,On-the-job training,2,Below average
+513,,Upper secondary,None,On-the-job training,2,Below average
 5131,,Upper secondary,None,On-the-job training,2,Stable
-5131.,,Upper secondary,None,On-the-job training,2,Stable
 5132,,Upper secondary,None,On-the-job training,3,Stable
-5132.,,Upper secondary,None,On-the-job training,3,Stable
-514.,,Upper secondary,None,On-the-job training,2,Below average
-514..,,Upper secondary,None,On-the-job training,2,Below average
+514,,Upper secondary,None,On-the-job training,2,Below average
 5141,,Upper secondary,None,On-the-job training,3,Stable
-5141.,,Upper secondary,None,On-the-job training,3,Stable
 5142,,Upper secondary,None,On-the-job training,2,Stable
-5142.,,Upper secondary,None,On-the-job training,2,Stable
 5151,,Upper secondary,None,On-the-job training,3,Stable
-5151.,,Upper secondary,None,On-the-job training,3,Stable
 5152,,Upper secondary,None,On-the-job training,2,Stable
-5152.,,Upper secondary,None,On-the-job training,2,Stable
 5153,,Upper secondary,None,On-the-job training,3,Stable
-5153.,,Upper secondary,None,On-the-job training,3,Stable
 5161,,Upper secondary,None,On-the-job training,2,Stable
-5161.,,Upper secondary,None,On-the-job training,2,Stable
 5163,,Upper secondary,None,On-the-job training,2,Stable
 51631,,Upper secondary,None,On-the-job training,2,Below average
 51632,,Upper secondary,None,On-the-job training,2,Below average
 5164,,Upper secondary,None,On-the-job training,3,Stable
-5164.,,Upper secondary,None,On-the-job training,3,Stable
 5165,,Upper secondary,None,On-the-job training,2,Below average
-5165.,,Upper secondary,None,On-the-job training,2,Below average
 5169,,Upper secondary,None,On-the-job training,2,Stable
-5169.,,Upper secondary,None,On-the-job training,2,Stable
-521.,,Upper secondary,None,On-the-job training,2,Below average
-521..,,Upper secondary,None,On-the-job training,2,Below average
+521,,Upper secondary,None,On-the-job training,2,Below average
 5211,,Upper secondary,None,On-the-job training,2,Stable
-5211.,,Upper secondary,None,On-the-job training,2,Stable
 5212,,Upper secondary,None,On-the-job training,3,Stable
-5212.,,Upper secondary,None,On-the-job training,3,Stable
 5221,,Upper secondary,None,On-the-job training,2,Below average
-5221.,,Upper secondary,None,On-the-job training,2,Below average
 5222,,Upper secondary,None,On-the-job training,2,Below average
-5222.,,Upper secondary,None,On-the-job training,2,Below average
 5223,,Upper secondary,None,On-the-job training,2,Below average
-5223.,,Upper secondary,None,On-the-job training,2,Below average
 5230,,Upper secondary,None,On-the-job training,3,Stable
-5230.,,Upper secondary,None,On-the-job training,3,Stable
 5241,,Upper secondary,None,On-the-job training,2,Stable
-5241.,,Upper secondary,None,On-the-job training,2,Stable
 5242,,Upper secondary,None,On-the-job training,3,Stable
-5242.,,Upper secondary,None,On-the-job training,3,Stable
 5243,,Upper secondary,None,On-the-job training,2,Stable
-5243.,,Upper secondary,None,On-the-job training,2,Stable
 5244,,Upper secondary,None,On-the-job training,3,Stable
-5244.,,Upper secondary,None,On-the-job training,3,Stable
 5245,,Upper secondary,None,On-the-job training,2,Stable
-5245.,,Upper secondary,None,On-the-job training,2,Stable
 5246,,Upper secondary,None,On-the-job training,3,Stable
-5246.,,Upper secondary,None,On-the-job training,3,Stable
 5249,,Upper secondary,None,On-the-job training,2,Below average
-5249.,,Upper secondary,None,On-the-job training,2,Below average
 5311,,Upper secondary,None,On-the-job training,2,Stable
-5311.,,Upper secondary,None,On-the-job training,2,Stable
 53111,,Upper secondary,None,On-the-job training,2,Below average
 53112,,Upper secondary,None,On-the-job training,2,Below average
 53113,,Upper secondary,None,On-the-job training,2,Below average
 5312,,Upper secondary,None,On-the-job training,3,Stable
-5312.,,Upper secondary,None,On-the-job training,3,Stable
 5321,,Upper secondary,None,On-the-job training,2,Below average
-5321.,,Upper secondary,None,On-the-job training,2,Below average
 53211,,Upper secondary,None,On-the-job training,2,Below average
 53212,,Upper secondary,None,On-the-job training,2,Below average
 53213,,Upper secondary,None,On-the-job training,2,Below average
 53219,,Upper secondary,None,On-the-job training,2,Below average
 5322,,Upper secondary,None,On-the-job training,2,Below average
-5322.,,Upper secondary,None,On-the-job training,2,Below average
 53221,,Upper secondary,None,On-the-job training,2,Below average
 53222,,Upper secondary,None,On-the-job training,2,Below average
 5329,,Upper secondary,None,On-the-job training,2,Below average
@@ -626,379 +360,203 @@ code,median_pay_annual,entry_education,work_experience,training,outlook_pct,outl
 53293,,Upper secondary,None,On-the-job training,2,Below average
 53294,,Upper secondary,None,On-the-job training,2,Below average
 5411,,Upper secondary,None,On-the-job training,3,Stable
-5411.,,Upper secondary,None,On-the-job training,3,Stable
 5412,,Upper secondary,None,On-the-job training,2,Stable
-5412.,,Upper secondary,None,On-the-job training,2,Stable
 5413,,Upper secondary,None,On-the-job training,3,Stable
-5413.,,Upper secondary,None,On-the-job training,3,Stable
 5414,,Upper secondary,None,On-the-job training,2,Stable
-5414.,,Upper secondary,None,On-the-job training,2,Stable
 5419,,Upper secondary,None,On-the-job training,3,Stable
-5419.,,Upper secondary,None,On-the-job training,3,Stable
 6111,,Upper secondary,None,Vocational training,3,Stable
-6111.,,Upper secondary,None,Vocational training,3,Stable
 61111,,Upper secondary,None,Vocational training,2,Below average
 61112,,Upper secondary,None,Vocational training,2,Below average
 6112,,Upper secondary,None,Vocational training,2,Stable
-6112.,,Upper secondary,None,Vocational training,2,Stable
 6113,,Upper secondary,None,Vocational training,3,Stable
-6113.,,Upper secondary,None,Vocational training,3,Stable
 61131,,Upper secondary,None,Vocational training,2,Below average
 61132,,Upper secondary,None,Vocational training,2,Below average
 6114,,Upper secondary,None,Vocational training,2,Stable
-6114.,,Upper secondary,None,Vocational training,2,Stable
 6121,,Upper secondary,None,Vocational training,3,Stable
 61211,,Upper secondary,None,Vocational training,2,Below average
 61212,,Upper secondary,None,Vocational training,2,Below average
 61213,,Upper secondary,None,Vocational training,2,Below average
 61214,,Upper secondary,None,Vocational training,2,Below average
 6122,,Upper secondary,None,Vocational training,2,Stable
-6122.,,Upper secondary,None,Vocational training,2,Stable
 6123,,Upper secondary,None,Vocational training,3,Stable
-6123.,,Upper secondary,None,Vocational training,3,Stable
 6129,,Upper secondary,None,Vocational training,2,Stable
-6129.,,Upper secondary,None,Vocational training,2,Stable
 61291,,Upper secondary,None,Vocational training,2,Below average
 61299,,Upper secondary,None,Vocational training,2,Below average
 6130,,Upper secondary,None,Vocational training,3,Stable
-6130.,,Upper secondary,None,Vocational training,3,Stable
 6210,,Upper secondary,None,Vocational training,3,Stable
-6210.,,Upper secondary,None,Vocational training,3,Stable
 6221,,Upper secondary,None,Vocational training,2,Stable
-6221.,,Upper secondary,None,Vocational training,2,Stable
 62211,,Upper secondary,None,Vocational training,2,Below average
 62212,,Upper secondary,None,Vocational training,2,Below average
 6222,,Upper secondary,None,Vocational training,3,Stable
-6222.,,Upper secondary,None,Vocational training,3,Stable
 6224,,Upper secondary,None,Vocational training,3,Stable
-6224.,,Upper secondary,None,Vocational training,3,Stable
-711.,,Upper secondary,None,Vocational training,3,Below average
-711..,,Upper secondary,None,Vocational training,3,Below average
+711,,Upper secondary,None,Vocational training,3,Below average
 7111,,Upper secondary,None,Vocational training,4,Below average
-7111.,,Upper secondary,None,Vocational training,4,Below average
 7112,,Upper secondary,None,Vocational training,3,Stable
-7112.,,Upper secondary,None,Vocational training,3,Stable
 7113,,Upper secondary,None,Vocational training,4,Below average
-7113.,,Upper secondary,None,Vocational training,4,Below average
 7114,,Upper secondary,None,Vocational training,3,Stable
-7114.,,Upper secondary,None,Vocational training,3,Stable
 7115,,Upper secondary,None,Vocational training,4,Below average
-7115.,,Upper secondary,None,Vocational training,4,Below average
 7119,,Upper secondary,None,Vocational training,3,Stable
-7119.,,Upper secondary,None,Vocational training,3,Stable
-712.,,Upper secondary,None,Vocational training,3,Below average
-712..,,Upper secondary,None,Vocational training,3,Below average
+712,,Upper secondary,None,Vocational training,3,Below average
 7121,,Upper secondary,None,Vocational training,3,Stable
-7121.,,Upper secondary,None,Vocational training,3,Stable
 7122,,Upper secondary,None,Vocational training,4,Below average
-7122.,,Upper secondary,None,Vocational training,4,Below average
 7123,,Upper secondary,None,Vocational training,3,Stable
-7123.,,Upper secondary,None,Vocational training,3,Stable
 7124,,Upper secondary,None,Vocational training,4,Below average
-7124.,,Upper secondary,None,Vocational training,4,Below average
 7125,,Upper secondary,None,Vocational training,3,Stable
-7125.,,Upper secondary,None,Vocational training,3,Stable
 7126,,Upper secondary,None,Vocational training,4,Below average
-7126.,,Upper secondary,None,Vocational training,4,Below average
 7127,,Upper secondary,None,Vocational training,3,Stable
-7127.,,Upper secondary,None,Vocational training,3,Stable
-713.,,Upper secondary,None,Vocational training,3,Below average
-713..,,Upper secondary,None,Vocational training,3,Below average
+713,,Upper secondary,None,Vocational training,3,Below average
 7131,,Upper secondary,None,Vocational training,3,Stable
-7131.,,Upper secondary,None,Vocational training,3,Stable
 7132,,Upper secondary,None,Vocational training,4,Below average
-7132.,,Upper secondary,None,Vocational training,4,Below average
 7133,,Upper secondary,None,Vocational training,3,Stable
-7133.,,Upper secondary,None,Vocational training,3,Stable
-721.,,Upper secondary,None,Vocational training,3,Below average
-721..,,Upper secondary,None,Vocational training,3,Below average
+721,,Upper secondary,None,Vocational training,3,Below average
 7211,,Upper secondary,None,Vocational training,4,Below average
-7211.,,Upper secondary,None,Vocational training,4,Below average
 7212,,Upper secondary,None,Vocational training,3,Stable
-7212.,,Upper secondary,None,Vocational training,3,Stable
 7213,,Upper secondary,None,Vocational training,4,Below average
-7213.,,Upper secondary,None,Vocational training,4,Below average
 7214,,Upper secondary,None,Vocational training,3,Stable
-7214.,,Upper secondary,None,Vocational training,3,Stable
 7215,,Upper secondary,None,Vocational training,3,Below average
-7215.,,Upper secondary,None,Vocational training,3,Below average
-722.,,Upper secondary,None,Vocational training,3,Below average
-722..,,Upper secondary,None,Vocational training,3,Below average
+722,,Upper secondary,None,Vocational training,3,Below average
 7221,,Upper secondary,None,Vocational training,3,Stable
-7221.,,Upper secondary,None,Vocational training,3,Stable
 7222,,Upper secondary,None,Vocational training,4,Below average
-7222.,,Upper secondary,None,Vocational training,4,Below average
 7223,,Upper secondary,None,Vocational training,3,Stable
-7223.,,Upper secondary,None,Vocational training,3,Stable
 7224,,Upper secondary,None,Vocational training,4,Below average
-7224.,,Upper secondary,None,Vocational training,4,Below average
-723.,,Upper secondary,None,Vocational training,3,Below average
-723..,,Upper secondary,None,Vocational training,3,Below average
+723,,Upper secondary,None,Vocational training,3,Below average
 7231,,Upper secondary,None,Vocational training,3,Stable
-7231.,,Upper secondary,None,Vocational training,3,Stable
 7232,,Upper secondary,None,Vocational training,4,Below average
-7232.,,Upper secondary,None,Vocational training,4,Below average
 7233,,Upper secondary,None,Vocational training,3,Below average
-7233.,,Upper secondary,None,Vocational training,3,Below average
 7234,,Upper secondary,None,Vocational training,3,Below average
-7234.,,Upper secondary,None,Vocational training,3,Below average
-731.,,Upper secondary,None,Vocational training,3,Below average
-731..,,Upper secondary,None,Vocational training,3,Below average
+731,,Upper secondary,None,Vocational training,3,Below average
 7311,,Upper secondary,None,Vocational training,3,Stable
-7311.,,Upper secondary,None,Vocational training,3,Stable
 7312,,Upper secondary,None,Vocational training,4,Below average
-7312.,,Upper secondary,None,Vocational training,4,Below average
 7313,,Upper secondary,None,Vocational training,3,Stable
-7313.,,Upper secondary,None,Vocational training,3,Stable
 7314,,Upper secondary,None,Vocational training,4,Below average
-7314.,,Upper secondary,None,Vocational training,4,Below average
 7315,,Upper secondary,None,Vocational training,3,Stable
-7315.,,Upper secondary,None,Vocational training,3,Stable
 7316,,Upper secondary,None,Vocational training,4,Below average
-7316.,,Upper secondary,None,Vocational training,4,Below average
 7317,,Upper secondary,None,Vocational training,3,Stable
-7317.,,Upper secondary,None,Vocational training,3,Stable
 7318,,Upper secondary,None,Vocational training,4,Below average
-7318.,,Upper secondary,None,Vocational training,4,Below average
 7319,,Upper secondary,None,Vocational training,3,Stable
-7319.,,Upper secondary,None,Vocational training,3,Stable
-732.,,Upper secondary,None,Vocational training,3,Below average
-732..,,Upper secondary,None,Vocational training,3,Below average
+732,,Upper secondary,None,Vocational training,3,Below average
 7321,,Upper secondary,None,Vocational training,3,Stable
-7321.,,Upper secondary,None,Vocational training,3,Stable
 7322,,Upper secondary,None,Vocational training,4,Below average
-7322.,,Upper secondary,None,Vocational training,4,Below average
 7323,,Upper secondary,None,Vocational training,3,Stable
-7323.,,Upper secondary,None,Vocational training,3,Stable
-741.,,Upper secondary,None,Vocational training,3,Below average
-741..,,Upper secondary,None,Vocational training,3,Below average
+741,,Upper secondary,None,Vocational training,3,Below average
 7411,,Upper secondary,None,Vocational training,4,Below average
-7411.,,Upper secondary,None,Vocational training,4,Below average
 7412,,Upper secondary,None,Vocational training,3,Stable
-7412.,,Upper secondary,None,Vocational training,3,Stable
 7413,,Upper secondary,None,Vocational training,3,Below average
-7413.,,Upper secondary,None,Vocational training,3,Below average
-742.,,Upper secondary,None,Vocational training,3,Below average
-742..,,Upper secondary,None,Vocational training,3,Below average
+742,,Upper secondary,None,Vocational training,3,Below average
 7421,,Upper secondary,None,Vocational training,3,Stable
-7421.,,Upper secondary,None,Vocational training,3,Stable
 74211,,Upper secondary,None,Vocational training,3,Below average
 74212,,Upper secondary,None,Vocational training,3,Below average
 7422,,Upper secondary,None,Vocational training,4,Below average
-7422.,,Upper secondary,None,Vocational training,4,Below average
 7511,,Upper secondary,None,Vocational training,3,Below average
-7511.,,Upper secondary,None,Vocational training,3,Below average
 7512,,Upper secondary,None,Vocational training,3,Below average
-7512.,,Upper secondary,None,Vocational training,3,Below average
 7513,,Upper secondary,None,Vocational training,3,Below average
-7513.,,Upper secondary,None,Vocational training,3,Below average
 7514,,Upper secondary,None,Vocational training,3,Below average
-7514.,,Upper secondary,None,Vocational training,3,Below average
 7515,,Upper secondary,None,Vocational training,3,Below average
-7515.,,Upper secondary,None,Vocational training,3,Below average
-752.,,Upper secondary,None,Vocational training,3,Below average
-752..,,Upper secondary,None,Vocational training,3,Below average
+752,,Upper secondary,None,Vocational training,3,Below average
 7521,,Upper secondary,None,Vocational training,3,Stable
-7521.,,Upper secondary,None,Vocational training,3,Stable
 7522,,Upper secondary,None,Vocational training,4,Below average
-7522.,,Upper secondary,None,Vocational training,4,Below average
 7523,,Upper secondary,None,Vocational training,3,Stable
-7523.,,Upper secondary,None,Vocational training,3,Stable
-753.,,Upper secondary,None,Vocational training,3,Below average
-753..,,Upper secondary,None,Vocational training,3,Below average
+753,,Upper secondary,None,Vocational training,3,Below average
 7531,,Upper secondary,None,Vocational training,3,Stable
-7531.,,Upper secondary,None,Vocational training,3,Stable
 7532,,Upper secondary,None,Vocational training,4,Below average
-7532.,,Upper secondary,None,Vocational training,4,Below average
 7533,,Upper secondary,None,Vocational training,3,Stable
-7533.,,Upper secondary,None,Vocational training,3,Stable
 7534,,Upper secondary,None,Vocational training,4,Below average
-7534.,,Upper secondary,None,Vocational training,4,Below average
 7535,,Upper secondary,None,Vocational training,3,Stable
-7535.,,Upper secondary,None,Vocational training,3,Stable
 7536,,Upper secondary,None,Vocational training,4,Below average
-7536.,,Upper secondary,None,Vocational training,4,Below average
 7541,,Upper secondary,None,Vocational training,3,Stable
-7541.,,Upper secondary,None,Vocational training,3,Stable
 7542,,Upper secondary,None,Vocational training,4,Below average
-7542.,,Upper secondary,None,Vocational training,4,Below average
 7543,,Upper secondary,None,Vocational training,3,Stable
-7543.,,Upper secondary,None,Vocational training,3,Stable
 7544,,Upper secondary,None,Vocational training,4,Below average
-7544.,,Upper secondary,None,Vocational training,4,Below average
 7549,,Upper secondary,None,Vocational training,3,Stable
-7549.,,Upper secondary,None,Vocational training,3,Stable
 8111,,Upper secondary,None,Vocational training,3,Stable
-8111.,,Upper secondary,None,Vocational training,3,Stable
 8112,,Upper secondary,None,Vocational training,4,Below average
-8112.,,Upper secondary,None,Vocational training,4,Below average
 8113,,Upper secondary,None,Vocational training,3,Stable
-8113.,,Upper secondary,None,Vocational training,3,Stable
 8114,,Upper secondary,None,Vocational training,4,Below average
-8114.,,Upper secondary,None,Vocational training,4,Below average
-812.,,Upper secondary,None,Vocational training,3,Below average
-812..,,Upper secondary,None,Vocational training,3,Below average
+812,,Upper secondary,None,Vocational training,3,Below average
 8121,,Upper secondary,None,Vocational training,3,Stable
-8121.,,Upper secondary,None,Vocational training,3,Stable
 8122,,Upper secondary,None,Vocational training,4,Below average
-8122.,,Upper secondary,None,Vocational training,4,Below average
-813.,,Upper secondary,None,Vocational training,3,Below average
-813..,,Upper secondary,None,Vocational training,3,Below average
+813,,Upper secondary,None,Vocational training,3,Below average
 8131,,Upper secondary,None,Vocational training,3,Stable
-8131.,,Upper secondary,None,Vocational training,3,Stable
 8132,,Upper secondary,None,Vocational training,4,Below average
-8132.,,Upper secondary,None,Vocational training,4,Below average
 8141,,Upper secondary,None,Vocational training,3,Stable
-8141.,,Upper secondary,None,Vocational training,3,Stable
 8142,,Upper secondary,None,Vocational training,4,Below average
-8142.,,Upper secondary,None,Vocational training,4,Below average
 8143,,Upper secondary,None,Vocational training,3,Below average
-8143.,,Upper secondary,None,Vocational training,3,Below average
 8151,,Upper secondary,None,Vocational training,3,Stable
-8151.,,Upper secondary,None,Vocational training,3,Stable
 8152,,Upper secondary,None,Vocational training,4,Below average
-8152.,,Upper secondary,None,Vocational training,4,Below average
 8153,,Upper secondary,None,Vocational training,3,Stable
-8153.,,Upper secondary,None,Vocational training,3,Stable
 8154,,Upper secondary,None,Vocational training,4,Below average
-8154.,,Upper secondary,None,Vocational training,4,Below average
 8155,,Upper secondary,None,Vocational training,3,Stable
-8155.,,Upper secondary,None,Vocational training,3,Stable
 8156,,Upper secondary,None,Vocational training,4,Below average
-8156.,,Upper secondary,None,Vocational training,4,Below average
 8157,,Upper secondary,None,Vocational training,3,Stable
-8157.,,Upper secondary,None,Vocational training,3,Stable
 8159,,Upper secondary,None,Vocational training,3,Stable
-8159.,,Upper secondary,None,Vocational training,3,Stable
 8160,,Upper secondary,None,Vocational training,3,Below average
-8160.,,Upper secondary,None,Vocational training,3,Below average
 8171,,Upper secondary,None,Vocational training,3,Stable
-8171.,,Upper secondary,None,Vocational training,3,Stable
 8172,,Upper secondary,None,Vocational training,4,Below average
-8172.,,Upper secondary,None,Vocational training,4,Below average
 8181,,Upper secondary,None,Vocational training,4,Below average
-8181.,,Upper secondary,None,Vocational training,4,Below average
 8182,,Upper secondary,None,Vocational training,3,Stable
-8182.,,Upper secondary,None,Vocational training,3,Stable
 81821,,Upper secondary,None,Vocational training,3,Below average
 81822,,Upper secondary,None,Vocational training,3,Below average
 8183,,Upper secondary,None,Vocational training,4,Below average
-8183.,,Upper secondary,None,Vocational training,4,Below average
 8189,,Upper secondary,None,Vocational training,4,Below average
-8189.,,Upper secondary,None,Vocational training,4,Below average
 8211,,Upper secondary,None,Vocational training,3,Stable
-8211.,,Upper secondary,None,Vocational training,3,Stable
 8212,,Upper secondary,None,Vocational training,4,Below average
-8212.,,Upper secondary,None,Vocational training,4,Below average
 8219,,Upper secondary,None,Vocational training,3,Stable
-8219.,,Upper secondary,None,Vocational training,3,Stable
-83..,,Upper secondary,None,Vocational training,3,Below average
-83...,,Upper secondary,None,Vocational training,3,Below average
-831.,,Upper secondary,None,Vocational training,3,Below average
-831..,,Upper secondary,None,Vocational training,3,Below average
+83,,Upper secondary,None,Vocational training,3,Below average
+831,,Upper secondary,None,Vocational training,3,Below average
 8311,,Upper secondary,None,Vocational training,3,Stable
-8311.,,Upper secondary,None,Vocational training,3,Stable
 8312,,Upper secondary,None,Vocational training,4,Below average
-8312.,,Upper secondary,None,Vocational training,4,Below average
-832.,,Upper secondary,None,Vocational training,3,Below average
-832..,,Upper secondary,None,Vocational training,3,Below average
+832,,Upper secondary,None,Vocational training,3,Below average
 8321,,Upper secondary,None,Vocational training,3,Stable
-8321.,,Upper secondary,None,Vocational training,3,Stable
 8322,,Upper secondary,None,Vocational training,4,Below average
-8322.,,Upper secondary,None,Vocational training,4,Below average
 8331,,Upper secondary,None,Vocational training,3,Stable
-8331.,,Upper secondary,None,Vocational training,3,Stable
 8332,,Upper secondary,None,Vocational training,4,Below average
-8332.,,Upper secondary,None,Vocational training,4,Below average
 8341,,Upper secondary,None,Vocational training,3,Stable
-8341.,,Upper secondary,None,Vocational training,3,Stable
 8342,,Upper secondary,None,Vocational training,4,Below average
-8342.,,Upper secondary,None,Vocational training,4,Below average
 8343,,Upper secondary,None,Vocational training,3,Stable
-8343.,,Upper secondary,None,Vocational training,3,Stable
 8344,,Upper secondary,None,Vocational training,4,Below average
-8344.,,Upper secondary,None,Vocational training,4,Below average
 83441,,Upper secondary,None,Vocational training,3,Below average
 83442,,Upper secondary,None,Vocational training,3,Below average
 8350,,Upper secondary,None,Vocational training,3,Stable
-8350.,,Upper secondary,None,Vocational training,3,Stable
 9111,,Basic education,None,On-the-job training,-5,Labor surplus
-9111.,,Basic education,None,On-the-job training,-5,Labor surplus
 9112,,Basic education,None,On-the-job training,-5,Labor surplus
 91121,,Basic education,None,On-the-job training,-5,Labor surplus
 91122,,Basic education,None,On-the-job training,-5,Labor surplus
 91123,,Basic education,None,On-the-job training,-5,Labor surplus
 91124,,Basic education,None,On-the-job training,-5,Labor surplus
 91129,,Basic education,None,On-the-job training,-5,Labor surplus
-912.,,Basic education,None,On-the-job training,-5,Labor surplus
-912..,,Basic education,None,On-the-job training,-5,Labor surplus
+912,,Basic education,None,On-the-job training,-5,Labor surplus
 9122,,Basic education,None,On-the-job training,-5,Labor surplus
-9122.,,Basic education,None,On-the-job training,-5,Labor surplus
 9123,,Basic education,None,On-the-job training,-5,Labor surplus
-9123.,,Basic education,None,On-the-job training,-5,Labor surplus
 9129,,Basic education,None,On-the-job training,-5,Labor surplus
-9129.,,Basic education,None,On-the-job training,-5,Labor surplus
-921.,,Basic education,None,On-the-job training,-5,Labor surplus
-921..,,Basic education,None,On-the-job training,-5,Labor surplus
+921,,Basic education,None,On-the-job training,-5,Labor surplus
 9211,,Basic education,None,On-the-job training,-6,Declining significantly
-9211.,,Basic education,None,On-the-job training,-6,Declining significantly
 9212,,Basic education,None,On-the-job training,-5,Labor surplus
-9212.,,Basic education,None,On-the-job training,-5,Labor surplus
 9213,,Basic education,None,On-the-job training,-5,Labor surplus
-9213.,,Basic education,None,On-the-job training,-5,Labor surplus
 9214,,Basic education,None,On-the-job training,-5,Labor surplus
-9214.,,Basic education,None,On-the-job training,-5,Labor surplus
 9215,,Basic education,None,On-the-job training,-5,Labor surplus
-9215.,,Basic education,None,On-the-job training,-5,Labor surplus
 9216,,Basic education,None,On-the-job training,-5,Labor surplus
-9216.,,Basic education,None,On-the-job training,-5,Labor surplus
-931.,,Basic education,None,On-the-job training,-5,Labor surplus
-931..,,Basic education,None,On-the-job training,-5,Labor surplus
+931,,Basic education,None,On-the-job training,-5,Labor surplus
 9311,,Basic education,None,On-the-job training,-6,Declining significantly
-9311.,,Basic education,None,On-the-job training,-6,Declining significantly
 9312,,Basic education,None,On-the-job training,-5,Labor surplus
-9312.,,Basic education,None,On-the-job training,-5,Labor surplus
 9313,,Basic education,None,On-the-job training,-6,Declining significantly
-9313.,,Basic education,None,On-the-job training,-6,Declining significantly
-932.,,Basic education,None,On-the-job training,-5,Labor surplus
-932..,,Basic education,None,On-the-job training,-5,Labor surplus
+932,,Basic education,None,On-the-job training,-5,Labor surplus
 9321,,Basic education,None,On-the-job training,-5,Labor surplus
-9321.,,Basic education,None,On-the-job training,-5,Labor surplus
 9329,,Basic education,None,On-the-job training,-5,Labor surplus
-9329.,,Basic education,None,On-the-job training,-5,Labor surplus
 9331,,Basic education,None,On-the-job training,-5,Labor surplus
-9331.,,Basic education,None,On-the-job training,-5,Labor surplus
 9332,,Basic education,None,On-the-job training,-5,Labor surplus
-9332.,,Basic education,None,On-the-job training,-5,Labor surplus
 9333,,Basic education,None,On-the-job training,-6,Declining significantly
-9333.,,Basic education,None,On-the-job training,-6,Declining significantly
 9334,,Basic education,None,On-the-job training,-5,Labor surplus
-9334.,,Basic education,None,On-the-job training,-5,Labor surplus
 9411,,Basic education,None,On-the-job training,-6,Declining significantly
-9411.,,Basic education,None,On-the-job training,-6,Declining significantly
 9412,,Basic education,None,On-the-job training,-5,Labor surplus
-9412.,,Basic education,None,On-the-job training,-5,Labor surplus
-95..,,Basic education,None,On-the-job training,-5,Labor surplus
-95...,,Basic education,None,On-the-job training,-5,Labor surplus
+95,,Basic education,None,On-the-job training,-5,Labor surplus
 9510,,Basic education,None,On-the-job training,-5,Labor surplus
-9510.,,Basic education,None,On-the-job training,-5,Labor surplus
 9520,,Basic education,None,On-the-job training,-6,Declining significantly
-9520.,,Basic education,None,On-the-job training,-6,Declining significantly
-961.,,Basic education,None,On-the-job training,-5,Labor surplus
-961..,,Basic education,None,On-the-job training,-5,Labor surplus
+961,,Basic education,None,On-the-job training,-5,Labor surplus
 9611,,Basic education,None,On-the-job training,-5,Labor surplus
-9611.,,Basic education,None,On-the-job training,-5,Labor surplus
 9612,,Basic education,None,On-the-job training,-6,Declining significantly
-9612.,,Basic education,None,On-the-job training,-6,Declining significantly
 9613,,Basic education,None,On-the-job training,-5,Labor surplus
-9613.,,Basic education,None,On-the-job training,-5,Labor surplus
 9621,,Basic education,None,On-the-job training,-5,Labor surplus
-9621.,,Basic education,None,On-the-job training,-5,Labor surplus
 9622,,Basic education,None,On-the-job training,-6,Declining significantly
-9622.,,Basic education,None,On-the-job training,-6,Declining significantly
 9623,,Basic education,None,On-the-job training,-5,Labor surplus
-9623.,,Basic education,None,On-the-job training,-5,Labor surplus
 9624,,Basic education,None,On-the-job training,-5,Labor surplus
-9624.,,Basic education,None,On-the-job training,-5,Labor surplus
 9629,,Basic education,None,On-the-job training,-6,Declining significantly
-9629.,,Basic education,None,On-the-job training,-6,Declining significantly

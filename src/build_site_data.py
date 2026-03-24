@@ -60,7 +60,7 @@ def main():
                 if row["median_pay_annual"]
                 else None,
                 "pay_source": row.get("median_pay_source", ""),
-                "jobs": int(row["num_jobs_2024"]) if row["num_jobs_2024"] else None,
+                "jobs": int(row["num_jobs_2024"]) if row["num_jobs_2024"] else None,  # 2024 data (year pinned in statfin_config.json)
                 "outlook": int(row["outlook_pct"])
                 if row["outlook_pct"] and row["outlook_pct"].lstrip("-+").isdigit()
                 else None,

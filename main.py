@@ -145,8 +145,11 @@ def cmd_all(args):
     if returncode != 0:
         return returncode
 
-    # Step 2: Build initial (for statistics)
-    print("\n=== Building initial site data (for statistics) ===")
+    # Step 2: Intermediate build (required so infer_missing_pay.py can load site/data.json).
+    # infer_missing_pay.py reads site/data.json to calculate pay statistics across occupations
+    # and then fills missing pay values back into data/occupations.csv. A second build (Step 4)
+    # is run afterwards to produce the final site/data.json with inferred pay values included.
+    print("\n=== Building initial site data (for pay statistics) ===")
     build_parser = argparse.ArgumentParser()
     build_args = build_parser.parse_args([])
     build_args.tree_level = args.tree_level
@@ -158,7 +161,7 @@ def cmd_all(args):
     infer_parser = argparse.ArgumentParser()
     infer_args = infer_parser.parse_args([])
     infer_args.model = (
-        args.model if hasattr(args, "model") else "google/gemini-3-flash-preview"
+        args.model if hasattr(args, "model") else "gemini-2.5-flash"
     )
     returncode = cmd_infer(infer_args)
     if returncode != 0:

@@ -24,17 +24,17 @@ def load_site_data() -> List[dict]:
 
 
 def load_occupations_csv() -> Dict[str, dict]:
-    """Load occupation data from occupations.csv."""
+    """Load occupation data from data/occupations.csv."""
     import csv
     
-    if not os.path.exists("occupations.csv"):
+    if not os.path.exists("data/occupations.csv"):
         return {}
     
     occupations = {}
-    with open("occupations.csv") as f:
+    with open("data/occupations.csv") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            code = row.get("soc_code", "").strip()
+            code = row.get("isco_code", "").strip()
             if code:
                 occupations[code] = row
     
@@ -131,8 +131,10 @@ def infer_pay(occ: dict, stats: Dict, all_occupations: Dict[str, dict]) -> Optio
     if category in stats["category"]:
         return stats["category"][category]
     
-    # Fallback: overall median
-    return 40000  # Approximate median for Finnish occupations
+    # Fallback: Statistics Finland 2023 median across all wage earners (~€43,500/yr)
+    # Source: Tilastokeskus / Statistics Finland, Structure of Earnings 2023
+    # Update this value when a newer reference year is available.
+    return 43500  # tagged as inferred_fallback in median_pay_source
 
 
 def main():
@@ -141,7 +143,7 @@ def main():
     csv_occupations = load_occupations_csv()
     
     print(f"Loaded {len(site_occupations)} occupations from site/data.json")
-    print(f"Loaded {len(csv_occupations)} occupations from occupations.csv")
+    print(f"Loaded {len(csv_occupations)} occupations from data/occupations.csv")
     
     # Calculate statistics
     print("\nCalculating pay statistics...")
@@ -182,9 +184,9 @@ def main():
     # Update occupations.csv with inferred pay
     import csv
     
-    if os.path.exists("occupations.csv"):
+    if os.path.exists("data/occupations.csv"):
         # Read existing data
-        with open("occupations.csv") as f:
+        with open("data/occupations.csv") as f:
             reader = csv.DictReader(f)
             rows = list(reader)
             fieldnames = reader.fieldnames
@@ -192,23 +194,23 @@ def main():
         # Update rows
         updated_count = 0
         for row in rows:
-            code = row.get("soc_code", "").strip()
+            code = row.get("isco_code", "").strip()
             if code and not row.get("median_pay_annual"):
                 # Find matching update
                 for upd in updates:
                     if upd["code"] == code:
                         row["median_pay_annual"] = str(upd["inferred_pay"])
-                        row["median_pay_source"] = "inferred"
+                        row["median_pay_source"] = "inferred_fallback"
                         updated_count += 1
                         break
         
         # Write back
-        with open("occupations.csv", "w", newline="") as f:
+        with open("data/occupations.csv", "w", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(rows)
         
-        print(f"\n✓ Updated {updated_count} pay entries in occupations.csv")
+        print(f"\n✓ Updated {updated_count} pay entries in data/occupations.csv")
     
     # Show sample updates
     print("\nSample inferred pay values:")
