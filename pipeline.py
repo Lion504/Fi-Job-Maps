@@ -10,7 +10,7 @@ Pipeline steps:
 1. Fetch StatFin data (employment, wages, outlook)
 2. Optional: Fetch Occupational Barometer outlook data
 3. Infer missing pay data
-4. Score AI exposure with LLM (Gemini Flash via OpenRouter)
+4. Score AI exposure with LLM (Gemini Flash via Google AI Studio / Vertex AI)
 5. Build site data for visualization
 6. Optional: Generate prompt.md for LLM analysis
 

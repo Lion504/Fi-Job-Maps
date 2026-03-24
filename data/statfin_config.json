@@ -1,12 +1,12 @@
 {
-  "_note": "Year is pinned to 2024 to match field names (num_jobs_2024). When updating to a new reference year, change both 'year' values below AND rename num_jobs_2024 in fetch_statfin.py fieldnames and build_site_data.py.",
+  "_note": "Employment year is 2023 (latest in statfin_tyokay_pxt_115r.px). Wages year is 2024* (provisional, latest in statfin_pra_pxt_15au.px). When a new employment year is released, update 'year' under 'employment' AND rename num_jobs_2023 → num_jobs_YYYY in fetch_statfin.py fieldnames and build_site_data.py.",
   "min_outlook_coverage": 0.95,
   "strict_outlook_coverage": false,
   "employment": {
     "table": "StatFin/tyokay/statfin_tyokay_pxt_115r.px",
     "occupation_var": "Ammattiryhmä",
     "year_var": "Vuosi",
-    "year": "2024",
+    "year": "2023",
     "sex_var": "Sukupuoli",
     "sex_value": "SSS",
     "age_var": "Ikä",
