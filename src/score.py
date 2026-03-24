@@ -1,13 +1,13 @@
 """
-Score each occupation's AI exposure using an LLM via OpenRouter.
+Score each occupation's AI exposure using Google AI Studio (Gemini).
 
-Reads Markdown descriptions from pages/, sends each to an LLM with a scoring
+Reads occupation data from data/occupations.csv, sends each to an LLM with a scoring
 rubric, and collects structured scores. Results are cached incrementally to
-scores.json so the script can be resumed if interrupted.
+data/scores.json so the script can be resumed if interrupted.
 
 Usage:
     uv run python score.py
-    uv run python score.py --model google/gemini-3-flash-preview
+    uv run python score.py --model gemini-2.0-flash
     uv run python score.py --start 0 --end 10   # test on first 10
 """
 
@@ -20,9 +20,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DEFAULT_MODEL = "google/gemini-3-flash-preview"
-OUTPUT_FILE = "data/scores.json"
-API_URL = "https://openrouter.ai/api/v1/chat/completions"
+# Configuration from environment
+DEFAULT_MODEL = os.getenv("LLM_MODEL", "gemini-2.5-flash")
+OUTPUT_FILE = os.getenv("SCORES_OUTPUT_FILE", "data/scores.json")
+API_KEY = os.getenv("GOOGLE_API_KEY")
 
 SYSTEM_PROMPT = """\
 You are an expert analyst evaluating how exposed different occupations are to \
@@ -47,27 +48,27 @@ natural barrier to AI exposure.
 
 Use these anchors to calibrate your score:
 
-- **0–1: Minimal exposure.** The work is almost entirely physical, hands-on, \
+- **0-1: Minimal exposure.** The work is almost entirely physical, hands-on, \
 or requires real-time human presence in unpredictable environments. AI has \
 essentially no impact on daily work. \
 Examples: roofer, landscaper, commercial diver.
 
-- **2–3: Low exposure.** Mostly physical or interpersonal work. AI might help \
+- **2-3: Low exposure.** Mostly physical or interpersonal work. AI might help \
 with minor peripheral tasks (scheduling, paperwork) but doesn't touch the \
 core job. \
 Examples: electrician, plumber, firefighter, dental hygienist.
 
-- **4–5: Moderate exposure.** A mix of physical/interpersonal work and \
+- **4-5: Moderate exposure.** A mix of physical/interpersonal work and \
 knowledge work. AI can meaningfully assist with the information-processing \
 parts but a substantial share of the job still requires human presence. \
 Examples: registered nurse, police officer, veterinarian.
 
-- **6–7: High exposure.** Predominantly knowledge work with some need for \
+- **6-7: High exposure.** Predominantly knowledge work with some need for \
 human judgment, relationships, or physical presence. AI tools are already \
 useful and workers using AI may be substantially more productive. \
 Examples: teacher, manager, accountant, journalist.
 
-- **8–9: Very high exposure.** The job is almost entirely done on a computer. \
+- **8-9: Very high exposure.** The job is almost entirely done on a computer. \
 All core tasks — writing, coding, analyzing, designing, communicating — are \
 in domains where AI is rapidly improving. The occupation faces major \
 restructuring. \
@@ -82,29 +83,36 @@ Respond with ONLY a JSON object in this exact format, no other text:
 {
   "exposure": <0-10>,
   "rationale": "<2-3 sentences explaining the key factors>"
-}\
-"""
+}"""
 
 
 def score_occupation(client, text, model):
-    """Send one occupation to the LLM and parse the structured response."""
+    """Send one occupation to the Google AI Studio API and parse the structured response."""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={API_KEY}"
+
     response = client.post(
-        API_URL,
-        headers={
-            "Authorization": f"Bearer {os.environ['OPENROUTER_API_KEY']}",
-        },
+        url,
         json={
-            "model": model,
-            "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": text},
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [{"text": SYSTEM_PROMPT + "\n\n---\n\n" + text}],
+                }
             ],
-            "temperature": 0.2,
+            "generationConfig": {
+                "temperature": 0.2,
+                "maxOutputTokens": 1024,
+                "responseMimeType": "application/json",
+            },
         },
         timeout=60,
     )
     response.raise_for_status()
-    content = response.json()["choices"][0]["message"]["content"]
+
+    result = response.json()
+
+    # Extract text from Google AI Studio response format
+    content = result["candidates"][0]["content"]["parts"][0]["text"]
 
     # Strip markdown code fences if present
     content = content.strip()
@@ -118,15 +126,33 @@ def score_occupation(client, text, model):
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default=DEFAULT_MODEL)
-    parser.add_argument("--start", type=int, default=0)
-    parser.add_argument("--end", type=int, default=None)
-    parser.add_argument("--delay", type=float, default=0.5)
+    parser = argparse.ArgumentParser(
+        description="Score occupations for AI exposure using Google AI Studio"
+    )
+    parser.add_argument(
+        "--model",
+        default=DEFAULT_MODEL,
+        help=f"Model to use (default: {DEFAULT_MODEL})",
+    )
+    parser.add_argument(
+        "--start", type=int, default=0, help="Start index for batch processing"
+    )
+    parser.add_argument(
+        "--end", type=int, default=None, help="End index for batch processing"
+    )
+    parser.add_argument(
+        "--delay", type=float, default=0.5, help="Delay between API calls in seconds"
+    )
     parser.add_argument(
         "--force", action="store_true", help="Re-score even if already cached"
     )
     args = parser.parse_args()
+
+    # Check for API key
+    if not API_KEY:
+        print("Error: GOOGLE_API_KEY not set in environment or .env file")
+        print("Get your API key from https://aistudio.google.com/apikey")
+        return 1
 
     with open("data/occupations.json") as f:
         occupations = json.load(f)
@@ -170,11 +196,14 @@ def main():
             row = csv_rows[slug]
             parts = [
                 f"Occupation: {occ['title']}",
-                f"Code: {row.get('soc_code', '')}",
+                f"Code: {row.get('isco_code', '')}",
                 f"Category: {row.get('category', '')}",
                 f"Pay (annual EUR): {row.get('median_pay_annual', '')}",
                 f"Employment (latest): {row.get('num_jobs_2024', '')}",
                 f"Outlook: {row.get('outlook_desc', '') or row.get('outlook_pct', '')}",
+                f"Education: {row.get('entry_education', '')}",
+                f"Work Experience: {row.get('work_experience', '')}",
+                f"Training: {row.get('training', '')}",
             ]
             text = "\n".join(parts)
         if not text:
@@ -221,6 +250,8 @@ def main():
         for k in sorted(by_score):
             print(f"  {k}: {'█' * by_score[k]} ({by_score[k]})")
 
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    exit(main())
