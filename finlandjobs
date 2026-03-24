@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""
+CLI entry point for Finland Job Market Visualizer.
+This script calls main.main() and is installed as the 'finlandjobs' command.
+"""
+import os
+import sys
+from pathlib import Path
+
+# Try to find the venv relative to the current working directory (project root)
+cwd = Path.cwd()
+venv_python = cwd / ".venv" / "bin" / "python3"
+if venv_python.exists() and str(venv_python) != sys.executable:
+    # Re-execute this script with the venv's Python interpreter
+    os.execv(str(venv_python), [str(venv_python), str(Path(__file__).resolve())] + sys.argv[1:])
+
+# Now import and run main
+from main import main
+
+if __name__ == "__main__":
+    sys.exit(main())

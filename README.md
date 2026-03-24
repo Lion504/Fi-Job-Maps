@@ -1,6 +1,6 @@
 # Finland Job Market Visualizer
 
-Explore Finnish occupation data (StatFin PxWeb + Occupational Barometer) and color it by AI exposure. The original US/BLS scrapers are archived in `archive/html/`; the default pipeline now targets Finland.
+Explore Finnish occupation data (StatFin PxWeb + Occupational Barometer) and color it by AI exposure.
 
 ## LLM-powered coloring
 
@@ -33,12 +33,16 @@ The repo still lets you score occupations with an LLM (OpenRouter). You can chan
 | `site/`                            | Static website (treemap visualization)                                       |
 | `.env.example`                     | Example environment variables (OpenRouter API key)                           |
 | `pyproject.toml`                   | Python project configuration and dependencies                                |
+| `main.py`                          | CLI orchestrator for data pipeline                                           |
+| `finlandjobs`                      | Executable script (runs main.py)                                             |
 
 ## Project structure
 
 ```
 jobs/
 ├── README.md                  # This file
+├── main.py                    # CLI orchestrator for data pipeline
+├── finlandjobs                    # Executable script (runs main.py)
 ├── pyproject.toml             # Python project configuration
 ├── .env.example               # Example environment variables
 ├── .gitignore
@@ -58,8 +62,6 @@ jobs/
 ├── site/                      # Frontend website
 │   ├── index.html             # Treemap visualization
 │   └── data.json              # Merged data for frontend (generated)
-├── archive/                   # Deprecated/legacy files
-│   └── html/                  # Old US/BLS scraped data
 └── docs/                      # Documentation
     └── OUTLOOK_IMPORT_SUMMARY.md
 ```
@@ -107,6 +109,36 @@ cd site && python -m http.server 8000
 TREE_LEVEL=4 uv run python src/build_site_data.py
 ```
 
+## CLI Usage
+
+The project includes a command-line interface (`main.py`) that orchestrates the core data processing scripts. The `finlandjobs` script automatically detects and uses the project's virtual environment.
+
+Run from the project directory:
+
+```bash
+# Fetch StatFin data
+finlandjobs fetch
+
+# Fetch with Barometer outlook (optional, will skip if barometer.csv not found)
+finlandjobs fetch --barometer-input barometer.csv
+
+# Infer missing pay and AI exposure
+finlandjobs infer
+
+# Build site data
+finlandjobs build
+
+# Process deprecated US data (optional)
+finlandjobs process
+
+# Run complete pipeline
+finlandjobs all --barometer-input barometer.csv
+```
+
+If you prefer the command `jobs`, you can create an alias: `alias jobs=finlandjobs`. Note: The shell builtin `jobs` may interfere; use `command jobs` or `\\jobs` to bypass.
+
+See `finlandjobs --help` or `python main.py --help` for all options.
+
 ## Recent updates (March 2026)
 
 - **Education mapping fixed**: Updated `EDU_GROUPS` to match Finnish education values ("Basic education", "Upper secondary", "Bachelor's degree", etc.)
@@ -117,9 +149,9 @@ TREE_LEVEL=4 uv run python src/build_site_data.py
 
 ## Notes
 
-- The original US/BLS scraping scripts are archived in `archive/html/` and are no longer used.
 - `score.py` will use Markdown pages if present, otherwise it constructs a prompt from `occupations.csv` (Finnish stats).
 - Outlook: if you use the Occupational Barometer, map its demand labels into the CSV `outlook_desc` field in `fetch_statfin.py`.
 - `fetch_statfin.py` now writes `median_pay_source` and `outlook_source` fields for auditability (`wages_statfin`, `outlook_statfin`, `extras_csv`).
 - You can enforce outlook completeness in config with `min_outlook_coverage` (0-1) and `strict_outlook_coverage` (true/false).
 - `build_site_data.py` uses one hierarchy level only (`TREE_LEVEL`, default `4`) so total jobs are not double-counted across Level 1-5 aggregates.
+- **Barometer data source**: The Occupational Barometer (Työllisyysbarometri) CSV can be obtained from Statistics Finland (PxWeb API) or the Ministry of Employment and the Economy. Look for columns containing occupation codes (ISCO or ammatti_koodi) and outlook categories (balance_label). This data is optional; the pipeline will use `extras.csv` if barometer data is not provided.

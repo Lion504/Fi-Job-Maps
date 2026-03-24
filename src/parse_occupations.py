@@ -1,4 +1,4 @@
-"""Parse BLS Occupational Outlook Handbook A-Z index to extract all US occupations. (Deprecated, used only for archived US data)."""
+"""Parse BLS Occupational Outlook Handbook A-Z index to extract all  occupations. (Deprecated, used only for archived US data)."""
 
 from bs4 import BeautifulSoup
 import json

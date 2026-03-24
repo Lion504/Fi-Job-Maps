@@ -1,4 +1,4 @@
-"""Parse a US BLS OOH detail page into a clean Markdown document. (Deprecated, used only for archived US data)."""
+"""Parse a detail page into a clean Markdown document. (Deprecated, used only for archived US data)."""
 
 import sys
 import re

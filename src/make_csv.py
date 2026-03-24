@@ -1,5 +1,5 @@
 """
-Build a CSV summary of all US occupations from the scraped HTML files. (Deprecated, used only for archived US data).
+Build a CSV summary of all occupations from the scraped HTML files. (Deprecated, used only for archived US data).
 
 Reads from html/<slug>.html, writes to occupations.csv.
 

@@ -1,7 +1,7 @@
 """
 Generate prompt.md — a single file containing all project data, designed to be
 copy-pasted into an LLM for analysis and conversation about AI exposure of the
-US job market.
+ job market.
 
 Usage:
     uv run python make_prompt.py
