@@ -294,8 +294,10 @@ def main():
     print(f"  Existing (from API): {len(existing_scores)}")
 
     print("\nNext steps:")
-    print("  1. Run: uv run python fetch_statfin.py --config statfin_config.json")
-    print("  2. Run: uv run python build_site_data.py")
+    print(
+        "  1. Run: uv run python src/fetch_statfin.py --config data/statfin_config.json"
+    )
+    print("  2. Run: uv run python src/build_site_data.py")
     print("  3. Refresh your browser")
 
 

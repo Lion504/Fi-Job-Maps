@@ -73,7 +73,7 @@ def cmd_fetch(args):
 def cmd_infer(args):
     """Infer missing pay and AI exposure."""
     print("=== Inferring missing pay data ===")
-    returncode = run_script(ROOT_DIR / "infer_missing_pay.py")
+    returncode = run_script(SRC_DIR / "infer_missing_pay.py")
     if returncode != 0:
         print(f"Error: infer_missing_pay.py failed with code {returncode}")
         return returncode
@@ -81,9 +81,10 @@ def cmd_infer(args):
     # Check if Google API key is set for LLM scoring
     if os.environ.get("GOOGLE_API_KEY"):
         print("\n=== Scoring AI exposure with LLM (Gemini) ===")
-        score_args = []
-        if hasattr(args, "model") and args.model:
-            score_args = ["--model", args.model]
+        model = (
+            args.model if hasattr(args, "model") and args.model else "gemini-2.5-flash"
+        )
+        score_args = ["--model", model]
         returncode = run_script(SRC_DIR / "score.py", score_args)
         if returncode != 0:
             print(f"Error: score.py failed with code {returncode}")
@@ -91,7 +92,7 @@ def cmd_infer(args):
     else:
         print("\n=== Scoring AI exposure (rule-based fallback) ===")
         print("Note: Set GOOGLE_API_KEY in .env for LLM-based scoring")
-        returncode = run_script(ROOT_DIR / "infer_ai_exposure.py")
+        returncode = run_script(SRC_DIR / "infer_ai_exposure.py")
         if returncode != 0:
             print(f"Error: infer_ai_exposure.py failed with code {returncode}")
             return returncode
@@ -123,7 +124,7 @@ def cmd_process(args):
         return returncode
 
     print("\n=== Generating LLM prompt ===")
-    returncode = run_script(ROOT_DIR / "make_prompt.py")
+    returncode = run_script(SRC_DIR / "make_prompt.py")
     return returncode
 
 
@@ -160,9 +161,7 @@ def cmd_all(args):
     # Step 3: Infer (pay + AI exposure)
     infer_parser = argparse.ArgumentParser()
     infer_args = infer_parser.parse_args([])
-    infer_args.model = (
-        args.model if hasattr(args, "model") else "gemini-2.5-flash"
-    )
+    infer_args.model = args.model if hasattr(args, "model") else "gemini-2.5-flash"
     returncode = cmd_infer(infer_args)
     if returncode != 0:
         return returncode
@@ -189,9 +188,9 @@ Examples:
   # Fetch with Barometer outlook
   finlandjobs fetch --barometer-input barometer.csv
   
-  # Infer missing data and score AI exposure with LLM
+   # Infer missing data and score AI exposure with LLM
   finlandjobs infer
-  finlandjobs infer --model gemini-2.0-flash
+  finlandjobs infer --model gemini-2.5-flash
   
   # Build site data
   finlandjobs build
@@ -234,7 +233,7 @@ Examples:
     )
     infer_parser.add_argument(
         "--model",
-        help="LLM model for AI exposure scoring (default: from .env or gemini-2.0-flash)",
+        help="LLM model for AI exposure scoring (default: from .env or gemini-2.5-flash)",
     )
     infer_parser.set_defaults(func=cmd_infer)
 
@@ -279,7 +278,7 @@ Examples:
     )
     all_parser.add_argument(
         "--model",
-        help="LLM model for AI exposure scoring (default: from .env or gemini-2.0-flash)",
+        help="LLM model for AI exposure scoring (default: from .env or gemini-2.5-flash)",
     )
     all_parser.set_defaults(func=cmd_all)
 
