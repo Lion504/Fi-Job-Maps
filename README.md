@@ -23,16 +23,8 @@ The repo still lets you score occupations with an LLM (Google AI Studio / Gemini
 
 ## Process Map
 
-### Original US Method (karpathy/jobs)
-```mermaid
-graph TD
-    A[Scrape BLS OOH HTML] --> B[Parse HTML to Markdown]
-    B --> C[Create LLM Prompt]
-    C --> D[Score with LLM Gemini Flash]
-    D --> E[Build Visualization]
-```
-
 ### Finland Adapted Method
+
 ```mermaid
 graph TD
     A[Fetch StatFin PxWeb API] --> B[Optional: Fetch Barometer CSV]
@@ -42,70 +34,24 @@ graph TD
     E --> F[Optional: LLM Analysis via Prompt]
 ```
 
-**Key Differences:**
-- **Data Source**: StatFin API vs. BLS OOH scraping
-- **AI Scoring**: LLM (Gemini Flash) scoring for both, but Finnish occupation context
-- **Outlook Data**: Occupational Barometer vs. BLS projections
-- **Currency**: EUR vs. USD
-- **Education System**: Finnish vs. US education levels
-
 ## Key files
 
-| File                                        | Description                                                                  |
-| ------------------------------------------- | ---------------------------------------------------------------------------- |
-| `data/statfin_config.example.json`          | Template for PxWeb tables/variables (employment, wages, outlook)             |
-| `src/fetch_statfin.py`                      | PxWeb fetcher that writes `data/occupations.json` and `data/occupations.csv` |
-| `src/fetch_barometer.py`                    | Converts Barometer CSV to extras-compatible outlook CSV                      |
-| `src/score.py`                              | LLM scoring of AI exposure using Gemini Flash via Google AI Studio           |
-| `src/generate_complete_outlook.py`          | One-time tool: fills missing outlook/education in `extras.csv` by inference  |
-| `data/extras.csv`                           | Per-occupation extras: education, outlook label/pct (hand-curated)           |
-| `data/occupations.csv`                      | Summary stats: pay (EUR/year), employment count, outlook label               |
-| `data/scores.json`                          | AI exposure scores (0–10) with rationales                                    |
-| `site/data.json`                            | Frontend-ready merged data                                                   |
-| `site/`                                     | Static website (treemap visualization)                                       |
-| `.env.example`                              | Example environment variables (GOOGLE_API_KEY)                               |
-| `pyproject.toml`                            | Python project configuration and dependencies                                |
-| `main.py`                                   | CLI orchestrator for data pipeline                                           |
-| `finlandjobs`                               | Executable script (runs main.py)                                             |
-
-## Project structure
-
-```
-jobs/
-├── README.md                  # This file
-├── main.py                    # CLI orchestrator for data pipeline
-├── finlandjobs                # Executable script (runs main.py)
-├── pipeline.py               # Step-by-step pipeline runner
-├── infer_missing_pay.py      # Statistical pay inference
-├── infer_ai_exposure.py      # Rule-based AI exposure fallback (no API key needed)
-├── pyproject.toml            # Python project configuration
-├── .env.example              # Example environment variables (GOOGLE_API_KEY)
-├── .gitignore
-├── src/                      # Python scripts
-│   ├── fetch_statfin.py        # Fetches data from Statistics Finland
-│   ├── fetch_barometer.py      # Processes Occupational Barometer data
-│   ├── score.py                # Scores occupations with AI exposure (Google AI Studio)
-│   ├── build_site_data.py      # Builds frontend data.json
-│   └── generate_complete_outlook.py  # One-time tool: fills missing extras.csv data
-├── data/                     # Data files
-│   ├── statfin_config.json     # Configuration for StatFin API (year pinned to 2024)
-│   ├── statfin_config.example.json
-│   ├── extras.csv              # Hand-curated occupation data (outlook, education)
-│   ├── occupations.csv         # Generated occupation statistics
-│   ├── occupations.json        # Generated occupation metadata
-│   └── scores.json             # AI exposure scores (generated, re-run score.py with Finnish data)
-├── site/                     # Frontend website
-│   ├── index.html              # Treemap visualization
-│   └── data.json               # Merged data for frontend (generated)
-├── docs/                     # Documentation
-│   └── OUTLOOK_IMPORT_SUMMARY.md
-└── archive/                  # Legacy US BLS pipeline scripts (not used)
-    ├── scrape.py               # BLS OOH scraper
-    ├── process.py              # HTML to Markdown processor
-    ├── parse_detail.py         # BLS page parser
-    ├── parse_occupations.py    # BLS occupation list parser
-    └── make_csv.py             # BLS CSV builder
-```
+| File                               | Description                                                                  |
+| ---------------------------------- | ---------------------------------------------------------------------------- |
+| `data/statfin_config.example.json` | Template for PxWeb tables/variables (employment, wages, outlook)             |
+| `src/fetch_statfin.py`             | PxWeb fetcher that writes `data/occupations.json` and `data/occupations.csv` |
+| `src/fetch_barometer.py`           | Converts Barometer CSV to extras-compatible outlook CSV                      |
+| `src/score.py`                     | LLM scoring of AI exposure using Gemini Flash via Google AI Studio           |
+| `src/generate_complete_outlook.py` | One-time tool: fills missing outlook/education in `extras.csv` by inference  |
+| `data/extras.csv`                  | Per-occupation extras: education, outlook label/pct (hand-curated)           |
+| `data/occupations.csv`             | Summary stats: pay (EUR/year), employment count, outlook label               |
+| `data/scores.json`                 | AI exposure scores (0–10) with rationales                                    |
+| `site/data.json`                   | Frontend-ready merged data                                                   |
+| `site/`                            | Static website (treemap visualization)                                       |
+| `.env.example`                     | Example environment variables (GOOGLE_API_KEY)                               |
+| `pyproject.toml`                   | Python project configuration and dependencies                                |
+| `main.py`                          | CLI orchestrator for data pipeline                                           |
+| `finlandjobs`                      | Executable script (runs main.py)                                             |
 
 ## Setup
 
@@ -119,7 +65,7 @@ uv sync
 
 ```
 cp .env.example .env
-# edit .env with your OpenRouter API key
+# edit .env with your API key
 ```
 
 Requires a Google AI Studio API key in `.env` if you plan to run `score.py`:
