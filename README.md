@@ -16,9 +16,38 @@ The repo still lets you score occupations with an LLM (OpenRouter). You can chan
 
 1. **Fetch StatFin** (`fetch_statfin.py`) — Queries Statistics Finland PxWeb tables (config-driven) to produce `occupations.json` and `occupations.csv` with pay (EUR), employment counts, and optional outlook labels.
 2. **Import Barometer outlook (optional)** (`fetch_barometer.py`) — Normalizes Labour Force Barometer CSV into extras-compatible outlook columns (`code`, `outlook_pct`, `outlook_desc`).
-3. **Score (optional)** (`score.py`) — Sends each occupation (from CSV or Markdown if present) to an LLM to produce an AI exposure score (0–10) with rationale. Results are cached in `scores.json`.
-4. **Build site data** (`build_site_data.py`) — Merges `occupations.csv` and `scores.json` into `site/data.json` for the treemap.
-5. **Frontend** (`site/index.html`) — Treemap where area = employment and color = chosen metric (outlook/pay/education/exposure). Updated with correct Finnish education mapping and proper number formatting.
+3. **Infer missing pay** (`infer_missing_pay.py`) — Uses statistical inference to estimate missing pay data based on occupation characteristics.
+4. **Score AI exposure** (`score.py`) — LLM scoring (0-10) using Gemini Flash via OpenRouter API. Requires OpenRouter API key in `.env`.
+5. **Build site data** (`build_site_data.py`) — Merges `occupations.csv` and `scores.json` into `site/data.json` for the treemap.
+6. **Generate prompt (optional)** (`make_prompt.py`) — Creates a comprehensive data document for LLM analysis.
+
+## Process Map
+
+### Original US Method (karpathy/jobs)
+```mermaid
+graph TD
+    A[Scrape BLS OOH HTML] --> B[Parse HTML to Markdown]
+    B --> C[Create LLM Prompt]
+    C --> D[Score with LLM Gemini Flash]
+    D --> E[Build Visualization]
+```
+
+### Finland Adapted Method
+```mermaid
+graph TD
+    A[Fetch StatFin PxWeb API] --> B[Optional: Fetch Barometer CSV]
+    B --> C[Infer Missing Data]
+    C --> D[Score with LLM Gemini Flash]
+    D --> E[Build Visualization]
+    E --> F[Optional: LLM Analysis via Prompt]
+```
+
+**Key Differences:**
+- **Data Source**: StatFin API vs. BLS OOH scraping
+- **AI Scoring**: LLM (Gemini Flash) scoring for both, but Finnish occupation context
+- **Outlook Data**: Occupational Barometer vs. BLS projections
+- **Currency**: EUR vs. USD
+- **Education System**: Finnish vs. US education levels
 
 ## Key files
 
@@ -27,6 +56,7 @@ The repo still lets you score occupations with an LLM (OpenRouter). You can chan
 | `data/statfin_config.example.json` | Template for PxWeb tables/variables (employment, wages, outlook)             |
 | `src/fetch_statfin.py`             | PxWeb fetcher that writes `data/occupations.json` and `data/occupations.csv` |
 | `src/fetch_barometer.py`           | Converts Barometer CSV to extras-compatible outlook CSV                      |
+| `src/score.py`                     | LLM scoring of AI exposure using Gemini Flash via OpenRouter API            |
 | `data/occupations.csv`             | Summary stats: pay (EUR/year), employment count, outlook label               |
 | `data/scores.json`                 | AI exposure scores (0–10) with rationales                                    |
 | `site/data.json`                   | Frontend-ready merged data                                                   |
@@ -107,6 +137,21 @@ cd site && python -m http.server 8000
 
 # Optional: choose hierarchy level for treemap (default: Level 4)
 TREE_LEVEL=4 uv run python src/build_site_data.py
+```
+
+### Running the Pipeline
+
+You can also run the complete pipeline using the dedicated script:
+
+```bash
+# Run all steps
+uv run python pipeline.py
+
+# Run specific step (1-6)
+uv run python pipeline.py --step 3
+
+# List all steps
+uv run python pipeline.py --list
 ```
 
 ## CLI Usage
