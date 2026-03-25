@@ -372,9 +372,102 @@
         border-top: 1px solid rgba(255, 255, 255, 0.06);
         padding-top: 8px;
       }
+
+      /* ── Mobile / responsive ───────────────────────────────────────────── */
+
+      @media (max-width: 640px) {
+        #header {
+          padding: 12px 14px 10px;
+        }
+
+        .intro h1 {
+          font-size: 20px;
+          gap: 8px;
+        }
+
+        /* Collapsible intro: hide summary on desktop, show on mobile */
+        .intro-collapsible {
+          margin-bottom: 14px;
+        }
+        .intro-collapsible > summary {
+          font-size: 13px;
+          color: var(--fg2);
+          cursor: pointer;
+          user-select: none;
+          list-style: none;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .intro-collapsible > summary::before {
+          content: '▸';
+          font-size: 10px;
+          transition: transform 0.15s;
+        }
+        .intro-collapsible[open] > summary::before {
+          transform: rotate(90deg);
+        }
+        .intro-collapsible > summary::-webkit-details-marker {
+          display: none;
+        }
+
+        /* Stack controls vertically */
+        .controls-row {
+          flex-direction: column;
+          gap: 12px;
+          align-items: flex-start;
+        }
+
+        /* Make layer toggle buttons wrap/shrink */
+        .color-toggle {
+          flex-wrap: wrap;
+        }
+        .color-toggle button {
+          padding: 6px 10px;
+          font-size: 11px;
+        }
+
+        /* Full-width sliders */
+        .filter-control input[type="range"] {
+          width: 100%;
+          max-width: 220px;
+        }
+
+        /* Tighten stats row */
+        .stats-row {
+          gap: 12px 16px;
+        }
+
+        /* Shrink hbar labels so they fit on narrow screens */
+        .hbar-label {
+          width: 64px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        /* Smaller stat numbers */
+        .stat-big {
+          font-size: 24px;
+        }
+
+        /* Tooltip max-width on mobile */
+        #tooltip {
+          max-width: min(90vw, 320px);
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body>
+    <script>
+      // Auto-collapse the intro text on mobile so the treemap is immediately visible
+      if (window.innerWidth <= 640) {
+        document.addEventListener('DOMContentLoaded', () => {
+          const el = document.querySelector('.intro-collapsible');
+          if (el) el.removeAttribute('open');
+        });
+      }
+    </script>
     <div id="wrapper">
       <div id="header">
         <div class="intro">
@@ -382,88 +475,92 @@
             Finland Job Market Visualizer
             <a href="https://github.com/Lion504/Fi-Job-Maps">GitHub</a>
           </h1>
-          <p>
-            This is a research tool that visualizes Finnish occupations using
-            Statistics Finland PxWeb data (Classification of Occupations 2010)
-            and optional Occupational Barometer outlook labels. Each rectangle's
-            <b>area</b> is proportional to total employment. <b>Color</b> shows
-            the selected metric &mdash; toggle between outlook, median pay (when
-            provided), education, and AI exposure. This is not a report or a
-            formal publication &mdash; it is a development tool for exploring
-            Finnish labor data visually.
-          </p>
-          <p>
-            <b>LLM-powered coloring:</b> The
-            <a href="https://github.com/Lion504/Fi-Job-Maps">source code</a>
-            includes a pipeline for writing custom LLM prompts to score and
-            color occupations by any criteria. You write a prompt, the LLM
-            scores each occupation, and the treemap colors accordingly. The
-            "Digital AI Exposure" option is one example &mdash; it estimates how
-            much current AI will reshape each occupation. You can swap in other
-            rubrics (offshoring risk, climate impact, robotics exposure) and
-            re-run the pipeline.
-          </p>
-          <details>
-            <summary>
-              View the Digital AI Exposure scoring prompt (example)
-            </summary>
-            <div class="prompt-box">
-              You are an expert analyst evaluating how exposed different
-              occupations are to AI. You will be given structured information
-              about a Finnish occupation (ISCO/AML title, pay in EUR, outlook
-              label when available). Rate the occupation's overall AI Exposure
-              on a scale from 0 to 10. AI Exposure measures: how much will AI
-              reshape this occupation? Consider both direct effects (AI
-              automating tasks currently done by humans) and indirect effects
-              (AI making each worker so productive that fewer are needed). A key
-              signal is whether the job's work product is fundamentally digital.
-              If the job can be done entirely from a home office on a computer —
-              writing, coding, analyzing, communicating — then AI exposure is
-              inherently high (7+), because AI capabilities in digital domains
-              are advancing rapidly. Even if today's AI can't handle every
-              aspect of such a job, the trajectory is steep and the ceiling is
-              very high. Conversely, jobs requiring physical presence, manual
-              skill, or real-time human interaction in the physical world have a
-              natural barrier to AI exposure. Use these anchors to calibrate
-              your score: - 0–1: Minimal exposure. The work is almost entirely
-              physical, hands-on, or requires real-time human presence in
-              unpredictable environments. AI has essentially no impact on daily
-              work. Examples: roofer, landscaper, commercial diver. - 2–3: Low
-              exposure. Mostly physical or interpersonal work. AI might help
-              with minor peripheral tasks (scheduling, paperwork) but doesn't
-              touch the core job. Examples: electrician, plumber, firefighter,
-              dental hygienist. - 4–5: Moderate exposure. A mix of
-              physical/interpersonal work and knowledge work. AI can
-              meaningfully assist with the information-processing parts but a
-              substantial share of the job still requires human presence.
-              Examples: registered nurse, police officer, veterinarian. - 6–7:
-              High exposure. Predominantly knowledge work with some need for
-              human judgment, relationships, or physical presence. AI tools are
-              already useful and workers using AI may be substantially more
-              productive. Examples: teacher, manager, accountant, journalist. -
-              8–9: Very high exposure. The job is almost entirely done on a
-              computer. All core tasks — writing, coding, analyzing, designing,
-              communicating — are in domains where AI is rapidly improving. The
-              occupation faces major restructuring. Examples: software
-              developer, graphic designer, translator, data analyst, paralegal,
-              copywriter. - 10: Maximum exposure. Routine information
-              processing, fully digital, with no physical component. AI can
-              already do most of it today. Examples: data entry clerk,
-              telemarketer. Respond with ONLY a JSON object in this exact
-              format, no other text: {"exposure": &lt;0-10&gt;, "rationale":
-              "&lt;2-3 sentences explaining the key factors&gt;"}
-            </div>
+          <!-- On desktop the details is open by default; on mobile users can collapse it -->
+          <details class="intro-collapsible" open>
+            <summary>About this tool</summary>
+            <p style="margin-top:10px">
+              This is a research tool that visualizes Finnish occupations using
+              Statistics Finland PxWeb data (Classification of Occupations 2010)
+              and optional Occupational Barometer outlook labels. Each rectangle's
+              <b>area</b> is proportional to total employment. <b>Color</b> shows
+              the selected metric &mdash; toggle between outlook, median pay (when
+              provided), education, and AI exposure. This is not a report or a
+              formal publication &mdash; it is a development tool for exploring
+              Finnish labor data visually.
+            </p>
+            <p>
+              <b>LLM-powered coloring:</b> The
+              <a href="https://github.com/Lion504/Fi-Job-Maps">source code</a>
+              includes a pipeline for writing custom LLM prompts to score and
+              color occupations by any criteria. You write a prompt, the LLM
+              scores each occupation, and the treemap colors accordingly. The
+              "Digital AI Exposure" option is one example &mdash; it estimates how
+              much current AI will reshape each occupation. You can swap in other
+              rubrics (offshoring risk, climate impact, robotics exposure) and
+              re-run the pipeline.
+            </p>
+            <details>
+              <summary>
+                View the Digital AI Exposure scoring prompt (example)
+              </summary>
+              <div class="prompt-box">
+                You are an expert analyst evaluating how exposed different
+                occupations are to AI. You will be given structured information
+                about a Finnish occupation (ISCO/AML title, pay in EUR, outlook
+                label when available). Rate the occupation's overall AI Exposure
+                on a scale from 0 to 10. AI Exposure measures: how much will AI
+                reshape this occupation? Consider both direct effects (AI
+                automating tasks currently done by humans) and indirect effects
+                (AI making each worker so productive that fewer are needed). A key
+                signal is whether the job's work product is fundamentally digital.
+                If the job can be done entirely from a home office on a computer —
+                writing, coding, analyzing, communicating — then AI exposure is
+                inherently high (7+), because AI capabilities in digital domains
+                are advancing rapidly. Even if today's AI can't handle every
+                aspect of such a job, the trajectory is steep and the ceiling is
+                very high. Conversely, jobs requiring physical presence, manual
+                skill, or real-time human interaction in the physical world have a
+                natural barrier to AI exposure. Use these anchors to calibrate
+                your score: - 0–1: Minimal exposure. The work is almost entirely
+                physical, hands-on, or requires real-time human presence in
+                unpredictable environments. AI has essentially no impact on daily
+                work. Examples: roofer, landscaper, commercial diver. - 2–3: Low
+                exposure. Mostly physical or interpersonal work. AI might help
+                with minor peripheral tasks (scheduling, paperwork) but doesn't
+                touch the core job. Examples: electrician, plumber, firefighter,
+                dental hygienist. - 4–5: Moderate exposure. A mix of
+                physical/interpersonal work and knowledge work. AI can
+                meaningfully assist with the information-processing parts but a
+                substantial share of the job still requires human presence.
+                Examples: registered nurse, police officer, veterinarian. - 6–7:
+                High exposure. Predominantly knowledge work with some need for
+                human judgment, relationships, or physical presence. AI tools are
+                already useful and workers using AI may be substantially more
+                productive. Examples: teacher, manager, accountant, journalist. -
+                8–9: Very high exposure. The job is almost entirely done on a
+                computer. All core tasks — writing, coding, analyzing, designing,
+                communicating — are in domains where AI is rapidly improving. The
+                occupation faces major restructuring. Examples: software
+                developer, graphic designer, translator, data analyst, paralegal,
+                copywriter. - 10: Maximum exposure. Routine information
+                processing, fully digital, with no physical component. AI can
+                already do most of it today. Examples: data entry clerk,
+                telemarketer. Respond with ONLY a JSON object in this exact
+                format, no other text: {"exposure": &lt;0-10&gt;, "rationale":
+                "&lt;2-3 sentences explaining the key factors&gt;"}
+              </div>
+            </details>
+            <p>
+              <b>Caveat on Digital AI Exposure scores:</b> These are rough LLM
+              estimates, not rigorous predictions. A high score does not predict
+              the job will disappear. Software developers score 9/10 because AI is
+              transforming their work &mdash; but demand for software could easily
+              <em>grow</em> as each developer becomes more productive. The score
+              does not account for demand elasticity, latent demand, regulatory
+              barriers, or social preferences for human workers. Many
+              high-exposure jobs will be reshaped, not replaced.
+            </p>
           </details>
-          <p>
-            <b>Caveat on Digital AI Exposure scores:</b> These are rough LLM
-            estimates, not rigorous predictions. A high score does not predict
-            the job will disappear. Software developers score 9/10 because AI is
-            transforming their work &mdash; but demand for software could easily
-            <em>grow</em> as each developer becomes more productive. The score
-            does not account for demand elasticity, latent demand, regulatory
-            barriers, or social preferences for human workers. Many
-            high-exposure jobs will be reshaped, not replaced.
-          </p>
         </div>
 
         <div class="controls-row">
@@ -833,17 +930,9 @@
 
       function layout() {
         const wrapper = document.getElementById("wrapper");
-        const headerH = document.getElementById("header").offsetHeight;
         const w = wrapper.clientWidth;
-        const h = Math.round((w * 3) / 4);
-        canvas.width = w * dpr;
-        canvas.height = h * dpr;
-        canvas.style.width = w + "px";
-        canvas.style.height = h + "px";
-        const tx = MARGIN,
-          ty = MARGIN,
-          tw = w - MARGIN * 2,
-          th = h - MARGIN * 2;
+        const isMobile = w < 640;
+
         const byCategory = {};
         for (const d of visibleData()) {
           if (!byCategory[d.category]) byCategory[d.category] = [];
@@ -858,7 +947,50 @@
             value: byCategory[cat].reduce((s, d) => s + (d.jobs || 1), 0),
           }))
           .sort((a, b) => b.value - a.value);
-        const catRects = squarify(categories, tx, ty, tw, th);
+
+        let h;
+        let catHeights = [];
+        const MARGIN = 12, GAP = 1.5;
+
+        if (isMobile) {
+          // Calculate required height so no category is too thin to render
+          const totalVal = categories.reduce((s, c) => s + c.value, 0);
+          const nominalTh = Math.round(w * 2.2) - MARGIN * 2;
+          let totalTh = 0;
+          catHeights = categories.map((c) => {
+            const rowH = totalVal > 0 ? nominalTh * (c.value / totalVal) : 0;
+            const actualH = Math.max(rowH, 30); // minimum 30px height per category
+            totalTh += actualH;
+            return actualH;
+          });
+          h = Math.round(totalTh + MARGIN * 2);
+        } else {
+          h = Math.round((w * 3) / 4);
+        }
+
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = w + "px";
+        canvas.style.height = h + "px";
+
+        const tx = MARGIN,
+          ty = MARGIN,
+          tw = w - MARGIN * 2,
+          th = h - MARGIN * 2;
+
+        let catRects;
+        if (isMobile) {
+          catRects = [];
+          let currentY = ty;
+          for (let i = 0; i < categories.length; i++) {
+            const rowH = catHeights[i];
+            catRects.push({ ...categories[i], rx: tx, ry: currentY, rw: tw, rh: rowH });
+            currentY += rowH;
+          }
+        } else {
+          catRects = squarify(categories, tx, ty, tw, th);
+        }
+
         rects = [];
         for (const cr of catRects) {
           const items = cr.items.map((d) => ({ ...d, value: d.jobs || 1 }));
@@ -990,11 +1122,29 @@
     <span class="label">Outlook</span><span class="value">${d.outlook != null ? d.outlook + "%" : "\u2014"} ${d.outlook_desc ? "(" + d.outlook_desc + ")" : ""}</span>`;
         tt.querySelector(".tt-rationale").textContent =
           colorMode === "exposure" ? d.exposure_rationale || "" : "";
+        // Temporarily reset position to accurately measure current content size
+        tt.style.left = "0px";
+        tt.style.top = "0px";
+        const tw = tt.offsetWidth;
+        const th = tt.offsetHeight;
+        const winW = window.innerWidth;
+        const winH = window.innerHeight;
+
         let tx = mx + 16,
-          ty = my - 16;
-        if (tx + 340 > window.innerWidth) tx = mx - 356;
-        if (ty < 10) ty = my + 16;
-        if (ty + 200 > window.innerHeight) ty = my - 200;
+            ty = my - 16;
+
+        if (winW <= 640) {
+          // On mobile, center the pop-up horizontally above the finger tap
+          tx = Math.max(10, Math.min(mx - tw / 2, winW - tw - 10));
+          ty = my - th - 20; // Try placing it above the tapped area
+          if (ty < 10) ty = my + 30; // IF it hits the very top of the screen, fallback below finger
+        } else {
+          // Desktop positioning (next to mouse)
+          if (tx + tw > winW) tx = mx - tw - 16;
+          if (ty < 10) ty = my + 16;
+          if (ty + th > winH) ty = my - th - 16;
+        }
+
         tt.style.left = tx + "px";
         tt.style.top = ty + "px";
         tt.classList.add("visible");
@@ -1587,6 +1737,57 @@
         hideTooltip();
         draw();
       });
+
+      // ── Touch support ──────────────────────────────────────────────────────
+      let touchTooltipVisible = false;
+
+      canvas.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const hit = hitTest(touch.clientX, touch.clientY);
+        if (hit) {
+          hovered = hit;
+          draw();
+          showTooltip(hit, touch.clientX, touch.clientY);
+          touchTooltipVisible = true;
+        } else {
+          hovered = null;
+          hideTooltip();
+          touchTooltipVisible = false;
+          draw();
+        }
+      }, { passive: false });
+
+      canvas.addEventListener("touchmove", (e) => {
+        if (!touchTooltipVisible) return;
+        e.preventDefault();
+        const touch = e.touches[0];
+        const hit = hitTest(touch.clientX, touch.clientY);
+        if (hit) {
+          if (hit !== hovered) { hovered = hit; draw(); }
+          showTooltip(hit, touch.clientX, touch.clientY);
+        } else {
+          hovered = null;
+          hideTooltip();
+          touchTooltipVisible = false;
+          draw();
+        }
+      }, { passive: false });
+
+      canvas.addEventListener("touchend", () => {
+        // Keep tooltip visible after lift so user can read it;
+        // dismiss on next tap outside
+      });
+
+      document.addEventListener("touchstart", (e) => {
+        if (touchTooltipVisible && !canvas.contains(e.target)) {
+          hovered = null;
+          hideTooltip();
+          touchTooltipVisible = false;
+          draw();
+        }
+      }, { passive: true });
+
       function resize() {
         dpr = window.devicePixelRatio || 1;
         layout();
