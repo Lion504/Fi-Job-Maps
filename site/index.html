@@ -1122,11 +1122,29 @@
     <span class="label">Outlook</span><span class="value">${d.outlook != null ? d.outlook + "%" : "\u2014"} ${d.outlook_desc ? "(" + d.outlook_desc + ")" : ""}</span>`;
         tt.querySelector(".tt-rationale").textContent =
           colorMode === "exposure" ? d.exposure_rationale || "" : "";
+        // Temporarily reset position to accurately measure current content size
+        tt.style.left = "0px";
+        tt.style.top = "0px";
+        const tw = tt.offsetWidth;
+        const th = tt.offsetHeight;
+        const winW = window.innerWidth;
+        const winH = window.innerHeight;
+
         let tx = mx + 16,
-          ty = my - 16;
-        if (tx + 340 > window.innerWidth) tx = mx - 356;
-        if (ty < 10) ty = my + 16;
-        if (ty + 200 > window.innerHeight) ty = my - 200;
+            ty = my - 16;
+
+        if (winW <= 640) {
+          // On mobile, center the pop-up horizontally above the finger tap
+          tx = Math.max(10, Math.min(mx - tw / 2, winW - tw - 10));
+          ty = my - th - 20; // Try placing it above the tapped area
+          if (ty < 10) ty = my + 30; // IF it hits the very top of the screen, fallback below finger
+        } else {
+          // Desktop positioning (next to mouse)
+          if (tx + tw > winW) tx = mx - tw - 16;
+          if (ty < 10) ty = my + 16;
+          if (ty + th > winH) ty = my - th - 16;
+        }
+
         tt.style.left = tx + "px";
         tt.style.top = ty + "px";
         tt.classList.add("visible");
