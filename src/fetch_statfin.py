@@ -89,7 +89,7 @@ def build_query(var: str, values: List[str]) -> dict:
     return {"code": var, "selection": {"filter": "item", "values": values}}
 
 
-def fetch_employment(cfg: dict) -> Tuple[Dict[str, int], List[Tuple[str, str]]]:
+def fetch_employment(cfg: dict) -> Tuple[Dict[str, int], List[Tuple[str, str]], str]:
     table = cfg["table"]
     meta = pxweb_metadata(table)
     occ_var = cfg["occupation_var"]
@@ -132,7 +132,7 @@ def fetch_employment(cfg: dict) -> Tuple[Dict[str, int], List[Tuple[str, str]]]:
         except ValueError:
             continue
 
-    return employment, occupations
+    return employment, occupations, year
 
 
 def fetch_wages(cfg: dict, occupation_codes: List[str]) -> Dict[str, float]:
@@ -399,7 +399,7 @@ def main() -> None:
     if not emp_cfg:
         raise SystemExit("employment config is required")
 
-    employment, occupations = fetch_employment(emp_cfg)
+    employment, occupations, employment_year = fetch_employment(emp_cfg)
     wage_values = fetch_wages(wage_cfg, [c for c, _ in occupations]) if wage_cfg else {}
     outlook_values = (
         fetch_outlook(outlook_cfg, [c for c, _ in occupations]) if outlook_cfg else {}
@@ -510,7 +510,8 @@ def main() -> None:
                 "entry_education": education_val,
                 "work_experience": work_experience_val,
                 "training": training_val,
-                "num_jobs_2024": str(employment.get(code, "")),
+                "num_jobs": str(employment.get(code, "")),
+                "employment_year": employment_year,
                 "outlook_pct": outlook_pct_val,
                 "outlook_desc": outlook_desc_val,
                 "outlook_source": outlook_source,
@@ -540,7 +541,8 @@ def main() -> None:
         "entry_education",
         "work_experience",
         "training",
-        "num_jobs_2024",
+        "num_jobs",
+        "employment_year",
         "outlook_pct",
         "outlook_desc",
         "outlook_source",
@@ -550,7 +552,7 @@ def main() -> None:
     ]
 
     with open("data/occupations.csv", "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -560,7 +562,10 @@ def main() -> None:
     with_outlook = sum(1 for r in rows if r.get("outlook_desc") or r.get("outlook_pct"))
     outlook_coverage = (with_outlook / len(rows)) if rows else 0.0
 
-    print(f"Wrote {len(rows)} rows to occupations.csv and occupations.json")
+    print(
+        f"Wrote {len(rows)} rows to occupations.csv and occupations.json "
+        f"(employment year: {employment_year})"
+    )
     print(
         f"Outlook coverage: {with_outlook}/{len(rows)} ({100 * outlook_coverage:.1f}%)"
     )

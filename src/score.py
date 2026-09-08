@@ -212,7 +212,7 @@ def _build_text(occ: dict, csv_rows: dict) -> str | None:
             f"Code: {code}",
             f"Category: {row.get('category', '')}",
             f"Pay (annual EUR): {row.get('median_pay_annual', '')}",
-            f"Employment (latest): {row.get('num_jobs_2024', '')}",
+            f"Employment (latest): {row.get('num_jobs') or row.get('num_jobs_2024', '')}",
             f"Outlook: {row.get('outlook_desc', '') or row.get('outlook_pct', '')}",
             f"Education: {row.get('entry_education', '')}",
             f"Work Experience: {row.get('work_experience', '')}",
