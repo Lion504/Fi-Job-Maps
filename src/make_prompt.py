@@ -45,7 +45,8 @@ def main():
         row = csv_rows.get(slug, {})
         score = scores.get(slug, {})
         pay = int(row["median_pay_annual"]) if row.get("median_pay_annual") else None
-        jobs = int(row["num_jobs_2024"]) if row.get("num_jobs_2024") else None
+        jobs_value = row.get("num_jobs") or row.get("num_jobs_2024")
+        jobs = int(jobs_value) if jobs_value else None
         records.append(
             {
                 "title": occ["title"],

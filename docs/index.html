@@ -1115,7 +1115,7 @@
         tt.querySelector(".tt-exposure").innerHTML = tooltipHighlight(d);
         tt.querySelector(".tt-stats").innerHTML = `
     <span class="label">Median pay</span><span class="value">${formatPay(d.pay)}</span>
-    <span class="label">Jobs (2024)</span><span class="value">${formatNumber(d.jobs)}</span>
+    <span class="label">Jobs${d.jobs_year ? " (" + d.jobs_year + ")" : ""}</span><span class="value">${formatNumber(d.jobs)}</span>
     <span class="label">Education</span><span class="value">${d.education || "\u2014"}</span>
     <span class="label">Work experience</span><span class="value">${d.work_experience || "\u2014"}</span>
     <span class="label">Training</span><span class="value">${d.training || "\u2014"}</span>
