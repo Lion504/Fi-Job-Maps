@@ -46,6 +46,7 @@ See `finlandjobs --help` for all options.
 - You can enforce outlook completeness in config with `min_outlook_coverage` (0-1) and `strict_outlook_coverage` (true/false).
 - `build_site_data.py` uses one hierarchy level only (`TREE_LEVEL`, default `4`) so total jobs are not double-counted across Level 1-5 aggregates.
 - **Barometer data source**: The Occupational Barometer (Työllisyysbarometri) CSV can be obtained from Statistics Finland (PxWeb API) or the Ministry of Employment and the Economy. Look for columns containing occupation codes (ISCO or ammatti_koodi) and outlook categories (balance_label). This data is optional; the pipeline will use `extras.csv` if barometer data is not provided.
+- **Analytics**: the published page loads a self-hosted, cookieless [Umami](https://umami.is) tracker. `data-domains="lion504.github.io"` means local previews are never counted. `site/index.html` and `docs/index.html` (the GitHub Pages copy) carry the same tag; keep them identical.
 
 ---
 
