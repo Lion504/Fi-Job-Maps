@@ -35,8 +35,23 @@ Optional: `finlandjobs all --barometer-input barometer.csv` includes Occupationa
 
 - `statfin_config.json` – required, defines PxWeb tables and variables
 - `TREE_LEVEL` – treemap hierarchy level (default: 4)
+- `.env` – copy from `.env.example`; holds the AI-exposure scoring keys (see below)
 
 See `finlandjobs --help` for all options.
+
+## AI exposure scoring
+
+`finlandjobs infer` scores each occupation with an LLM when a key is set in `.env`, and falls back to a rule-based estimate otherwise.
+
+- **Claude API (default):** set `ANTHROPIC_API_KEY` (from <https://platform.claude.com/settings/keys>). The model is `CLAUDE_MODEL`, default `claude-haiku-5-5`, the cheapest and fastest Claude model; scoring all occupations costs roughly $0.10–0.20.
+- **Gemini:** set `GOOGLE_API_KEY` (AI Studio) or `VERTEX_PROJECT` + `VERTEX_API_KEY` (Vertex AI); the model is `LLM_MODEL`.
+- `LLM_BACKEND` picks the backend: `auto` (Claude, then Vertex, then AI Studio, by which keys are set), `anthropic`, `vertex` or `aistudio`.
+
+Scores are cached in `data/scores.json`, so a run only scores occupations that aren't cached yet. To re-score everything, for example after switching model:
+
+```bash
+uv run python src/score.py --force
+```
 
 ## Notes
 

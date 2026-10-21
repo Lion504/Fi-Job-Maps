@@ -1,5 +1,6 @@
 """
-Score each occupation's AI exposure using Google AI Studio or Vertex AI (Gemini).
+Score each occupation's AI exposure using the Claude API, Google AI Studio or
+Vertex AI (Gemini).
 
 Reads occupation data from data/occupations.csv, sends each to an LLM with a scoring
 rubric, and collects structured scores. Results are cached incrementally to
@@ -11,20 +12,27 @@ occupation data scored from data/occupations.csv.
 
 --- Backend selection (via .env) ---
 
-Option A — Google AI Studio (free tier, simple API key):
+Option A — Claude API (Anthropic, default model claude-haiku-5-5):
+    ANTHROPIC_API_KEY=your_key             ← from https://platform.claude.com/settings/keys
+    CLAUDE_MODEL=claude-haiku-5-5          (optional)
+
+Option B — Google AI Studio (free tier, simple API key):
     GOOGLE_API_KEY=your_key
 
-Option B — Vertex AI with API key (GCP credits):
+Option C — Vertex AI with API key (GCP credits):
     VERTEX_PROJECT=your-gcp-project-id
     VERTEX_API_KEY=your-vertex-api-key     ← from GCP Console → APIs & Services → Credentials
 
-Vertex AI is preferred (auto) when VERTEX_PROJECT is set.
+With LLM_BACKEND=auto (default), Claude is used when ANTHROPIC_API_KEY is set,
+then Vertex AI when VERTEX_PROJECT is set, then AI Studio.
 
 Usage:
     uv run python src/score.py
     uv run python src/score.py --model gemini-3.1-flash-lite-preview
     uv run python src/score.py --workers 10          # more parallel calls
     uv run python src/score.py --start 0 --end 10    # test on first 10
+    uv run python src/score.py --force               # re-score everything (e.g. after switching model)
+    uv run python src/score.py --backend anthropic   # force Claude API
     uv run python src/score.py --backend aistudio    # force AI Studio
     uv run python src/score.py --backend vertex      # force Vertex AI
 """
@@ -36,14 +44,21 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import anthropic
 import httpx
 from dotenv import load_dotenv
+from pydantic import BaseModel
 
 load_dotenv()
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 DEFAULT_MODEL = os.getenv("LLM_MODEL", "gemini-3.1-flash-lite-preview")
 OUTPUT_FILE = os.getenv("SCORES_OUTPUT_FILE", "data/scores.json")
+LLM_BACKEND = os.getenv("LLM_BACKEND", "auto")
+
+# Claude API (the SDK reads ANTHROPIC_API_KEY itself)
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-haiku-5-5")
 
 # AI Studio
 API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -125,6 +140,32 @@ def _parse_response_text(text: str) -> dict:
             text = text[:-3]
         text = text.strip()
     return json.loads(text)
+
+
+class ExposureScore(BaseModel):
+    exposure: int
+    rationale: str
+
+
+def score_anthropic(client: anthropic.Anthropic, text: str, model: str) -> dict:
+    """Score via the Claude API with a structured JSON output."""
+    response = client.messages.parse(
+        model=model,
+        max_tokens=4096,  # room for adaptive thinking plus the short JSON answer
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": text}],
+        # A short rubric judgement: low effort keeps thinking (and cost) small.
+        output_config={"effort": "low"},
+        output_format=ExposureScore,
+    )
+    if response.stop_reason == "refusal":
+        raise RuntimeError("model declined to score this occupation")
+    if response.stop_reason == "max_tokens" or response.parsed_output is None:
+        raise RuntimeError(f"no score returned (stop_reason={response.stop_reason})")
+    score = response.parsed_output
+    if not 0 <= score.exposure <= 10:
+        raise ValueError(f"exposure {score.exposure} outside 0-10")
+    return {"exposure": score.exposure, "rationale": score.rationale}
 
 
 def score_aistudio(client: httpx.Client, text: str, model: str) -> dict:
@@ -242,21 +283,26 @@ def _score_one(occ: dict, csv_rows: dict, score_fn, model: str) -> tuple:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Score occupations for AI exposure using Gemini (AI Studio or Vertex AI)"
+        description="Score occupations for AI exposure using Claude or Gemini (AI Studio or Vertex AI)"
     )
     parser.add_argument(
         "--model",
-        default=DEFAULT_MODEL,
-        help=f"Model to use (default: {DEFAULT_MODEL})",
+        default=None,
+        help=(
+            f"Model to use (default: {CLAUDE_MODEL} for Claude, "
+            f"{DEFAULT_MODEL} for Gemini)"
+        ),
     )
     parser.add_argument(
         "--backend",
-        choices=["aistudio", "vertex", "auto"],
-        default="auto",
+        choices=["anthropic", "aistudio", "vertex", "auto"],
+        default=LLM_BACKEND,
         help=(
-            "API backend: 'vertex' uses Vertex AI (VERTEX_PROJECT required), "
+            "API backend: 'anthropic' uses the Claude API (ANTHROPIC_API_KEY), "
+            "'vertex' uses Vertex AI (VERTEX_PROJECT required), "
             "'aistudio' uses Google AI Studio (GOOGLE_API_KEY required), "
-            "'auto' prefers Vertex if VERTEX_PROJECT is set (default: auto)"
+            "'auto' picks Claude, then Vertex, then AI Studio by which keys are set "
+            "(default: LLM_BACKEND from .env, else auto)"
         ),
     )
     parser.add_argument(
@@ -283,15 +329,26 @@ def main():
     args = parser.parse_args()
 
     # ── Resolve backend ──────────────────────────────────────────────────────
-    use_vertex = False
-    if args.backend == "vertex":
-        use_vertex = True
-    elif args.backend == "aistudio":
-        use_vertex = False
-    else:  # auto
-        use_vertex = bool(VERTEX_PROJECT)
+    backend = args.backend
+    if backend == "auto":
+        if ANTHROPIC_API_KEY:
+            backend = "anthropic"
+        elif VERTEX_PROJECT:
+            backend = "vertex"
+        else:
+            backend = "aistudio"
+    model = args.model or (CLAUDE_MODEL if backend == "anthropic" else DEFAULT_MODEL)
 
-    if use_vertex:
+    if backend == "anthropic":
+        claude = anthropic.Anthropic(max_retries=5)
+        if not (claude.api_key or claude.auth_token or claude.credentials):
+            print("Error: no Claude API credentials found. Add your key to .env:")
+            print("  ANTHROPIC_API_KEY=your-key   (from https://platform.claude.com/settings/keys)")
+            return 1
+        print("Backend: Claude API")
+        def score_fn(client, text, model):
+            return score_anthropic(claude, text, model)
+    elif backend == "vertex":
         if not VERTEX_PROJECT:
             print("Error: VERTEX_PROJECT not set. Add it to .env:")
             print("  VERTEX_PROJECT=your-gcp-project-id")
@@ -337,7 +394,7 @@ def main():
     # Only score occupations not yet cached
     todo = [occ for occ in subset if occ["slug"] not in scores]
 
-    print(f"Model:   {args.model}")
+    print(f"Model:   {model}")
     print(f"Workers: {args.workers} parallel calls")
     print(f"Total:   {len(subset)} occupations  |  cached: {len(scores)}  |  to score: {len(todo)}")
 
@@ -358,7 +415,7 @@ def main():
         # Submit all jobs
         future_to_occ = {}
         for i, occ in enumerate(todo):
-            future = executor.submit(_score_one, occ, csv_rows, score_fn, args.model)
+            future = executor.submit(_score_one, occ, csv_rows, score_fn, model)
             future_to_occ[future] = occ
             if args.delay:
                 time.sleep(args.delay)

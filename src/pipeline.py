@@ -66,8 +66,8 @@ def main():
         ),  # reads/writes data/occupations.csv
         (
             4,
-            "Score AI exposure with LLM (Gemini Flash) - requires GOOGLE_API_KEY",
-            "uv run python src/score.py --model gemini-2.5-flash",
+            "Score AI exposure with LLM (Claude Haiku or Gemini) - requires ANTHROPIC_API_KEY or GOOGLE_API_KEY",
+            "uv run python src/score.py",
         ),
         (5, "Build site data", "uv run python src/build_site_data.py"),
         (6, "Generate LLM prompt (optional)", "uv run python src/make_prompt.py"),

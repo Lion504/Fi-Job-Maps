@@ -78,20 +78,24 @@ def cmd_infer(args):
         print(f"Error: infer_missing_pay.py failed with code {returncode}")
         return returncode
 
-    # Check if Google API key is set for LLM scoring
-    if os.environ.get("GOOGLE_API_KEY"):
-        print("\n=== Scoring AI exposure with LLM (Gemini) ===")
-        model = (
-            args.model if hasattr(args, "model") and args.model else "gemini-2.5-flash"
-        )
-        score_args = ["--model", model]
+    # Use LLM scoring when any LLM backend is configured
+    llm_configured = any(
+        os.environ.get(var)
+        for var in ("ANTHROPIC_API_KEY", "GOOGLE_API_KEY", "VERTEX_PROJECT")
+    ) or os.environ.get("LLM_BACKEND", "auto") != "auto"
+    if llm_configured:
+        print("\n=== Scoring AI exposure with LLM ===")
+        # score.py picks the default model for its backend (CLAUDE_MODEL / LLM_MODEL)
+        score_args = []
+        if getattr(args, "model", None):
+            score_args = ["--model", args.model]
         returncode = run_script(SRC_DIR / "score.py", score_args)
         if returncode != 0:
             print(f"Error: score.py failed with code {returncode}")
             return returncode
     else:
         print("\n=== Scoring AI exposure (rule-based fallback) ===")
-        print("Note: Set GOOGLE_API_KEY in .env for LLM-based scoring")
+        print("Note: Set ANTHROPIC_API_KEY (or GOOGLE_API_KEY) in .env for LLM-based scoring")
         returncode = run_script(SRC_DIR / "infer_ai_exposure.py")
         if returncode != 0:
             print(f"Error: infer_ai_exposure.py failed with code {returncode}")
@@ -161,7 +165,7 @@ def cmd_all(args):
     # Step 3: Infer (pay + AI exposure)
     infer_parser = argparse.ArgumentParser()
     infer_args = infer_parser.parse_args([])
-    infer_args.model = args.model if hasattr(args, "model") else "gemini-2.5-flash"
+    infer_args.model = getattr(args, "model", None)
     returncode = cmd_infer(infer_args)
     if returncode != 0:
         return returncode
@@ -190,12 +194,12 @@ Examples:
   
    # Infer missing data and score AI exposure with LLM
   finlandjobs infer
-  finlandjobs infer --model gemini-2.5-flash
+  finlandjobs infer --model claude-haiku-5-5
   
   # Build site data
   finlandjobs build
   
-  # Run complete pipeline (requires GOOGLE_API_KEY in .env for LLM scoring)
+  # Run complete pipeline (set ANTHROPIC_API_KEY in .env for LLM scoring)
   finlandjobs all --barometer-input barometer.csv
   
   (Note: The finlandjobs script automatically detects and uses the project's virtual environment. Run from the project directory.)
@@ -233,7 +237,7 @@ Examples:
     )
     infer_parser.add_argument(
         "--model",
-        help="LLM model for AI exposure scoring (default: from .env or gemini-2.5-flash)",
+        help="LLM model for AI exposure scoring (default: CLAUDE_MODEL / LLM_MODEL from .env)",
     )
     infer_parser.set_defaults(func=cmd_infer)
 
@@ -278,7 +282,7 @@ Examples:
     )
     all_parser.add_argument(
         "--model",
-        help="LLM model for AI exposure scoring (default: from .env or gemini-2.5-flash)",
+        help="LLM model for AI exposure scoring (default: CLAUDE_MODEL / LLM_MODEL from .env)",
     )
     all_parser.set_defaults(func=cmd_all)
 
