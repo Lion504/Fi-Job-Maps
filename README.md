@@ -50,4 +50,6 @@ See `finlandjobs --help` for all options.
 
 ---
 
+Built by [Wang Yongzhi](https://lion504.github.io/). Notes on the data and design: [A useful map starts with trustworthy totals](https://lion504.github.io/fijobmaps-data.html).
+
 This project is adapted from [karpathy/jobs](https://github.com/karpathy/jobs). Thanks to the original author for the excellent foundation.
