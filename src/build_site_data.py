@@ -6,10 +6,15 @@ Writes site/data.json with one row per occupation group for levels
 1..TREE_LEVEL of the Classification of Occupations 2010 (default 1-4).
 
 Rows at the finest level (TREE_LEVEL) carry their own stats and LLM score.
+Where Statistics Finland publishes no pay for one of them, its pay is the own
+StatFin median of the nearest group containing it that has one (Level 3, else
+2, else 1 by default), marked pay_source "estimated" with that group's title
+in pay_basis.
 Group rows (coarser levels) use their own StatFin employment and pay, and
 derive outlook, AI exposure and education from the finest-level occupations
 they contain (employment-weighted means, or the label with the largest share
-of the group's employment).
+of the group's employment). A group without its own pay takes its
+occupations' estimate when they all share one, else their weighted mean.
 
 Usage:
     uv run python src/build_site_data.py
@@ -35,6 +40,11 @@ def row_level(title: str) -> int:
 def clean_title(title: str) -> str:
     """Drop the " (Level N)" suffix and collapse StatFin's double spaces."""
     return re.sub(r"\s+", " ", LEVEL_RE.sub("", title or "")).strip()
+
+
+def parse_outlook(text: str) -> int | None:
+    """Integer outlook from the CSV ("-5", "+3"); None if missing or not an integer."""
+    return int(text) if text and text.lstrip("-+").isdigit() else None
 
 
 def weighted_mean(pairs):
@@ -100,16 +110,44 @@ def exposure_summary(members) -> str:
     return text
 
 
+def own_pay(row: dict) -> int | None:
+    """The row's own median pay from the CSV, or None.
+
+    Pay marked median_pay_source "inferred_fallback" (an older estimate
+    written into the CSV) counts as missing, so the build-time estimate is
+    the only one used.
+    """
+    if not row["median_pay_annual"]:
+        return None
+    if row.get("median_pay_source") == "inferred_fallback":
+        return None
+    return int(row["median_pay_annual"])
+
+
+def nearest_paid_group(code: str, pay_groups: list) -> dict | None:
+    """The nearest group above `code` with its own StatFin median pay.
+
+    `pay_groups` holds the group rows that have one, finest level first; a
+    group contains `code` when `code` starts with the group's code (as for the
+    group averages below).
+    """
+    for group in pay_groups:
+        if code.startswith(group["isco_code"]):
+            return group
+    return None
+
+
 def base_row(row: dict, level: int) -> dict:
     """Fields shared by occupation and group rows, straight from the CSV."""
+    pay = own_pay(row)
     return {
         "title": clean_title(row["title"]),
         "slug": row["slug"],
         "level": level,
         "code": row["isco_code"],
         "category": row["category"],
-        "pay": int(row["median_pay_annual"]) if row["median_pay_annual"] else None,
-        "pay_source": row.get("median_pay_source", ""),
+        "pay": pay,
+        "pay_source": row.get("median_pay_source", "") if pay is not None else "",
         "jobs": int(row.get("num_jobs") or row.get("num_jobs_2024") or 0) or None,
         "jobs_year": int(row["employment_year"])
         if row.get("employment_year", "").isdigit()
@@ -117,11 +155,18 @@ def base_row(row: dict, level: int) -> dict:
     }
 
 
-def occupation_row(row: dict, level: int, scores: dict) -> dict:
+def occupation_row(row: dict, level: int, scores: dict, pay_groups: list) -> dict:
     d = base_row(row, level)
 
-    # scores.json (joined by slug) is the only source: the CSV exposure column
-    # may hold stale values from older title matching, so it is not used.
+    # No published pay: estimate it from the nearest group's own median
+    if d["pay"] is None:
+        group = nearest_paid_group(d["code"], pay_groups)
+        if group is not None:
+            d["pay"] = own_pay(group)
+            d["pay_source"] = "estimated"
+            d["pay_basis"] = clean_title(group["title"])
+
+    # AI exposure comes from scores.json only, joined by slug
     score = scores.get(row["slug"], {})
     if score.get("exposure") is not None:
         exposure = int(score["exposure"])
@@ -131,9 +176,7 @@ def occupation_row(row: dict, level: int, scores: dict) -> dict:
 
     d.update(
         {
-            "outlook": int(row["outlook_pct"])
-            if row["outlook_pct"] and row["outlook_pct"].lstrip("-+").isdigit()
-            else None,
+            "outlook": parse_outlook(row["outlook_pct"]),
             "outlook_desc": row["outlook_desc"],
             "outlook_source": row.get("outlook_source", ""),
             "education": row["entry_education"],
@@ -150,11 +193,20 @@ def occupation_row(row: dict, level: int, scores: dict) -> dict:
 def group_row(row: dict, level: int, members: list) -> dict:
     d = base_row(row, level)
 
-    # Pay: the group's own StatFin median when published, else derived
+    # Pay: the group's own StatFin median when published. Else, when all its
+    # occupations' pay is estimated from one group, that same estimate;
+    # otherwise derived from its occupations' pay (estimates included).
     if d["pay"] is None:
-        pay = weighted_mean((m["pay"], m["jobs"]) for m in members)
-        d["pay"] = round(pay) if pay is not None else None
-        d["pay_source"] = "derived" if pay is not None else ""
+        priced = [m for m in members if m["pay"] is not None]
+        bases = {m.get("pay_basis") for m in priced}
+        if priced and all(m["pay_source"] == "estimated" for m in priced) and len(bases) == 1:
+            d["pay"] = priced[0]["pay"]
+            d["pay_source"] = "estimated"
+            d["pay_basis"] = bases.pop()
+        else:
+            pay = weighted_mean((m["pay"], m["jobs"]) for m in members)
+            d["pay"] = round(pay) if pay is not None else None
+            d["pay_source"] = "derived" if pay is not None else ""
 
     outlook = weighted_mean((m["outlook"], m["jobs"]) for m in members)
     exposure = weighted_mean((m["exposure"], m["jobs"]) for m in members)
@@ -204,8 +256,16 @@ def main():
         if 1 <= level <= target_level:
             rows_by_level.setdefault(level, []).append(r)
 
+    # Groups with their own StatFin median pay, nearest level first: the
+    # source of the estimate for occupations without published pay
+    pay_groups = [
+        r
+        for level in range(target_level - 1, 0, -1)
+        for r in rows_by_level.get(level, [])
+        if own_pay(r) is not None
+    ]
     occupations = [
-        occupation_row(r, target_level, scores)
+        occupation_row(r, target_level, scores, pay_groups)
         for r in rows_by_level.get(target_level, [])
     ]
 
@@ -233,6 +293,7 @@ def main():
     if not data:
         return
     with_pay = sum(1 for d in data if d["pay"])
+    estimated_pay = sum(1 for d in data if d["pay_source"] == "estimated")
     with_education = sum(1 for d in data if d["education"])
     with_outlook = sum(1 for d in data if d["outlook"] is not None)
     with_exposure = sum(1 for d in data if d["exposure"] is not None)
@@ -241,7 +302,10 @@ def main():
     with_training = sum(1 for d in data if d.get("training"))
 
     print(f"\nData coverage (Level {target_level}):")
-    print(f"  With pay: {with_pay}/{len(data)} ({100 * with_pay / len(data):.1f}%)")
+    print(
+        f"  With pay: {with_pay}/{len(data)} ({100 * with_pay / len(data):.1f}%)"
+        f", {estimated_pay} estimated from their group"
+    )
     print(
         f"  With education: {with_education}/{len(data)} ({100 * with_education / len(data):.1f}%)"
     )

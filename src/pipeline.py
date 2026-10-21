@@ -9,10 +9,9 @@ from the original karpathy/jobs project.
 Pipeline steps:
 1. Fetch StatFin data (employment, wages, outlook)
 2. Optional: Fetch Occupational Barometer outlook data
-3. Infer missing pay data
-4. Score AI exposure with LLM (Gemini Flash via Google AI Studio / Vertex AI)
-5. Build site data for visualization
-6. Optional: Generate prompt.md for LLM analysis
+3. Score AI exposure with LLM (Claude API, or Gemini via Google AI Studio / Vertex AI)
+4. Build site data for visualization (estimates missing pay from group medians)
+5. Optional: Generate prompt.md for LLM analysis
 
 Usage:
     uv run python pipeline.py              # Run all steps
@@ -44,7 +43,7 @@ def run_step(step_num, description, command, required=True):
 
 def main():
     parser = argparse.ArgumentParser(description="Run Finland Job Market pipeline")
-    parser.add_argument("--step", type=int, help="Run specific step only (1-6)")
+    parser.add_argument("--step", type=int, help="Run specific step only (1-5)")
     parser.add_argument("--list", action="store_true", help="List all pipeline steps")
     args = parser.parse_args()
 
@@ -61,16 +60,11 @@ def main():
         ),
         (
             3,
-            "Infer missing pay data",
-            "uv run python src/infer_missing_pay.py",
-        ),  # reads/writes data/occupations.csv
-        (
-            4,
             "Score AI exposure with LLM (Claude Haiku or Gemini) - requires ANTHROPIC_API_KEY or GOOGLE_API_KEY",
             "uv run python src/score.py",
         ),
-        (5, "Build site data", "uv run python src/build_site_data.py"),
-        (6, "Generate LLM prompt (optional)", "uv run python src/make_prompt.py"),
+        (4, "Build site data", "uv run python src/build_site_data.py"),
+        (5, "Generate LLM prompt (optional)", "uv run python src/make_prompt.py"),
     ]
 
     if args.list:

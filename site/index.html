@@ -49,6 +49,8 @@
             "creator": {"@id": "https://lion504.github.io/#person"},
             "spatialCoverage": {"@type": "Place", "name": "Finland"},
             "isBasedOn": "https://pxdata.stat.fi/PxWeb/api/v1/en",
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "creditText": "Source: Statistics Finland",
             "keywords": ["Finland", "Suomi", "occupations", "ammatit", "employment", "työllisyys", "AI exposure", "tekoälyaltistus", "Statistics Finland", "Tilastokeskus"],
             "distribution": {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://lion504.github.io/Fi-Job-Maps/data.json"}
           }
@@ -540,7 +542,9 @@
               provided), education, and AI exposure. <b>Level</b> switches
               between major, sub-major, minor and unit groups of the
               classification; a group's outlook and AI exposure are
-              employment-weighted averages of the occupations it contains. The
+              employment-weighted averages of the occupations it contains.
+              Where Statistics Finland publishes no pay for an occupation, the
+              map uses its group's median and marks it as an estimate. The
               statistics count the occupations inside the tiles shown. This is
               not a report or a formal publication &mdash; it is a development
               tool for exploring Finnish labor data visually.
@@ -1196,7 +1200,7 @@
           if (v == null) return "";
           const color = payColor(v, 1);
           return (
-            `<span style="color:${color};font-weight:600;">Median Pay: ${formatPay(v)}</span>` +
+            `<span style="color:${color};font-weight:600;">Median Pay${d.pay_source === "estimated" ? " (est.)" : ""}: ${formatPay(v)}</span>` +
             `<div style="margin-top:3px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;">` +
             `<div style="height:100%;width:${Math.min(100, (v / 150000) * 100)}%;background:${color};border-radius:2px;"></div></div>`
           );
@@ -1216,8 +1220,14 @@
         const membersRow = isGroup(d)
           ? `<span class="label">Occupations</span><span class="value">${d.members}</span>`
           : "";
+        const estimated = d.pay_source === "estimated";
+        const payLabel = d.pay_source === "derived" ? " (avg.)" : estimated ? " (est.)" : "";
+        const payBasisRow = estimated && d.pay_basis
+          ? `<span style="grid-column:1/-1;color:var(--fg2);font-size:11px;">Estimated from ${d.pay_basis} (Statistics Finland group median)</span>`
+          : "";
         tt.querySelector(".tt-stats").innerHTML = `
-    <span class="label">Median pay${d.pay_source === "derived" ? " (avg.)" : ""}</span><span class="value">${formatPay(d.pay)}</span>
+    <span class="label">Median pay${payLabel}</span><span class="value">${formatPay(d.pay)}</span>
+    ${payBasisRow}
     <span class="label">Jobs${d.jobs_year ? " (" + d.jobs_year + ")" : ""}</span><span class="value">${formatNumber(d.jobs)}</span>
     ${membersRow}
     <span class="label">Education</span><span class="value">${d.education || "\u2014"}</span>

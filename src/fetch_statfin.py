@@ -25,11 +25,13 @@ import csv
 import json
 import os
 import re
+import time
 from typing import Dict, List, Optional, Tuple
 
 import httpx
 
 PXWEB_BASE = "https://pxdata.stat.fi/PxWeb/api/v1/en"
+RETRY_DELAYS = (10, 30)  # seconds to wait before the second and third attempt
 
 
 def slugify(text: str) -> str:
@@ -45,18 +47,35 @@ def load_config(path: str) -> dict:
         return json.load(f)
 
 
-def pxweb_request(table: str, payload: dict) -> dict:
+def pxweb_call(method: str, table: str, **kwargs) -> dict:
+    """Send a PxWeb request and return its JSON.
+
+    Timeouts, connection errors and 5xx responses are retried after each delay
+    in RETRY_DELAYS (three attempts in all) and then raised; 4xx errors are
+    raised at once.
+    """
     url = f"{PXWEB_BASE}/{table}"
-    resp = httpx.post(url, json=payload, timeout=60)
-    resp.raise_for_status()
-    return resp.json()
+    for delay in (*RETRY_DELAYS, None):
+        try:
+            resp = httpx.request(method, url, timeout=60, **kwargs)
+            if resp.status_code < 500 or delay is None:
+                resp.raise_for_status()
+                return resp.json()
+            problem = f"HTTP {resp.status_code}"
+        except httpx.TransportError as e:  # timeouts and connection errors
+            if delay is None:
+                raise
+            problem = f"{type(e).__name__}: {e}"
+        print(f"PxWeb {method} {table} failed ({problem}); retrying in {delay} s", flush=True)
+        time.sleep(delay)
+
+
+def pxweb_request(table: str, payload: dict) -> dict:
+    return pxweb_call("POST", table, json=payload)
 
 
 def pxweb_metadata(table: str) -> dict:
-    url = f"{PXWEB_BASE}/{table}"
-    resp = httpx.get(url, timeout=60)
-    resp.raise_for_status()
-    return resp.json()
+    return pxweb_call("GET", table)
 
 
 def latest_year(meta: dict, year_var: str) -> str:
@@ -294,33 +313,12 @@ def load_extra_attrs(path: Optional[str]) -> Dict[str, dict]:
     return extras
 
 
-def load_ai_exposure(path: str = "scores.json") -> Dict[str, dict]:
-    """Load AI exposure scores from scores.json, keyed by occupation slug.
-
-    score.py writes one entry per slug (the slugified StatFin title), so rows
-    are joined on the exact slug; no title matching is needed.
-    """
-    if not os.path.exists(path):
-        print(f"Warning: scores.json not found at {path}; skipping AI exposure data")
-        return {}
-
-    with open(path) as f:
-        data = json.load(f)
-
-    exposure_by_slug = {entry["slug"]: entry for entry in data if entry.get("slug")}
-    print(f"Loaded AI exposure scores for {len(exposure_by_slug)} occupations")
-    return exposure_by_slug
-
-
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--config",
         default="data/statfin_config.json",
         help="Path to StatFin config JSON",
-    )
-    parser.add_argument(
-        "--scores", default="data/scores.json", help="Path to AI exposure scores JSON"
     )
     args = parser.parse_args()
 
@@ -341,7 +339,6 @@ def main() -> None:
         fetch_outlook(outlook_cfg, [c for c, _ in occupations]) if outlook_cfg else {}
     )
     extra_attrs = load_extra_attrs(extras_path)
-    ai_exposure = load_ai_exposure(args.scores)
 
     # Build normalized rows
     rows = []
@@ -431,11 +428,6 @@ def main() -> None:
         else:
             outlook_source = ""
 
-        # AI exposure for this exact occupation (joined on slug)
-        score = ai_exposure.get(slug, {})
-        exposure_val = score.get("exposure")
-        exposure_rationale = score.get("rationale", "") if exposure_val is not None else ""
-
         rows.append(
             {
                 "title": title,
@@ -453,8 +445,6 @@ def main() -> None:
                 "outlook_pct": outlook_pct_val,
                 "outlook_desc": outlook_desc_val,
                 "outlook_source": outlook_source,
-                "exposure": str(exposure_val) if exposure_val is not None else "",
-                "exposure_rationale": exposure_rationale,
                 "url": "",
             }
         )
@@ -484,8 +474,6 @@ def main() -> None:
         "outlook_pct",
         "outlook_desc",
         "outlook_source",
-        "exposure",
-        "exposure_rationale",
         "url",
     ]
 

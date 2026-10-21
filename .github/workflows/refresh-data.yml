@@ -1,0 +1,112 @@
+# Weekly data refresh: fetch the latest Statistics Finland figures, score any
+# new occupations, rebuild and check the site data, regenerate prompt.md, and
+# publish to GitHub Pages when something changed.
+#
+# og.png (the link-preview image) is not regenerated: it needs headless Chrome,
+# and the default Outlook view it shows rarely changes.
+name: Weekly data refresh
+
+on:
+  schedule:
+    - cron: "17 3 * * 1" # Mondays 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write # push the refreshed data to master
+  pages: write # request a GitHub Pages build
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TREE_LEVEL: "4" # finest level: scored, built and checked
+      UV_FROZEN: "1" # use uv.lock as committed, never re-lock
+    steps:
+      # No token left in the git config; only the publish steps use it
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # uv takes the Python version from .python-version
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Fetch Statistics Finland data
+        run: uv run python src/fetch_statfin.py --config data/statfin_config.json
+
+      # Scores only occupations not yet in data/scores.json. With none new it
+      # exits before checking for a key, so most weeks need no API key and cost
+      # nothing.
+      - name: Score new occupations
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LLM_BACKEND: anthropic
+          CLAUDE_MODEL: claude-haiku-5-5
+        run: uv run python src/score.py
+
+      # Missing pay is estimated here from each occupation's group median, so
+      # no separate pay step is needed. docs/ is the published Pages copy.
+      - name: Build site data
+        run: |
+          uv run python src/build_site_data.py
+          cp site/data.json docs/data.json
+
+      - name: Check site data
+        run: uv run python src/check_site_data.py
+
+      - name: Regenerate prompt.md
+        run: uv run python src/make_prompt.py
+
+      # Runs from other branches stop here (a dry run)
+      - name: Commit and push
+        if: github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- data site docs prompt.md)" ]; then
+            echo "No data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- data site docs prompt.md
+          git commit -m "data: weekly refresh ($(date -u +%F))"
+          # No rebase: a rebased commit would publish data computed from older
+          # inputs. If master moved during the run, the push is rejected and
+          # the run fails; next week's run starts again from fresh inputs.
+          # The token goes in a one-off header, never in a URL or the git config.
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          echo "::add-mask::$auth"
+          git -c http.extraheader="AUTHORIZATION: basic $auth" push origin HEAD:master
+
+      # A push made with GITHUB_TOKEN doesn't start a Pages build, so request
+      # one whenever the latest build isn't of this commit. A run whose request
+      # failed is caught up by the next run, even if no data changed then.
+      - name: Request a Pages build
+        if: github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          head=$(git rev-parse HEAD)
+          built=$(gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" --jq .commit) || built=""
+          if [ "$built" = "$head" ]; then
+            echo "Pages is already built from $head."
+            exit 0
+          fi
+          echo "Latest Pages build: ${built:-none}; requesting a build of $head."
+          for attempt in 1 2 3; do
+            if gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds"; then
+              exit 0
+            fi
+            echo "Request $attempt of 3 failed."
+            if [ "$attempt" -lt 3 ]; then sleep 20; fi
+          done
+          echo "::error::Could not request a GitHub Pages build."
+          exit 1

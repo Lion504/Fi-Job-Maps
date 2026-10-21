@@ -7,7 +7,8 @@ title and classification code to an LLM with a scoring rubric, and collects
 structured scores. Only the finest level shown on the site is scored
 (--level, default TREE_LEVEL or 4); the site derives group scores from it.
 Results are cached incrementally to data/scores.json (or SCORES_OUTPUT_FILE)
-so the script can be resumed if interrupted.
+so the script can be resumed if interrupted. When every selected occupation is
+already cached, it exits without needing an API key.
 
 NOTE: If data/scores.json contains old US-sourced scores (English slugs like
 'accountants-and-auditors'), re-run this script to replace them with Finnish
@@ -372,37 +373,6 @@ def main():
             backend = "aistudio"
     model = args.model or (CLAUDE_MODEL if backend == "anthropic" else DEFAULT_MODEL)
 
-    if backend == "anthropic":
-        claude = anthropic.Anthropic(max_retries=5)
-        if not (claude.api_key or claude.auth_token or claude.credentials):
-            print("Error: no Claude API credentials found. Add your key to .env:")
-            print("  ANTHROPIC_API_KEY=your-key   (from https://platform.claude.com/settings/keys)")
-            return 1
-        print("Backend: Claude API")
-        def score_fn(client, text, model):
-            return score_anthropic(claude, text, model)
-    elif backend == "vertex":
-        if not VERTEX_PROJECT:
-            print("Error: VERTEX_PROJECT not set. Add it to .env:")
-            print("  VERTEX_PROJECT=your-gcp-project-id")
-            print("  VERTEX_API_KEY=your-api-key   (from GCP Console → APIs & Services → Credentials)")
-            return 1
-        if not VERTEX_API_KEY:
-            print("Error: VERTEX_API_KEY not set. Add it to .env:")
-            print("  VERTEX_API_KEY=your-api-key   (from GCP Console → APIs & Services → Credentials)")
-            return 1
-        print(f"Backend: Vertex AI (API key)  project={VERTEX_PROJECT}  (global endpoint)")
-        def score_fn(client, text, model):
-            return score_vertex(client, text, model)
-    else:
-        if not API_KEY:
-            print("Error: GOOGLE_API_KEY not set in environment or .env file")
-            print("Get your API key from https://aistudio.google.com/apikey")
-            print("Or set VERTEX_PROJECT to use Vertex AI instead.")
-            return 1
-        print("Backend: Google AI Studio")
-        score_fn = score_aistudio
-
     # ── Load data ────────────────────────────────────────────────────────────
     with open("data/occupations.json") as f:
         occupations = json.load(f)
@@ -448,6 +418,40 @@ def main():
     if not todo:
         print("Nothing to score — all cached.")
         return 0
+
+    # ── Credentials (only needed when something is left to score) ─────────────
+    if backend == "anthropic":
+        claude = anthropic.Anthropic(max_retries=5)
+        if not (claude.api_key or claude.auth_token or claude.credentials):
+            print("Error: no Claude API credentials found. Add your key to .env:")
+            print("  ANTHROPIC_API_KEY=your-key   (from https://platform.claude.com/settings/keys)")
+            print("For the weekly GitHub Actions refresh, add it as the repository secret")
+            print("ANTHROPIC_API_KEY (Settings → Secrets and variables → Actions).")
+            return 1
+        print("Backend: Claude API")
+        def score_fn(client, text, model):
+            return score_anthropic(claude, text, model)
+    elif backend == "vertex":
+        if not VERTEX_PROJECT:
+            print("Error: VERTEX_PROJECT not set. Add it to .env:")
+            print("  VERTEX_PROJECT=your-gcp-project-id")
+            print("  VERTEX_API_KEY=your-api-key   (from GCP Console → APIs & Services → Credentials)")
+            return 1
+        if not VERTEX_API_KEY:
+            print("Error: VERTEX_API_KEY not set. Add it to .env:")
+            print("  VERTEX_API_KEY=your-api-key   (from GCP Console → APIs & Services → Credentials)")
+            return 1
+        print(f"Backend: Vertex AI (API key)  project={VERTEX_PROJECT}  (global endpoint)")
+        def score_fn(client, text, model):
+            return score_vertex(client, text, model)
+    else:
+        if not API_KEY:
+            print("Error: GOOGLE_API_KEY not set in environment or .env file")
+            print("Get your API key from https://aistudio.google.com/apikey")
+            print("Or set VERTEX_PROJECT to use Vertex AI instead.")
+            return 1
+        print("Backend: Google AI Studio")
+        score_fn = score_aistudio
 
     # ── Parallel scoring ──────────────────────────────────────────────────────
     errors: list[str] = []

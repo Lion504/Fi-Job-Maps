@@ -79,13 +79,7 @@ def cmd_fetch(args):
 
 
 def cmd_infer(args):
-    """Infer missing pay and AI exposure."""
-    print("=== Inferring missing pay data ===")
-    returncode = run_script(SRC_DIR / "infer_missing_pay.py")
-    if returncode != 0:
-        print(f"Error: infer_missing_pay.py failed with code {returncode}")
-        return returncode
-
+    """Score AI exposure (missing pay is estimated by build_site_data.py)."""
     # Use LLM scoring when any LLM backend is configured
     llm_configured = any(
         os.environ.get(var)
@@ -159,11 +153,10 @@ def cmd_all(args):
     if returncode != 0:
         return returncode
 
-    # Step 2: Intermediate build (required so infer_missing_pay.py can load site/data.json).
-    # infer_missing_pay.py reads site/data.json to calculate pay statistics across occupations
-    # and then fills missing pay values back into data/occupations.csv. A second build (Step 4)
-    # is run afterwards to produce the final site/data.json with inferred pay values included.
-    print("\n=== Building initial site data (for pay statistics) ===")
+    # Step 2: Intermediate build. Without an LLM key, the rule-based fallback
+    # (infer_ai_exposure.py) reads site/data.json to find unscored occupations.
+    # A second build (Step 4) produces the final site/data.json with the scores.
+    print("\n=== Building initial site data (for unscored occupations) ===")
     build_parser = argparse.ArgumentParser()
     build_args = build_parser.parse_args([])
     build_args.tree_level = args.tree_level
@@ -171,7 +164,7 @@ def cmd_all(args):
     if returncode != 0:
         return returncode
 
-    # Step 3: Infer (pay + AI exposure)
+    # Step 3: Score AI exposure
     infer_parser = argparse.ArgumentParser()
     infer_args = infer_parser.parse_args([])
     infer_args.model = getattr(args, "model", None)
@@ -179,7 +172,7 @@ def cmd_all(args):
     if returncode != 0:
         return returncode
 
-    # Step 4: Build final (with inferred data)
+    # Step 4: Build final (with the new scores)
     print("\n=== Building final site data ===")
     returncode = cmd_build(build_args)
     if returncode != 0:
@@ -201,7 +194,7 @@ Examples:
   # Fetch with Barometer outlook
   finlandjobs fetch --barometer-input barometer.csv
   
-   # Infer missing data and score AI exposure with LLM
+   # Score AI exposure with LLM
   finlandjobs infer
   finlandjobs infer --model claude-haiku-5-5
   
@@ -242,7 +235,7 @@ Examples:
 
     # Infer command
     infer_parser = subparsers.add_parser(
-        "infer", help="Infer missing pay and AI exposure"
+        "infer", help="Score AI exposure (LLM, or a rule-based fallback)"
     )
     infer_parser.add_argument(
         "--model",
