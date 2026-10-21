@@ -2,9 +2,12 @@
 Score each occupation's AI exposure using the Claude API, Google AI Studio or
 Vertex AI (Gemini).
 
-Reads occupation data from data/occupations.csv, sends each to an LLM with a scoring
-rubric, and collects structured scores. Results are cached incrementally to
-data/scores.json so the script can be resumed if interrupted.
+Reads the occupation list from data/occupations.json, sends each occupation's
+title and classification code to an LLM with a scoring rubric, and collects
+structured scores. Only the finest level shown on the site is scored
+(--level, default TREE_LEVEL or 4); the site derives group scores from it.
+Results are cached incrementally to data/scores.json (or SCORES_OUTPUT_FILE)
+so the script can be resumed if interrupted.
 
 NOTE: If data/scores.json contains old US-sourced scores (English slugs like
 'accountants-and-auditors'), re-run this script to replace them with Finnish
@@ -30,8 +33,12 @@ Usage:
     uv run python src/score.py
     uv run python src/score.py --model gemini-3.1-flash-lite-preview
     uv run python src/score.py --workers 10          # more parallel calls
-    uv run python src/score.py --start 0 --end 10    # test on first 10
-    uv run python src/score.py --force               # re-score everything (e.g. after switching model)
+    uv run python src/score.py --start 0 --end 10    # test on first 10 of the level
+    uv run python src/score.py --level 3             # score Level 3 groups instead of Level 4
+    uv run python src/score.py --force               # re-score the level (e.g. after switching model)
+    SCORES_OUTPUT_FILE=data/scores_trial.json uv run python src/score.py --force --sample 40
+                                                     # trial run on a fixed random sample of 40;
+                                                     # compare with src/compare_scores.py
     uv run python src/score.py --backend anthropic   # force Claude API
     uv run python src/score.py --backend aistudio    # force AI Studio
     uv run python src/score.py --backend vertex      # force Vertex AI
@@ -40,6 +47,8 @@ Usage:
 import argparse
 import json
 import os
+import random
+import re
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -70,9 +79,8 @@ VERTEX_API_KEY = os.getenv("VERTEX_API_KEY")  # API key from GCP Console (no gcl
 
 SYSTEM_PROMPT = """\
 You are an expert analyst evaluating how exposed different occupations are to \
-AI. You will be given structured information about a Finnish occupation \
-(titles use ISCO/AML codes, pay is in EUR, and outlook may come from the \
-Occupational Barometer demand categories).
+AI. You will be given the title of a Finnish occupation and its code in the \
+Finnish Classification of Occupations 2010, which follows ISCO-08.
 
 Rate the occupation's overall **AI Exposure** on a scale from 0 to 10.
 
@@ -237,30 +245,36 @@ def score_vertex(client: httpx.Client, text: str, model: str) -> dict:
 
 # ── Worker (runs in thread pool) ──────────────────────────────────────────────
 
+def title_level(title: str) -> int | None:
+    """Classification level from a StatFin title like '2411 Accountants (Level 4)'."""
+    m = re.search(r"\(Level (\d+)\)\s*$", title or "")
+    return int(m.group(1)) if m else None
+
+
 def _build_text(occ: dict, csv_rows: dict) -> str | None:
-    """Build the prompt text for one occupation. Returns None if no data."""
+    """Build the prompt text for one occupation. Returns None if no data.
+
+    Only the title and classification code are sent: pay, employment, outlook
+    and education say little about the tasks, can anchor the score, and
+    outlook/education are partly the project's own category-level guesses.
+    """
     slug = occ["slug"]
     md_path = f"pages/{slug}.md"
     if os.path.exists(md_path):
         with open(md_path) as f:
             return f.read()
-    if slug in csv_rows:
-        row = csv_rows[slug]
-        # Use isco_code if available, fall back to soc_code for backward compat
-        code = row.get("isco_code") or row.get("soc_code", "")
-        parts = [
-            f"Occupation: {occ['title']}",
-            f"Code: {code}",
-            f"Category: {row.get('category', '')}",
-            f"Pay (annual EUR): {row.get('median_pay_annual', '')}",
-            f"Employment (latest): {row.get('num_jobs') or row.get('num_jobs_2024', '')}",
-            f"Outlook: {row.get('outlook_desc', '') or row.get('outlook_pct', '')}",
-            f"Education: {row.get('entry_education', '')}",
-            f"Work Experience: {row.get('work_experience', '')}",
-            f"Training: {row.get('training', '')}",
-        ]
-        return "\n".join(parts)
-    return None
+    row = csv_rows.get(slug, {})
+    # Use isco_code if available, fall back to soc_code for backward compat
+    code = occ.get("code") or row.get("isco_code") or row.get("soc_code", "")
+    # "2411 Accountants (Level 4)" -> "Accountants"; "216." -> "216"
+    title = re.sub(r"\s*\(Level \d+\)\s*$", "", occ.get("title", ""))
+    title = re.sub(r"^\d+\.*\s+", "", title).strip()
+    if not title:
+        return None
+    parts = [f"Occupation: {title}"]
+    if code:
+        parts.append(f"Code: {code.rstrip('.')}")
+    return "\n".join(parts)
 
 
 def _score_one(occ: dict, csv_rows: dict, score_fn, model: str) -> tuple:
@@ -312,10 +326,25 @@ def main():
         help="Number of parallel API calls (default: 5)",
     )
     parser.add_argument(
-        "--start", type=int, default=0, help="Start index for batch processing"
+        "--level",
+        type=int,
+        default=int(os.getenv("TREE_LEVEL", "4")),
+        help=(
+            "Classification level to score; only titles marked '(Level N)' are "
+            "scored (default: TREE_LEVEL from env, else 4)"
+        ),
     )
     parser.add_argument(
-        "--end", type=int, default=None, help="End index for batch processing"
+        "--start", type=int, default=0, help="Start index within the level"
+    )
+    parser.add_argument(
+        "--end", type=int, default=None, help="End index within the level"
+    )
+    parser.add_argument(
+        "--sample",
+        type=int,
+        default=None,
+        help="Score a fixed-seed random sample of N occupations (for cheap trial runs)",
     )
     parser.add_argument(
         "--delay",
@@ -324,9 +353,13 @@ def main():
         help="Delay between submitting each job in seconds (default: 0, use to throttle)",
     )
     parser.add_argument(
-        "--force", action="store_true", help="Re-score even if already cached"
+        "--force",
+        action="store_true",
+        help="Re-score the selected occupations even if cached (other cached scores are kept)",
     )
     args = parser.parse_args()
+    if args.sample is not None and args.sample < 1:
+        parser.error("--sample must be at least 1")
 
     # ── Resolve backend ──────────────────────────────────────────────────────
     backend = args.backend
@@ -382,21 +415,35 @@ def main():
             for row in reader:
                 csv_rows[row["slug"]] = row
 
-    subset = occupations[args.start : args.end]
+    # Score only the requested level; --start/--end slice within it
+    level_occs = [o for o in occupations if title_level(o["title"]) == args.level]
+    if not level_occs:
+        print(f"Error: no occupations marked '(Level {args.level})' in data/occupations.json")
+        return 1
+    subset = level_occs[args.start : args.end]
+    if args.sample is not None and args.sample < len(subset):
+        # Fixed seed so trial runs are repeatable and comparable
+        subset = random.Random(42).sample(subset, args.sample)
 
-    # Load existing scores
+    # Load existing scores. Always kept: --force only re-scores the selection
+    # and merges it back, so a partial run never drops the rest of the cache.
     scores: dict = {}
-    if os.path.exists(OUTPUT_FILE) and not args.force:
+    if os.path.exists(OUTPUT_FILE):
         with open(OUTPUT_FILE) as f:
             for entry in json.load(f):
                 scores[entry["slug"]] = entry
 
-    # Only score occupations not yet cached
-    todo = [occ for occ in subset if occ["slug"] not in scores]
+    # Only score occupations not yet cached, unless forced
+    todo = [occ for occ in subset if args.force or occ["slug"] not in scores]
+    # Duplicate slugs (StatFin lists a few occupations twice) need one call
+    todo = list({occ["slug"]: occ for occ in todo}.values())
+    selected = {occ["slug"] for occ in subset}
+    cached = len(selected & scores.keys())
 
     print(f"Model:   {model}")
     print(f"Workers: {args.workers} parallel calls")
-    print(f"Total:   {len(subset)} occupations  |  cached: {len(scores)}  |  to score: {len(todo)}")
+    print(f"Level:   {args.level} ({len(level_occs)} occupations)")
+    print(f"Total:   {len(selected)} selected  |  cached: {cached}  |  to score: {len(todo)}")
 
     if not todo:
         print("Nothing to score — all cached.")
@@ -429,7 +476,7 @@ def main():
                 if result is None:
                     print(f"  [{completed}/{len(todo)}] SKIP {slug} (no data)", flush=True)
                 else:
-                    scores[slug] = {"slug": slug, "title": title, **result}
+                    scores[slug] = {"slug": slug, "title": title, **result, "model": model}
                     print(
                         f"  [{completed}/{len(todo)}] {title}  →  exposure={result['exposure']}",
                         flush=True,
@@ -441,12 +488,20 @@ def main():
                 print(f"  [{completed}/{len(todo)}] ERROR {occ['title']}: {e}", flush=True)
                 errors.append(occ["slug"])
 
-    print(f"\nDone. Scored {len(scores)} total ({len(todo) - len(errors)} new), {len(errors)} errors.")
+    print(f"\nDone. {len(scores)} scores in {OUTPUT_FILE} ({len(todo) - len(errors)} new), {len(errors)} errors.")
     if errors:
-        print(f"Errors: {errors}")
+        print(f"Failed: {errors}")
+        if args.force:
+            print("They keep their previous score, if any. Rerun with --force to retry "
+                  "(this re-scores the whole selection).")
+        else:
+            print("Rerun the same command to retry them; cached scores are skipped.")
+    if errors and len(errors) == len(todo):
+        print("Every request failed; check the API key, model name and network.")
+        return 1
 
-    # Summary stats
-    vals = [s for s in scores.values() if "exposure" in s]
+    # Summary stats for the selected occupations
+    vals = [s for s in scores.values() if s["slug"] in selected and "exposure" in s]
     if vals:
         avg = sum(s["exposure"] for s in vals) / len(vals)
         by_score: dict = {}

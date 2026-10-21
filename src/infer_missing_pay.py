@@ -15,14 +15,31 @@ from statistics import median
 
 
 def load_site_data() -> List[dict]:
-    """Load occupation data from site/data.json."""
+    """Load the finest-level occupations from site/data.json.
+
+    The file also holds coarser group rows whose values are derived from these
+    occupations at build time, so they are left out of statistics and filling.
+    """
     if not os.path.exists("site/data.json"):
         raise FileNotFoundError(
             "site/data.json not found. Run build_site_data.py first."
         )
 
     with open("site/data.json") as f:
-        return json.load(f)
+        rows = json.load(f)
+    levels = [r["level"] for r in rows if r.get("level") is not None]
+    if not levels:
+        return rows
+    return [r for r in rows if r.get("level") == max(levels)]
+
+
+def occupation_code(occ: dict) -> str:
+    """ISCO code without trailing dots, from the code field or the title."""
+    code = occ.get("code")
+    if not code:
+        match = re.match(r"^(\d+\.?)[\s\.]", occ["title"])
+        code = match.group(1) if match else ""
+    return code.rstrip(".")
 
 
 def load_occupations_csv() -> Dict[str, dict]:
@@ -114,10 +131,7 @@ def infer_pay(
     """Infer pay for an occupation based on available data."""
     category = occ["category"]
     education = occ.get("education", "")
-
-    # Extract code from title
-    match = re.match(r"^(\d+\.?)[\s\.]", occ["title"])
-    code = match.group(1).rstrip(".") if match else ""
+    code = occupation_code(occ)
 
     # Strategy 1: Find pay from similar occupation code
     similar_pay = find_similar_occupation_pay(code, all_occupations)
@@ -148,7 +162,7 @@ def main():
     site_occupations = load_site_data()
     csv_occupations = load_occupations_csv()
 
-    print(f"Loaded {len(site_occupations)} occupations from site/data.json")
+    print(f"Loaded {len(site_occupations)} finest-level occupations from site/data.json")
     print(f"Loaded {len(csv_occupations)} occupations from data/occupations.csv")
 
     # Calculate statistics
@@ -173,14 +187,12 @@ def main():
     updates = []
 
     for occ in missing:
-        # Extract code from title
-        match = re.match(r"^(\d+\.?)[\s\.]", occ["title"])
-        code = match.group(1).rstrip(".") if match else ""
-
+        code = occupation_code(occ)
         inferred_pay = infer_pay(occ, stats, csv_occupations)
 
         updates.append(
             {
+                "slug": occ["slug"],
                 "code": code,
                 "title": occ["title"],
                 "category": occ["category"],
@@ -199,18 +211,15 @@ def main():
             rows = list(reader)
             fieldnames = reader.fieldnames
 
-        # Update rows
+        # Update rows (matched on slug, so only the finest-level rows change)
+        updates_by_slug = {upd["slug"]: upd for upd in updates}
         updated_count = 0
         for row in rows:
-            code = row.get("isco_code", "").strip()
-            if code and not row.get("median_pay_annual"):
-                # Find matching update
-                for upd in updates:
-                    if upd["code"] == code:
-                        row["median_pay_annual"] = str(upd["inferred_pay"])
-                        row["median_pay_source"] = "inferred_fallback"
-                        updated_count += 1
-                        break
+            upd = updates_by_slug.get(row.get("slug", ""))
+            if upd and not row.get("median_pay_annual"):
+                row["median_pay_annual"] = str(upd["inferred_pay"])
+                row["median_pay_source"] = "inferred_fallback"
+                updated_count += 1
 
         # Write back
         with open("data/occupations.csv", "w", newline="") as f:

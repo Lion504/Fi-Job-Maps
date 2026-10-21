@@ -29,6 +29,14 @@ def run_script(script_path, args=None):
     return result.returncode
 
 
+def tree_level(value):
+    """argparse type: a classification level (StatFin publishes levels 1-5)."""
+    level = int(value)
+    if not 1 <= level <= 5:
+        raise argparse.ArgumentTypeError(f"{value} is not a level from 1 to 5")
+    return level
+
+
 def cmd_fetch(args):
     """Fetch data from StatFin and optionally Barometer."""
     print("=== Fetching StatFin data ===")
@@ -108,7 +116,8 @@ def cmd_build(args):
     """Build site data."""
     print("=== Building site data ===")
     build_args = []
-    if args.tree_level:
+    # Without the flag, TREE_LEVEL from the environment / .env applies (as in score.py)
+    if args.tree_level is not None:
         os.environ["TREE_LEVEL"] = str(args.tree_level)
 
     returncode = run_script(SRC_DIR / "build_site_data.py", build_args)
@@ -245,9 +254,12 @@ Examples:
     build_parser = subparsers.add_parser("build", help="Build site data")
     build_parser.add_argument(
         "--tree-level",
-        type=int,
-        default=4,
-        help="Hierarchy level for treemap (default: 4)",
+        type=tree_level,
+        default=None,
+        help=(
+            "Finest hierarchy level; levels 1..N are built "
+            "(default: TREE_LEVEL from env, else 4)"
+        ),
     )
     build_parser.set_defaults(func=cmd_build)
 
@@ -278,7 +290,13 @@ Examples:
         "--outlook-pct-column", help="Column name for outlook percentage"
     )
     all_parser.add_argument(
-        "--tree-level", type=int, default=4, help="Hierarchy level for treemap"
+        "--tree-level",
+        type=tree_level,
+        default=None,
+        help=(
+            "Finest hierarchy level, built and LLM-scored "
+            "(default: TREE_LEVEL from env, else 4)"
+        ),
     )
     all_parser.add_argument(
         "--model",

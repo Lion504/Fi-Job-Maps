@@ -295,10 +295,10 @@ def load_extra_attrs(path: Optional[str]) -> Dict[str, dict]:
 
 
 def load_ai_exposure(path: str = "scores.json") -> Dict[str, dict]:
-    """Load AI exposure scores from scores.json.
+    """Load AI exposure scores from scores.json, keyed by occupation slug.
 
-    Returns a dict keyed by occupation slug with exposure score and rationale.
-    Uses fuzzy matching to handle Finnish occupation naming (which includes codes).
+    score.py writes one entry per slug (the slugified StatFin title), so rows
+    are joined on the exact slug; no title matching is needed.
     """
     if not os.path.exists(path):
         print(f"Warning: scores.json not found at {path}; skipping AI exposure data")
@@ -307,73 +307,9 @@ def load_ai_exposure(path: str = "scores.json") -> Dict[str, dict]:
     with open(path) as f:
         data = json.load(f)
 
-    # Build a mapping from normalized English titles to exposure data
-    # This helps match Finnish occupation names (which have codes) to English titles
-    exposure_by_title: Dict[str, dict] = {}
-
-    for entry in data:
-        title = entry.get("title", "")
-        slug = entry.get("slug", "")
-        if title and slug:
-            # Create normalized versions for fuzzy matching
-            normalized_title = title.lower().replace(" and ", " ").replace(" & ", " ")
-            exposure_by_title[normalized_title] = {
-                "slug": slug,
-                "exposure": entry.get("exposure"),
-                "rationale": entry.get("rationale", ""),
-            }
-            # Also store by slug
-            exposure_by_title[slug] = exposure_by_title[normalized_title]
-
-    print(f"Loaded AI exposure data for {len(exposure_by_title)} occupations/titles")
-    return exposure_by_title
-
-
-def match_ai_exposure(
-    finnish_title: str, ai_exposure: Dict[str, dict]
-) -> Tuple[Optional[int], str]:
-    """Match a Finnish occupation title to AI exposure data.
-
-    Extracts the occupation name from Finnish title and tries to match
-    against English occupation titles in the exposure data using substring matching.
-    """
-    # Remove the occupation code prefix (e.g., "2411 ", "1120 ")
-    # Finnish titles look like: "2411 Accountants (Level 4)"
-    cleaned = re.sub(r"^\d+\.?\s*", "", finnish_title)  # Remove leading code
-    cleaned = re.sub(r"\s*\(Level \d+\)", "", cleaned)  # Remove level suffix
-    cleaned = cleaned.lower().strip()
-
-    # Try exact match first
-    if cleaned in ai_exposure:
-        data = ai_exposure[cleaned]
-        return data.get("exposure"), data.get("rationale", "")
-
-    # Try substring matching - check if cleaned title is contained in any exposure key
-    for key, data in ai_exposure.items():
-        if isinstance(key, str) and key and (cleaned in key or key in cleaned):
-            return data.get("exposure"), data.get("rationale", "")
-
-    # Try matching words
-    cleaned_words = set(cleaned.replace("-", " ").split())
-
-    best_match = None
-    best_score = 0
-
-    for key, data in ai_exposure.items():
-        if not key or len(key) < 3:
-            continue
-        key_words = set(key.replace("-", " ").split())
-
-        # Calculate word overlap
-        overlap = len(cleaned_words & key_words)
-        if overlap > best_score and overlap >= 2:
-            best_score = overlap
-            best_match = data
-
-    if best_match:
-        return best_match.get("exposure"), best_match.get("rationale", "")
-
-    return None, ""
+    exposure_by_slug = {entry["slug"]: entry for entry in data if entry.get("slug")}
+    print(f"Loaded AI exposure scores for {len(exposure_by_slug)} occupations")
+    return exposure_by_slug
 
 
 def main() -> None:
@@ -495,8 +431,10 @@ def main() -> None:
         else:
             outlook_source = ""
 
-        # Get AI exposure data by matching Finnish title to English titles
-        exposure_val, exposure_rationale = match_ai_exposure(title, ai_exposure)
+        # AI exposure for this exact occupation (joined on slug)
+        score = ai_exposure.get(slug, {})
+        exposure_val = score.get("exposure")
+        exposure_rationale = score.get("rationale", "") if exposure_val is not None else ""
 
         rows.append(
             {

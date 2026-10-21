@@ -204,14 +204,22 @@ def generate_rationale(title: str, category: str, education: str, score: int) ->
 
 
 def load_site_data() -> List[dict]:
-    """Load occupation data from site/data.json."""
+    """Load the finest-level occupations from site/data.json.
+
+    Coarser group rows get their exposure derived from these occupations at
+    build time, so only the finest level is scored here.
+    """
     if not os.path.exists("site/data.json"):
         raise FileNotFoundError(
             "site/data.json not found. Run build_site_data.py first."
         )
 
     with open("site/data.json") as f:
-        return json.load(f)
+        rows = json.load(f)
+    levels = [r["level"] for r in rows if r.get("level") is not None]
+    if not levels:
+        return rows
+    return [r for r in rows if r.get("level") == max(levels)]
 
 
 def load_existing_scores() -> Dict[str, dict]:
@@ -255,7 +263,7 @@ def main():
         if slug in existing_scores:
             continue
 
-        # Skip if already has exposure in site data (from CSV)
+        # Skip if site data already has an exposure (built from scores.json)
         if occ.get("exposure") is not None:
             continue
 
@@ -294,11 +302,8 @@ def main():
     print(f"  Existing (from API): {len(existing_scores)}")
 
     print("\nNext steps:")
-    print(
-        "  1. Run: uv run python src/fetch_statfin.py --config data/statfin_config.json"
-    )
-    print("  2. Run: uv run python src/build_site_data.py")
-    print("  3. Refresh your browser")
+    print("  1. Run: uv run python src/build_site_data.py")
+    print("  2. Refresh your browser")
 
 
 if __name__ == "__main__":
