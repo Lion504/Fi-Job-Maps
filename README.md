@@ -53,3 +53,7 @@ See `finlandjobs --help` for all options.
 Built by [Wang Yongzhi](https://lion504.github.io/). Notes on the data and design: [A useful map starts with trustworthy totals](https://lion504.github.io/fijobmaps-data.html).
 
 This project is adapted from [karpathy/jobs](https://github.com/karpathy/jobs). Thanks to the original author for the excellent foundation.
+
+## License
+
+The code in this repository is released under the [MIT License](LICENSE). Parts adapted from [karpathy/jobs](https://github.com/karpathy/jobs), which has no license, remain under their original author's copyright. The occupation data is from Statistics Finland, used under its [open data licence (CC BY 4.0)](https://stat.fi/en/services/statistical-data-services/open-data-and-interfaces). Source: Statistics Finland.
